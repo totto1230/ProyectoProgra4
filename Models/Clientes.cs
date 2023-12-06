@@ -3,19 +3,27 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Progra4BD.Models
 {
-    public class Cliente
+    public class Clientes
     {
-        [DisplayName("Código")]    
-        public int id { get; set; }
+        [DisplayName("Código (ID)")]    
+        public int Codigo { get; set; }
+
         [DisplayName("Nombre")]
         [Required(ErrorMessage = "Ingrese el nombre del cliente")]
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
+
         [DisplayName("Teléfono")]
         [Required(ErrorMessage = "Ingrese el teléfono del cliente")]
-        public string telefono { get; set; }
+        public string Telefono { get; set; }
+
+
         [DisplayName("Contacto")]
         [Required(ErrorMessage = "Ingrese el contacto del cliente")]
-        public string contacto { get; set; }
+        public string Contacto { get; set; }
+
+        [DisplayName("Dirección")]
+        [Required(ErrorMessage = "Ingrese la dirección del cliente")]
+        public string Direccion { get; set; }
 
     }
 }

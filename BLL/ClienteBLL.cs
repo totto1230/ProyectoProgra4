@@ -13,7 +13,7 @@ namespace Progra4BD.BLL
             _clientesRepositorio = clientesRepositorio;
         }
 
-        public Cliente ObtenerCliente(int idcliente)
+        public Clientes ObtenerCliente(int idcliente)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace Progra4BD.BLL
             }
         }
 
-        public int InsertarCliente(Cliente cliente)
+        public int InsertarCliente(Clientes cliente)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Progra4BD.BLL
             }
         }
 
-        public List<Cliente> ListaClientes()
+        public List<Clientes> ListaClientes()
         {
             try
             {

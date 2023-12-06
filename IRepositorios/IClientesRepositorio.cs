@@ -5,11 +5,12 @@ namespace Progra4BD.IRepositorios
 {
     public interface IClientesRepositorio
     {
-        public List<Cliente> ListaClientes();
-        public int InsertarCliente(Cliente cliente);
-        public Cliente ObtenerCliente(int idcliente);
-    
+        public List<Clientes> ListaClientes();
+        public int InsertarCliente(Clientes cliente);
+        public Clientes ObtenerCliente(int idcliente);
 
+        public Clientes ActualizarCliente(Clientes cliente);
+        public int EliminarCliente(int idcliente);
 
     }
 }

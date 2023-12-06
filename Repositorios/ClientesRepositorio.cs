@@ -15,7 +15,7 @@ namespace Progra4BD.Repositorios
             _dapperContext = context;
         }
 
-        public Cliente ObtenerCliente(int idcliente)
+        public Clientes ObtenerCliente(int idcliente)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace Progra4BD.Repositorios
                 param.Add("@Id", idcliente, DbType.Int32, ParameterDirection.Input);
                 using(var conn = _dapperContext.CrearConexion())
                 {
-                    var cliente = conn.QuerySingleOrDefault<Cliente>("obtener_cliente_porID", param, commandType: CommandType.StoredProcedure);
+                    var cliente = conn.QuerySingleOrDefault<Clientes>("obtener_cliente_porID", param, commandType: CommandType.StoredProcedure);
                     
                     return cliente;
                 }
@@ -35,7 +35,7 @@ namespace Progra4BD.Repositorios
             }
         }
 
-        public int InsertarCliente(Cliente cliente)
+        public int InsertarCliente(Clientes cliente)
         {
             try
             {
@@ -59,14 +59,14 @@ namespace Progra4BD.Repositorios
             }
         }
 
-        public List<Cliente> ListaClientes()
+        public List<Clientes> ListaClientes()
         {
             try
             {
                
                 using (var conn = _dapperContext.CrearConexion())
                 {
-                    return conn.Query<Cliente>("obtener_clientes").ToList();
+                    return conn.Query<Clientes>("obtener_clientes").ToList();
                     
                 }
             }

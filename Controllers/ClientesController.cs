@@ -42,7 +42,7 @@ namespace Progra4BD.Controllers
         }
 
         [HttpPost] //del cliente al servidor
-        public IActionResult Crear(Cliente cliente)
+        public IActionResult Crear(Clientes cliente)
         {
             try
             {
