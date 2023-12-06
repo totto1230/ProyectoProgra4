@@ -1,10 +1,10 @@
 ﻿using Dapper;
-using Progra4BD.IDapper;
-using Progra4BD.IRepositorios;
-using Progra4BD.Models;
+using ProyectoPrograCuatro.IDapper;
+using ProyectoPrograCuatro.IRepositorios;
+using ProyectoPrograCuatro.Models;
 using System.Data;
 
-namespace Progra4BD.Repositorios
+namespace ProyectoPrograCuatro.Repositorios
 {
     public class ClientesRepositorio : IClientesRepositorio
     {

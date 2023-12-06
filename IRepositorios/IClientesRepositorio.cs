@@ -1,7 +1,7 @@
-﻿using Progra4BD.BLL;
-using Progra4BD.Models;
+﻿using ProyectoPrograCuatro.BLL;
+using ProyectoPrograCuatro.Models;
 
-namespace Progra4BD.IRepositorios
+namespace ProyectoPrograCuatro.IRepositorios
 {
     public interface IClientesRepositorio
     {

@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace Progra4BD.IDapper
+namespace ProyectoPrograCuatro.IDapper
 {
     public interface IDapperContext
     {

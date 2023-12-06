@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Progra4BD.Models
+namespace ProyectoPrograCuatro.Models
 {
     public class Clientes
     {

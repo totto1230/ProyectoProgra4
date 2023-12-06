@@ -1,11 +1,12 @@
 
 
-using Progra4BD.BLL;
-using Progra4BD.Dapper;
-using Progra4BD.IBLL;
-using Progra4BD.IDapper;
-using Progra4BD.IRepositorios;
-using Progra4BD.Repositorios;
+using ProyectoPrograCuatro.BLL;
+using ProyectoPrograCuatro.Dapper;
+using ProyectoPrograCuatro.IBLL;
+using ProyectoPrograCuatro.IDapper;
+using ProyectoPrograCuatro.IRepositorios;
+using ProyectoPrograCuatro.Repositorios;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +14,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<IDapperContext, DapperContext>();
+
 //instancias de repositorios
 builder.Services.AddSingleton<IClientesRepositorio, ClientesRepositorio>();
 
+builder.Services.AddSingleton<ICamionesRepositorio, CamionesRepositorio>();
 
+builder.Services.AddSingleton<IChoferesRepositorio, ChoferesRepositorio>();
+
+builder.Services.AddSingleton<IUsuariosRepositorio, UsuariosRepositorio>();
 
 //instancias de BLL's
 builder.Services.AddSingleton<ICLienteBLL, ClienteBLL>();

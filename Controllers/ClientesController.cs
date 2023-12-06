@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Progra4BD.IBLL;
-using Progra4BD.Models;
+using ProyectoPrograCuatro.IBLL;
+using ProyectoPrograCuatro.Models;
 
-namespace Progra4BD.Controllers
+namespace ProyectoPrograCuatro.Controllers
 {
     public class ClientesController : Controller
     {

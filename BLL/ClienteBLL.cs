@@ -1,8 +1,8 @@
-﻿using Progra4BD.IBLL;
-using Progra4BD.IRepositorios;
-using Progra4BD.Models;
+﻿using ProyectoPrograCuatro.IBLL;
+using ProyectoPrograCuatro.IRepositorios;
+using ProyectoPrograCuatro.Models;
 
-namespace Progra4BD.BLL
+namespace ProyectoPrograCuatro.BLL
 {
     public class ClienteBLL : ICLienteBLL
     {

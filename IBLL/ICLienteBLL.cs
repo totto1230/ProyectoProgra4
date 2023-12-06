@@ -1,6 +1,6 @@
-﻿using Progra4BD.Models;
+﻿using ProyectoPrograCuatro.Models;
 
-namespace Progra4BD.IBLL
+namespace ProyectoPrograCuatro.IBLL
 {
     public interface ICLienteBLL
     {

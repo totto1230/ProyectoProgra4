@@ -1,5 +1,4 @@
-﻿using Progra4BD.Models;
-using ProyectoPrograCuatro.Models;
+﻿using ProyectoPrograCuatro.Models;
 
 namespace ProyectoPrograCuatro.IRepositorios
 {

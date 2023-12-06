@@ -1,8 +1,8 @@
-﻿using Progra4BD.IDapper;
+﻿using ProyectoPrograCuatro.IDapper;
 using System.Data;
 using Microsoft.Data.SqlClient;
 
-namespace Progra4BD.Dapper
+namespace ProyectoPrograCuatro.Dapper
 {
     public class DapperContext : IDapperContext
     {

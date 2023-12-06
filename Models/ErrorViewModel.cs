@@ -1,4 +1,4 @@
-namespace Progra4BD.Models
+namespace ProyectoPrograCuatro.Models
 {
     public class ErrorViewModel
     {
