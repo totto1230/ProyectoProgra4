@@ -10,7 +10,7 @@
 </p>
 
 <table class="table">
-    <tr>
+    @* <tr>
         <th>
             @Html.DisplayNameFor(model => model.id)
         </th>
@@ -18,8 +18,8 @@
             @Html.DisplayNameFor(model => model.nombre)
         </th>
         <th></th>
-    </tr>
-    @foreach (var item in Model.ToList())
+    </tr> *@
+@*     @foreach (var item in Model.ToList())
     {
         <tr>
             <td>
@@ -35,6 +35,6 @@
             new { onclick = "return confirm('¿Desea eliminar el cliente: " + item.nombre + "?')"  })
             </td>
         </tr>
-    }
+    } *@
 </table>
 

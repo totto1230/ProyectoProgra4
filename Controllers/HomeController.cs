@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Progra4BD.Models;
+using ProyectoPrograCuatro.Models;
 using System.Diagnostics;
+using ProyectoPrograCuatro.Login;
 
 namespace Progra4BD.Controllers
 {
+    
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -12,7 +14,7 @@ namespace Progra4BD.Controllers
         {
             _logger = logger;
         }
-
+        [Autenticacion]
         public IActionResult Index()
         {
             return View();

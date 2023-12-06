@@ -40,7 +40,7 @@ namespace ProyectoPrograCuatro.Repositorios
             try
             {
                 var param = new DynamicParameters();
-                param.Add("@nombre", cliente.nombre, DbType.String, ParameterDirection.Input);
+                /*param.Add("@nombre", cliente.nombre, DbType.String, ParameterDirection.Input);
                 param.Add("@telefono", cliente.telefono, DbType.String, ParameterDirection.Input);
                 param.Add("@contacto", cliente.contacto, DbType.String, ParameterDirection.Input);
                 using(var conn = _dapperContext.CrearConexion())
@@ -49,7 +49,10 @@ namespace ProyectoPrograCuatro.Repositorios
                     var id = conn.QuerySingle<int>("insertar_cliente", param, commandType: CommandType.StoredProcedure);
                     return id;
 
-                }
+                }*/
+
+                int id = 0;
+                return id;
 
             }
             catch (Exception)
@@ -77,6 +80,14 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
-        
+        public Clientes ActualizarCliente(Clientes cliente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int EliminarCliente(int idcliente)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

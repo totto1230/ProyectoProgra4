@@ -1,5 +1,3 @@
-
-
 using ProyectoPrograCuatro.BLL;
 using ProyectoPrograCuatro.Dapper;
 using ProyectoPrograCuatro.IBLL;
@@ -12,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSession();
 
 builder.Services.AddSingleton<IDapperContext, DapperContext>();
 
@@ -27,7 +27,11 @@ builder.Services.AddSingleton<IUsuariosRepositorio, UsuariosRepositorio>();
 //instancias de BLL's
 builder.Services.AddSingleton<ICLienteBLL, ClienteBLL>();
 
+//builder.Services.AddSingleton<ICamionesBLL, CamionesBLL>();
 
+//builder.Services.AddSingleton<IChoferesBLL, ChoferesBLL>();
+
+builder.Services.AddSingleton<IUsuariosBLL, UsuariosBLL>();
 
 var app = builder.Build();
 
@@ -41,6 +45,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

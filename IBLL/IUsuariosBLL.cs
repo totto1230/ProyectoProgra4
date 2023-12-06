@@ -1,8 +1,8 @@
 ﻿using ProyectoPrograCuatro.Models;
 
-namespace ProyectoPrograCuatro.IRepositorios
+namespace ProyectoPrograCuatro.IBLL
 {
-    public interface IUsuariosRepositorio
+    public interface IUsuariosBLL
     {
         public Usuarios ValidarUsuario(Usuarios usuarios);
 
