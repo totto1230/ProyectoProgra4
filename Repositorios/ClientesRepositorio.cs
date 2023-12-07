@@ -40,10 +40,10 @@ namespace ProyectoPrograCuatro.Repositorios
             try
             {
                 var param = new DynamicParameters();
-                param.Add("@nombre", cliente.Nombre, DbType.String, ParameterDirection.Input);
-                param.Add("@telefono", cliente.Telefono, DbType.String, ParameterDirection.Input);
-                param.Add("@contacto", cliente.Contacto, DbType.String, ParameterDirection.Input);
-                param.Add("@direccion", cliente.Direccion, DbType.String, ParameterDirection.Input);
+                param.Add("@Nombre", cliente.Nombre, DbType.String, ParameterDirection.Input);
+                param.Add("@Telefono", cliente.Telefono, DbType.String, ParameterDirection.Input);
+                param.Add("@Contacto", cliente.Contacto, DbType.String, ParameterDirection.Input);
+                param.Add("@Direccion", cliente.Direccion, DbType.String, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
 
@@ -51,10 +51,6 @@ namespace ProyectoPrograCuatro.Repositorios
                     return codigo;
 
                 }
-
-                int id = 0;
-                return id;
-
             }
             catch (Exception)
             {
@@ -83,7 +79,26 @@ namespace ProyectoPrograCuatro.Repositorios
 
         public Clientes ActualizarCliente(Clientes cliente)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var param = new DynamicParameters();
+                param.Add("@Codigo", cliente.Codigo, DbType.String, ParameterDirection.Input);
+                param.Add("@Nombre", cliente.Nombre, DbType.String, ParameterDirection.Input);
+                param.Add("@Telefono", cliente.Telefono, DbType.String, ParameterDirection.Input);
+                param.Add("@Contacto", cliente.Contacto, DbType.String, ParameterDirection.Input);
+                param.Add("@Direccion", cliente.Direccion, DbType.String, ParameterDirection.Input);
+
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    conn.Execute("actualizar_cliente", param, commandType: CommandType.StoredProcedure);
+                    return cliente;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public int EliminarCliente(int idcliente)

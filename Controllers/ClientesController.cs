@@ -88,8 +88,23 @@ namespace ProyectoPrograCuatro.Controllers
             }
             
         }
+        [HttpPost]
+        public IActionResult Actualizar(Clientes cliente)
+        {
+            try
+            {
+                var cliente_updated = _clienteBLL.ActualizarCliente(cliente);
+                return RedirectToAction("Lista");
+            }
+            catch (Exception)
+            {
 
-        
-        
+                throw;
+            }
+        }
+
+
+
+
     }
 }

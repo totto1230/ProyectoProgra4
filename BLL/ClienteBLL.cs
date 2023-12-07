@@ -52,8 +52,30 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        
+        public Clientes ActualizarCliente(Clientes cliente)
+        {
+            try
+            {
+                return _clientesRepositorio.ActualizarCliente(cliente);
+            }
+            catch (Exception)
+            {
 
-       
+                throw;
+            }
+        }
+
+        public int EliminarCliente(int idcliente)
+        {
+            try
+            {
+                return _clientesRepositorio.EliminarCliente(idcliente);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
