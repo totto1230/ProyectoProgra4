@@ -27,7 +27,7 @@ builder.Services.AddSingleton<IUsuariosRepositorio, UsuariosRepositorio>();
 //instancias de BLL's
 builder.Services.AddSingleton<ICLienteBLL, ClienteBLL>();
 
-//builder.Services.AddSingleton<ICamionesBLL, CamionesBLL>();
+builder.Services.AddSingleton<ICamionesBLL, CamionesBLL>();
 
 builder.Services.AddSingleton<IChoferesBLL, ChoferBLL>();
 

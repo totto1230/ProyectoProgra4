@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ProyectoPrograCuatro.Models.Camiones>
+@{
+    ViewBag.Title = "Camiones";
+}
+
+<h2>Lista de Camiones</h2>
+
+<p>
+    @Html.ActionLink("Crear Camion", "Crear","Camiones")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unidad)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model.ToList())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Actualizar","Choferes", new { idchofer=item.Codigo }) |
+                @Html.ActionLink("Eliminar","Eliminar","Choferes",
+            new { idcliente=item.Codigo },
+            new { onclick = "return confirm('¿Desea eliminar el camion: " + item.Unidad + "?')"  })
+            </td>
+        </tr>
+    }
+</table>
