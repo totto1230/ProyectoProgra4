@@ -65,5 +65,49 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
+        public IActionResult Lista() 
+        {
+
+            try
+            {
+                var lista = _choferesBLL.ListaChoferes();
+                return View(lista);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IActionResult Crear() 
+        {
+            return View();
+        }
+
+        [HttpPost] //del cliente al servidor
+        public IActionResult Crear(Choferes chofer)
+        {
+            try
+            {
+                //valida si todos los campos requeridos tienen datos
+                if (!ModelState.IsValid)
+                {
+                    //devuelve la vista y muestra los mensajes de error
+                    return View();
+                }
+
+                var codigo = _choferesBLL.InsertarChofer(chofer);
+                ViewBag.Message = "Chofer creado con exito con codigo: " + codigo.ToString();
+                return View();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

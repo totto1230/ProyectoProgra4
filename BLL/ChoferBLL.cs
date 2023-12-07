@@ -1,6 +1,7 @@
 ﻿using ProyectoPrograCuatro.IBLL;
 using ProyectoPrograCuatro.IRepositorios;
 using ProyectoPrograCuatro.Models;
+using ProyectoPrograCuatro.Repositorios;
 
 namespace ProyectoPrograCuatro.BLL
 {
@@ -33,17 +34,41 @@ namespace ProyectoPrograCuatro.BLL
 
         public int InsertarChofer(Choferes chofer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _choferRepositorio.InsertarChofer(chofer);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<Choferes> ListaChoferes()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _choferRepositorio.ListaChoferes();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Choferes ObtenerChofer(int idchofer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _choferRepositorio.ObtenerChofer(idchofer);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

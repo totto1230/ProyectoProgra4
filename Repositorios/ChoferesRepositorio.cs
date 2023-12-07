@@ -43,17 +43,64 @@ namespace ProyectoPrograCuatro.Repositorios
 
         public int InsertarChofer(Choferes chofer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var param = new DynamicParameters();
+                param.Add("@Codigo", chofer.Codigo, DbType.String, ParameterDirection.Input);
+                param.Add("@Nombre", chofer.Nombre, DbType.String, ParameterDirection.Input);
+                param.Add("@Cedula", chofer.Cedula, DbType.String, ParameterDirection.Input);
+                param.Add("@Telefono", chofer.Telefono, DbType.String, ParameterDirection.Input);
+                using (var conn = _dapperContext.CrearConexion())
+                {
+
+                    var codigo = conn.QuerySingle<int>("insertar_cliente", param, commandType: CommandType.StoredProcedure);
+                    return codigo;
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<Choferes> ListaChoferes()
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    return conn.Query<Choferes>("obtener_choferes").ToList();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Choferes ObtenerChofer(int Codigo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var param = new DynamicParameters();
+                param.Add("@Codigo", Codigo, DbType.Int32, ParameterDirection.Input);
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    var chofer= conn.QuerySingleOrDefault<Choferes>("obtener_chofer_porID", param, commandType: CommandType.StoredProcedure);
+
+                    return chofer;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
