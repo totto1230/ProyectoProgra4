@@ -38,9 +38,9 @@
             </td>
 
             <td>
-                @Html.ActionLink("Editar", "Actualizar","Choferes", new { idchofer=item.Codigo }) |
-                @Html.ActionLink("Eliminar","Eliminar","Choferes",
-            new { idcliente=item.Codigo },
+                @Html.ActionLink("Editar", "Actualizar","Camiones", new { codigoCamion=item.Codigo }) |
+                @Html.ActionLink("Eliminar","Eliminar","Camiones",
+            new { codigoCamion=item.Codigo },
             new { onclick = "return confirm('¿Desea eliminar el camion: " + item.Unidad + "?')"  })
             </td>
         </tr>

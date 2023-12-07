@@ -37,7 +37,7 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
-        public IActionResult crear()
+        public IActionResult Crear()
         {
             return View();
         }
@@ -66,18 +66,18 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
-        public IActionResult Actualizar(int idcamion)
+        public IActionResult Actualizar(int codigoCamion)
         {
             try
             {
-                var chofer = _camionesBLL.ObtenerCamion(idcamion);
-                if (chofer == null)//si no se encontró datos del cliente
+                var camion = _camionesBLL.ObtenerCamion(codigoCamion);
+                if (camion == null)//si no se encontró datos del camion
                 {
                     return View();
                 }
                 else
                 {
-                    return View(chofer);
+                    return View(camion);
                 }
 
             }
@@ -96,7 +96,7 @@ namespace ProyectoPrograCuatro.Controllers
         {
             try
             {
-                var clienteactualizado = _camionesBLL.ActualizarCamion(camion);
+                var choferactualizado = _camionesBLL.ActualizarCamion(camion);
                 //redirecciona a la accion Lista
                 //esta acción esta creada como primer método del controller
                 return RedirectToAction("Lista");
@@ -106,7 +106,8 @@ namespace ProyectoPrograCuatro.Controllers
                 //devolver el mensaje de error
                 //Y se queda en la vista de actualizar
                 ViewBag.Message = "Error al actualizar el camion";
-                return View();
+                
+                 return View();
             }
         }
 

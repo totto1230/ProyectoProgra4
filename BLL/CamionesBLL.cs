@@ -14,9 +14,17 @@ namespace ProyectoPrograCuatro.BLL
             _camionesRepositorio = camionRepositorio;
         }
 
-        public int EliminarCamion(int idcamion)
+        public Camiones ObtenerCamion(int codigoCamion)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _camionesRepositorio.ObtenerCamion(codigoCamion);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public int InsertarCamion(Camiones camion)
@@ -45,7 +53,7 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        Camiones ICamionesBLL.ActualizarCamion(Camiones camion)
+        public Camiones ActualizarCamion(Camiones camion)
         {
             try
             {
@@ -58,17 +66,9 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        Camiones ICamionesBLL.ObtenerCamion(int idcamion)
+        public int EliminarCamion(int codigoCamion)
         {
-            try
-            {
-                return _camionesRepositorio.ObtenerCamion(idcamion);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            throw new NotImplementedException();
         }
     }
 }

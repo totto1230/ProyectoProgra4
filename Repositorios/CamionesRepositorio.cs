@@ -11,23 +11,22 @@ namespace ProyectoPrograCuatro.Repositorios
 
         private readonly IDapperContext _dapperContext;
 
-            public CamionesRepositorio(IDapperContext context) 
+        public CamionesRepositorio(IDapperContext context)
         {
             _dapperContext = context;
         }
+ 
 
-        public Camiones ActualizarCamion(Camiones camion)
+        public Camiones ObtenerCamion(int codigoCamion)
         {
             try
             {
                 var param = new DynamicParameters();
- 
-                param.Add("@Codigo", camion.Codigo, DbType.String, ParameterDirection.Input);
-                param.Add("@Unidad", camion.Unidad, DbType.String, ParameterDirection.Input);
-                param.Add("@Placa", camion.Placa, DbType.String, ParameterDirection.Input);
+                param.Add("@Codigo", codigoCamion, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
-                    conn.Execute("actualizar_chofer", param, commandType: CommandType.StoredProcedure);
+                    var camion = conn.QuerySingleOrDefault<Camiones>("obtener_camiones_porID", param, commandType: CommandType.StoredProcedure);
+
                     return camion;
                 }
             }
@@ -38,23 +37,18 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
-        public int EliminarCamion(int Codigo)
-        {
-            throw new NotImplementedException();
-        }
-
         public int InsertarCamion(Camiones camion)
         {
             try
             {
                 var param = new DynamicParameters();
-                param.Add("@Codigo", camion.Codigo, DbType.String, ParameterDirection.Input);
+                //param.Add("@Codigo", camion.Codigo, DbType.String, ParameterDirection.Input);
                 param.Add("@Unidad", camion.Unidad, DbType.String, ParameterDirection.Input);
                 param.Add("@Placa", camion.Placa, DbType.String, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
 
-                    var codigo = conn.QuerySingle<int>("insertar_cliente", param, commandType: CommandType.StoredProcedure);
+                    var codigo = conn.QuerySingle<int>("insertar_camiones", param, commandType: CommandType.StoredProcedure);
                     return codigo;
 
                 }
@@ -84,16 +78,20 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
-        public Camiones ObtenerCamion(int Codigo)
+
+        public Camiones ActualizarCamion(Camiones camion)
         {
             try
             {
                 var param = new DynamicParameters();
-                param.Add("@Codigo", Codigo, DbType.Int32, ParameterDirection.Input);
+ 
+                param.Add("@Codigo", camion.Codigo, DbType.Int32, ParameterDirection.Input);
+                param.Add("@Unidad", camion.Unidad, DbType.String, ParameterDirection.Input);
+                param.Add("@Placa", camion.Placa, DbType.String, ParameterDirection.Input);
+
                 using (var conn = _dapperContext.CrearConexion())
                 {
-                    var camion = conn.QuerySingleOrDefault<Camiones>("obtener_chofer_porID", param, commandType: CommandType.StoredProcedure);
-
+                    conn.Execute("actualizar_camiones", param, commandType: CommandType.StoredProcedure);
                     return camion;
                 }
             }
@@ -103,5 +101,12 @@ namespace ProyectoPrograCuatro.Repositorios
                 throw;
             }
         }
+
+        public int EliminarCamion(int codigoCamion)
+        {
+            throw new NotImplementedException();
+        }
+
+ 
     }
 }

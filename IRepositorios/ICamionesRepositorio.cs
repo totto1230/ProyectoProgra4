@@ -8,10 +8,10 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public int InsertarCamion(Camiones camion);
 
-        public Camiones ObtenerCamion(int Codigo);
+        public Camiones ObtenerCamion(int codigoCamion);
 
         public Camiones ActualizarCamion(Camiones camion);
 
-        public int EliminarCamion(int Codigo);
+        public int EliminarCamion(int codigoCamion);
     }
 }

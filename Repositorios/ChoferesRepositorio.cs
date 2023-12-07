@@ -19,7 +19,7 @@ namespace ProyectoPrograCuatro.Repositorios
             try
             {
                 var param= new DynamicParameters();
-                param.Add("@Codigo", chofer.Codigo, DbType.String, ParameterDirection.Input);
+                param.Add("@Codigo", chofer.Codigo, DbType.Int32, ParameterDirection.Input);
                 param.Add("@Nombre", chofer.Nombre, DbType.String, ParameterDirection.Input);
                 param.Add("@Cedula", chofer.Cedula, DbType.String, ParameterDirection.Input);
                 param.Add("@Telefono", chofer.Telefono, DbType.String, ParameterDirection.Input);
