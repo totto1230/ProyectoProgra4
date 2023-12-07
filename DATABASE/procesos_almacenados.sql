@@ -39,13 +39,16 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[eliminar_cliente]
 	(
-	@Codigo int
+	@Codigo int,
+	@Estado int
 	)
 AS
 BEGIN
 
 	SET NOCOUNT ON;
-	Delete from Clientes where Codigo = @Codigo
+	Update Clientes
+	Set Estado = @Estado
+	where Codigo = @Codigo
 END
 
 
@@ -151,20 +154,23 @@ END
 GO
 
 -- =============================================
---ELIMINAR CLIENTES
+--ELIMINAR USUARIOS
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[eliminar_usuario]
 	(
-	@Codigo int
+	@Codigo int,
+	@Estado int
 	)
 AS
 BEGIN
 
 	SET NOCOUNT ON;
-	Delete from Usuarios where Codigo = @Codigo
+	Update Usuarios
+	Set Estado = @Estado
+	where Codigo = @Codigo
 END
 
 -- =============================================
@@ -285,21 +291,23 @@ END
 GO
 
 -- =============================================
---ELIMINAR CLIENTES
+--ELIMINAR Chofer
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[eliminar_chofer]
 	(
-	@Codigo int
+	@Codigo int,
+	@Estado int
 	)
 AS
 BEGIN
 
 	SET NOCOUNT ON;
-	Delete from Choferes where Codigo = @Codigo
-END
+	Update Choferes
+	Set Estado = @Estado
+	where Codigo = @CodigoEND
 
 
 -- =============================================
@@ -408,13 +416,16 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[eliminar_camiones]
 	(
-	@Codigo int
+	@Codigo int,
+	@Estado int
 	)
 AS
 BEGIN
 
 	SET NOCOUNT ON;
-	Delete from Camiones where Codigo = @Codigo
+	Update Camiones
+	SET Estado = @Estado
+	where Codigo = @Codigo
 END
 
 -- =============================================
