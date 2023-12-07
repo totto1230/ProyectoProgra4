@@ -1,0 +1,28 @@
+BASE PROYECTO:
+
+	Listar:
+		- Clientes ✅
+		- Choferes ✅
+		- Camiones
+		- Usuarios
+	Insertar:
+		- Clientes  ✅
+		- Choferes ✅
+		- Camiones
+		- Usuarios
+	Actualizar:
+		- Clientes ✅ 
+		- Choferes ✅
+		- Camiones
+		- Usuarios
+	Eliminar SIN BORRAR EN LA BASE DE DATOS:
+		- Clientes 
+		- Choferes
+		- Camiones
+		- Usuarios
+	
+Login ✅
+PARTE DE GESTIÓN DE RUTA RUTAS:
+	-TO DO
+	-TO DO
+	-TO DO

@@ -35,6 +35,7 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
+  
         public int InsertarCliente(Clientes cliente)
         {
             try
