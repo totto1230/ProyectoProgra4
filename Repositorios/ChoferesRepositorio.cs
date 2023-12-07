@@ -46,14 +46,14 @@ namespace ProyectoPrograCuatro.Repositorios
             try
             {
                 var param = new DynamicParameters();
-                param.Add("@Codigo", chofer.Codigo, DbType.String, ParameterDirection.Input);
+                //param.Add("@Codigo", chofer.Codigo, DbType.String, ParameterDirection.Input);
                 param.Add("@Nombre", chofer.Nombre, DbType.String, ParameterDirection.Input);
                 param.Add("@Cedula", chofer.Cedula, DbType.String, ParameterDirection.Input);
                 param.Add("@Telefono", chofer.Telefono, DbType.String, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
 
-                    var codigo = conn.QuerySingle<int>("insertar_cliente", param, commandType: CommandType.StoredProcedure);
+                    var codigo = conn.QuerySingle<int>("insertar_chofer", param, commandType: CommandType.StoredProcedure);
                     return codigo;
 
                 }
