@@ -23,12 +23,14 @@ namespace ProyectoPrograCuatro.Controllers
 
         public IActionResult Login()
         {
+            //Si no tiene sesión enseñe el login
             if (HttpContext.Session.GetString("Usuario")==null)
             {
                 return View();
             }
             else
             {
+                //Si tiene sesion, enseñe el index
                 return RedirectToAction("Index", "Home");
             }
             
