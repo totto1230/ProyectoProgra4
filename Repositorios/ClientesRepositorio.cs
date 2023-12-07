@@ -20,7 +20,7 @@ namespace ProyectoPrograCuatro.Repositorios
             try
             {
                 var param = new DynamicParameters();
-                param.Add("@Id", idcliente, DbType.Int32, ParameterDirection.Input);
+                param.Add("@Codigo", idcliente, DbType.Int32, ParameterDirection.Input);
                 using(var conn = _dapperContext.CrearConexion())
                 {
                     var cliente = conn.QuerySingleOrDefault<Clientes>("obtener_cliente_porID", param, commandType: CommandType.StoredProcedure);
@@ -40,16 +40,17 @@ namespace ProyectoPrograCuatro.Repositorios
             try
             {
                 var param = new DynamicParameters();
-                /*param.Add("@nombre", cliente.nombre, DbType.String, ParameterDirection.Input);
-                param.Add("@telefono", cliente.telefono, DbType.String, ParameterDirection.Input);
-                param.Add("@contacto", cliente.contacto, DbType.String, ParameterDirection.Input);
-                using(var conn = _dapperContext.CrearConexion())
+                param.Add("@nombre", cliente.Nombre, DbType.String, ParameterDirection.Input);
+                param.Add("@telefono", cliente.Telefono, DbType.String, ParameterDirection.Input);
+                param.Add("@contacto", cliente.Contacto, DbType.String, ParameterDirection.Input);
+                param.Add("@direccion", cliente.Direccion, DbType.String, ParameterDirection.Input);
+                using (var conn = _dapperContext.CrearConexion())
                 {
 
-                    var id = conn.QuerySingle<int>("insertar_cliente", param, commandType: CommandType.StoredProcedure);
-                    return id;
+                    var codigo = conn.QuerySingle<int>("insertar_cliente", param, commandType: CommandType.StoredProcedure);
+                    return codigo;
 
-                }*/
+                }
 
                 int id = 0;
                 return id;
