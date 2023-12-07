@@ -10,31 +10,51 @@
 </p>
 
 <table class="table">
-    @* <tr>
+      <tr>
         <th>
-            @Html.DisplayNameFor(model => model.id)
+            @Html.DisplayNameFor(model => model.Codigo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            @Html.DisplayNameFor(model => model.Nombre)
         </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contacto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+
         <th></th>
-    </tr> *@
-@*     @foreach (var item in Model.ToList())
+    </tr> 
+  @foreach (var item in Model.ToList())
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.id)
+                @Html.DisplayFor(modelItem => item.Codigo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre)
+                @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Actualizar","Clientes", new { idcliente=item.id }) |
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contacto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Actualizar","Clientes", new { idcliente=item.Codigo }) |
                 @Html.ActionLink("Eliminar","Eliminar","Clientes",
-            new { idcliente=item.id },
-            new { onclick = "return confirm('¿Desea eliminar el cliente: " + item.nombre + "?')"  })
+            new { idcliente=item.Codigo },
+            new { onclick = "return confirm('¿Desea eliminar el cliente: " + item.Nombre + "?')"  })
             </td>
         </tr>
-    } *@
+    } 
 </table>
 

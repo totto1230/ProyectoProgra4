@@ -53,8 +53,8 @@ namespace ProyectoPrograCuatro.Controllers
                     return View();
                 }
 
-                var id = _clienteBLL.InsertarCliente(cliente);
-                ViewBag.Message = "Cliente creado con exito con codigo: " + id.ToString();
+                var codigo = _clienteBLL.InsertarCliente(cliente);
+                ViewBag.Message = "Cliente creado con exito con codigo: " + codigo.ToString();
                 return View();
 
             }
