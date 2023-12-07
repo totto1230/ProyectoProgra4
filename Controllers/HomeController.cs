@@ -5,7 +5,7 @@ using ProyectoPrograCuatro.Login;
 
 namespace Progra4BD.Controllers
 {
-    
+    [Autenticacion]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

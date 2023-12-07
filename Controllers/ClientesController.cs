@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoPrograCuatro.IBLL;
+using ProyectoPrograCuatro.Login;
 using ProyectoPrograCuatro.Models;
 
 namespace ProyectoPrograCuatro.Controllers
 {
+    [Autenticacion]
     public class ClientesController : Controller
     {
         private readonly ICLienteBLL _clienteBLL;

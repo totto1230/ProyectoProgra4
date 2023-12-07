@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoPrograCuatro.BLL;
 using ProyectoPrograCuatro.IBLL;
+using ProyectoPrograCuatro.Login;
 using ProyectoPrograCuatro.Models;
 
 namespace ProyectoPrograCuatro.Controllers
@@ -83,6 +84,7 @@ namespace ProyectoPrograCuatro.Controllers
             return RedirectToAction("Login");
         }
 
+        [Autenticacion]
         public IActionResult Lista()
         {
             try
@@ -97,11 +99,13 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
+        [Autenticacion]
         public IActionResult Crear()
         {
             return View();
         }
 
+        [Autenticacion]
         [HttpPost] //del cliente al servidor
         public IActionResult Crear(Usuarios usuarios)
         {
@@ -126,6 +130,7 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
+        [Autenticacion]
         //HTTPGET devuelve datos del servidor al cliente en base al id del cliente
         public IActionResult Actualizar(int idUsuario)
         {
@@ -150,6 +155,7 @@ namespace ProyectoPrograCuatro.Controllers
 
         }
 
+        [Autenticacion]
         // Esta accion se ejecuta al presionar el boton de 
         //Actualizar
         [HttpPost]
@@ -171,6 +177,7 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
+        [Autenticacion]
         public IActionResult Eliminar(int idUsuario)
         {
             return View();
