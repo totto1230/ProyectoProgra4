@@ -1,4 +1,4 @@
-﻿@{
+﻿@* @{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +6,45 @@
     <h1 class="display-4">Proyecto Progra 4</h1>
     <p>Joseph y Alejandro</p>
 </div>
+ *@
+
+@{
+    ViewData["Title"] = "Página Principal";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Proyecto Programación IV</title>
+    <!-- Add your additional head content here -->
+    <!-- Example JavaScript -->
+    <script>
+        // Simple JavaScript function
+        function greetUser() {
+            alert('¡Bienvenido al Proyecto de Programación IV!');
+        }
+    </script>
+</head>
+<body>
+    <div class="container text-center">
+        <header>
+            <h1 class="display-4">Bienvenido al Proyecto de Programación IV</h1>
+            <p>Desarrollado por Joseph y Alejandro</p>
+        </header>
+
+        <main>
+            <!-- Your main content goes here -->
+            <button onclick="greetUser()">Saludar</button>
+        </main>
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Universidad Latina de Costa Rica | Programación IV</p>
+            <!-- Add additional footer content here -->
+        </footer>
+    </div>
+
+    <!-- Add your scripts and additional body content here -->
+</body>
+</html>
