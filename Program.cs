@@ -29,7 +29,7 @@ builder.Services.AddSingleton<ICLienteBLL, ClienteBLL>();
 
 //builder.Services.AddSingleton<ICamionesBLL, CamionesBLL>();
 
-//builder.Services.AddSingleton<IChoferesBLL, ChoferesBLL>();
+builder.Services.AddSingleton<IChoferesBLL, ChoferBLL>();
 
 builder.Services.AddSingleton<IUsuariosBLL, UsuariosBLL>();
 
