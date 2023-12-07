@@ -15,27 +15,59 @@ namespace ProyectoPrograCuatro.BLL
             _usuariosRepositorio = usuariosRepositorio;
         }
 
-        public Usuarios ActualizarUsuario(Usuarios usuarios)
+        public Usuarios ObtenerUsuario(int idUsuario)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                return _usuariosRepositorio.ObtenerUsuario(idUsuario);
+            }
+            catch (Exception)
+            {
 
-        public int EliminarUsuario(int idUsuario)
-        {
-            throw new NotImplementedException();
+                throw;
+            }
+
         }
 
         public int InsertarUsuario(Usuarios usuarios)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                return _usuariosRepositorio.InsertarUsuario(usuarios);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
         public List<Usuarios> ListaUsuarios()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _usuariosRepositorio.ListaUsuarios();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        public Usuarios ObtenerUsuario(int idUsuario)
+        public Usuarios ActualizarUsuario(Usuarios usuarios)
+        {
+            try
+            {
+                return _usuariosRepositorio.ActualizarUsuario(usuarios);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int EliminarUsuario(int idUsuario)
         {
             throw new NotImplementedException();
         }

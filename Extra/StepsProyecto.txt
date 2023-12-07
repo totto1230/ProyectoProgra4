@@ -4,17 +4,17 @@ BASE PROYECTO:
 		- Clientes ✅
 		- Choferes ✅
 		- Camiones ✅
-		- Usuarios
+		- Usuarios ✅
 	Insertar:
-		- Clientes  ✅
+		- Clientes ✅
 		- Choferes ✅
 		- Camiones ✅
-		- Usuarios
+		- Usuarios ✅
 	Actualizar:
 		- Clientes ✅ 
 		- Choferes ✅
 		- Camiones ✅
-		- Usuarios
+		- Usuarios ✅
 	Eliminar SIN BORRAR EN LA BASE DE DATOS:
 		- Clientes 
 		- Choferes

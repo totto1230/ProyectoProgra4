@@ -83,5 +83,98 @@ namespace ProyectoPrograCuatro.Controllers
             return RedirectToAction("Login");
         }
 
+        public IActionResult Lista()
+        {
+            try
+            {
+                var lista = _usuariosBLL.ListaUsuarios();
+                return View(lista);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public IActionResult Crear()
+        {
+            return View();
+        }
+
+        [HttpPost] //del cliente al servidor
+        public IActionResult Crear(Usuarios usuarios)
+        {
+            try
+            {
+                //valida si todos los campos requeridos tienen datos
+                if (!ModelState.IsValid)
+                {
+                    //devuelve la vista y muestra los mensajes de error
+                    return View();
+                }
+
+                var id = _usuariosBLL.InsertarUsuario(usuarios);
+                ViewBag.Message = "Usuario creado con exito con codigo: " + id.ToString();
+                return View();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        //HTTPGET devuelve datos del servidor al cliente en base al id del cliente
+        public IActionResult Actualizar(int idUsuario)
+        {
+            try
+            {
+                var usuario = _usuariosBLL.ObtenerUsuario(idUsuario);
+                if (usuario == null)//si no se encontró datos del cliente
+                {
+                    return View();
+                }
+                else
+                {
+                    return View(usuario);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        // Esta accion se ejecuta al presionar el boton de 
+        //Actualizar
+        [HttpPost]
+        public IActionResult Actualizar(Usuarios usuarios)
+        {
+            try
+            {
+                var usuarioactualizado = _usuariosBLL.ActualizarUsuario(usuarios);
+                //redirecciona a la accion Lista
+                //esta acción esta creada como primer método del controller
+                return RedirectToAction("Lista");
+            }
+            catch (Exception)
+            {
+                //devolver el mensaje de error
+                //Y se queda en la vista de actualizar
+                ViewBag.Message = "Error al actualizar el usuario";
+                return View();
+            }
+        }
+
+        public IActionResult Eliminar(int idUsuario)
+        {
+            return View();
+        }
+
     }
 }

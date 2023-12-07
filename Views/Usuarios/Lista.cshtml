@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProyectoPrograCuatro.Models.Usuarios>
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+<h2>Lista de Usuarios</h2>
+
+<p>
+    @Html.ActionLink("Crear Usuario", "Crear","Usuarios")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contrasenia)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.ToList())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contrasenia)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Actualizar","Usuarios", new { idUsuario=item.Codigo }) |
+                <!--Primero el label, accion, controller-->
+                @Html.ActionLink("Eliminar","Eliminar","Usuarios",
+            new { idUsuario=item.Codigo },
+            new { onclick = "return confirm('¿Desea eliminar el usuario: " + item.Codigo + "?')"  })
+            </td>
+        </tr>
+    }
+</table>
+

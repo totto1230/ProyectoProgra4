@@ -17,27 +17,86 @@ namespace ProyectoPrograCuatro.Repositorios
             _dapperContext = dapperContext;
         }
 
-        public Usuarios ActualizarUsuario(Usuarios usuarios)
+        public Usuarios ObtenerUsuario(int idUsuario)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                var param = new DynamicParameters();
+                param.Add("@Codigo", idUsuario, DbType.Int32, ParameterDirection.Input);
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    var usuario = conn.QuerySingleOrDefault<Usuarios>("obtener_usuario_porID", param, commandType: CommandType.StoredProcedure);
+                    return usuario;
+                }
+            }
+            catch (Exception)
+            {
 
-        public int EliminarUsuario(int idUsuario)
-        {
-            throw new NotImplementedException();
+                throw;
+            }
         }
 
         public int InsertarUsuario(Usuarios usuarios)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var param = new DynamicParameters();
+                param.Add("@Nombre", usuarios.Nombre, DbType.String, ParameterDirection.Input);
+                param.Add("@Usuario", usuarios.Usuario, DbType.String, ParameterDirection.Input);
+                param.Add("@Contrasenia", usuarios.Contrasenia, DbType.String, ParameterDirection.Input);
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    var id = conn.QuerySingle<int>("insertar_usuario", param, commandType: CommandType.StoredProcedure);
+                    return id;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<Usuarios> ListaUsuarios()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    return conn.Query<Usuarios>("obtener_usuarios").ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        public Usuarios ObtenerUsuario(int idUsuario)
+
+        public Usuarios ActualizarUsuario(Usuarios usuarios)
+        {
+            try
+            {
+                var param = new DynamicParameters();
+                param.Add("@Codigo",usuarios.Codigo, DbType.Int32, ParameterDirection.Input);
+                param.Add("@Nombre", usuarios.Nombre, DbType.String, ParameterDirection.Input);
+                param.Add("@Usuario", usuarios.Usuario, DbType.String, ParameterDirection.Input);
+                param.Add("@Contrasenia", usuarios.Contrasenia, DbType.String, ParameterDirection.Input);
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    conn.Execute("actualizar_usuario", param, commandType: CommandType.StoredProcedure);
+                    return usuarios;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int EliminarUsuario(int idUsuario)
         {
             throw new NotImplementedException();
         }
