@@ -20,7 +20,7 @@ namespace ProyectoPrograCuatro.BLL
             throw new NotImplementedException();
         }
 
-        public int EliminarUsuario(int Codigo)
+        public int EliminarUsuario(int idUsuario)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +35,7 @@ namespace ProyectoPrograCuatro.BLL
             throw new NotImplementedException();
         }
 
-        public Usuarios ObtenerUsuario(int Codigo)
+        public Usuarios ObtenerUsuario(int idUsuario)
         {
             throw new NotImplementedException();
         }

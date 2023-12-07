@@ -10,10 +10,10 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public int InsertarUsuario(Usuarios usuarios);
 
-        public Usuarios ObtenerUsuario(int Codigo);
+        public Usuarios ObtenerUsuario(int idUsuario);
 
         public Usuarios ActualizarUsuario(Usuarios usuarios);
 
-        public int EliminarUsuario(int Codigo);
+        public int EliminarUsuario(int idUsuario);
     }
 }
