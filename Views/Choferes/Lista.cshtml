@@ -24,6 +24,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Cedula)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
 
         <th></th>
     </tr>
@@ -42,6 +45,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Cedula)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+
             
             <td>
                 @Html.ActionLink("Editar", "Actualizar","Choferes", new { idchofer=item.Codigo }) |

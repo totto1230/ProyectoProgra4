@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ProyectoPrograCuatro.Models
@@ -25,5 +26,8 @@ namespace ProyectoPrograCuatro.Models
         [Required(ErrorMessage = "Ingrese la dirección del cliente")]
         public string Direccion { get; set; }
 
+    
+        [DisplayName("Cliente Válido?")]
+        public int Estado { get; set; }
     }
 }

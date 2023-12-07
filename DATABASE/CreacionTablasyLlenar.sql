@@ -42,66 +42,66 @@ CREATE TABLE dbo.Clientes (
 ------LLENAR TABLAS
 ---USUARIOS:
 
-INSERT INTO Usuarios (Nombre,Usuario,Contrasenia)
-VALUES ('Joseph','joseph','test');
+INSERT INTO Usuarios (Nombre,Usuario,Contrasenia, Estado)
+VALUES ('Joseph','joseph','test', 1);
 
-INSERT INTO Usuarios (Nombre,Usuario,Contrasenia)
-VALUES ('Alejandro','alejandro','test');
+INSERT INTO Usuarios (Nombre,Usuario,Contrasenia, Estado)
+VALUES ('Alejandro','alejandro','test', 1);
 
-INSERT INTO Usuarios (Nombre,Usuario,Contrasenia)
-VALUES ('Joseph2','joseph2','test');
+INSERT INTO Usuarios (Nombre,Usuario,Contrasenia, Estado)
+VALUES ('Joseph2','joseph2','test', 1);
 
-INSERT INTO Usuarios (Nombre,Usuario,Contrasenia)
-VALUES ('Alejandro2','alejandro2','test');
+INSERT INTO Usuarios (Nombre,Usuario,Contrasenia, Estado)
+VALUES ('Alejandro2','alejandro2','test', 1);
 
-INSERT INTO Usuarios (Nombre,Usuario,Contrasenia)
-VALUES ('Progra4','progra4','test');
+INSERT INTO Usuarios (Nombre,Usuario,Contrasenia, Estado)
+VALUES ('Progra4','progra4','test', 1);
 
 ---CHOFERES:
-INSERT INTO Choferes (Nombre,Cedula,Telefono)
-VALUES ('Chofer1','111111','88888888');
+INSERT INTO Choferes (Nombre,Cedula,Telefono, Estado)
+VALUES ('Chofer1','111111','88888888', 1);
 
-INSERT INTO Choferes (Nombre,Cedula,Telefono)
-VALUES ('Chofer2','222222','77777777');
+INSERT INTO Choferes (Nombre,Cedula,Telefono, Estado)
+VALUES ('Chofer2','222222','77777777', 1);
 
-INSERT INTO Choferes (Nombre,Cedula,Telefono)
-VALUES ('Chofer3','333333','66666666');
+INSERT INTO Choferes (Nombre,Cedula,Telefono, Estado)
+VALUES ('Chofer3','333333','66666666', 1);
 
-INSERT INTO Choferes (Nombre,Cedula,Telefono)
-VALUES ('Chofer4','444444','55555555');
+INSERT INTO Choferes (Nombre,Cedula,Telefono, Estado)
+VALUES ('Chofer4','444444','55555555', 1);
 
-INSERT INTO Choferes (Nombre,Cedula,Telefono)
-VALUES ('Chofer5','555555','44444444');
+INSERT INTO Choferes (Nombre,Cedula,Telefono, Estado)
+VALUES ('Chofer5','555555','44444444', 1);
 
 ---CAMIONES:
-INSERT INTO Camiones (Unidad,Placa)
-VALUES ('Camion1','111111');
+INSERT INTO Camiones (Unidad,Placa, Estado)
+VALUES ('Camion1','111111', 1);
 
-INSERT INTO Camiones (Unidad,Placa)
-VALUES ('Camion2','222222');
+INSERT INTO Camiones (Unidad,Placa, Estado)
+VALUES ('Camion2','222222', 1);
 
-INSERT INTO Camiones (Unidad,Placa)
-VALUES ('Camion3','333333');
+INSERT INTO Camiones (Unidad,Placa, Estado)
+VALUES ('Camion3','333333', 1);
 
-INSERT INTO Camiones (Unidad,Placa)
-VALUES ('Camion4','444444');
+INSERT INTO Camiones (Unidad,Placa, Estado)
+VALUES ('Camion4','444444', 1);
 
-INSERT INTO Camiones (Unidad,Placa)
-VALUES ('Camion5','555555');
+INSERT INTO Camiones (Unidad,Placa, Estado)
+VALUES ('Camion5','555555', 1);
 
 --Clientes
 
-INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion)
-VALUES ('Cliente1','8888888','test','CR')
+INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion, Estado)
+VALUES ('Cliente1','8888888','test','CR', 1)
 
-INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion)
-VALUES ('Cliente2','12122112','test','CR')
+INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion, Estado)
+VALUES ('Cliente2','12122112','test','CR', 1)
 
-INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion)
-VALUES ('Cliente3','7777777','test','CR')
+INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion, Estado)
+VALUES ('Cliente3','7777777','test','CR', 1)
 
-INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion)
-VALUES ('Cliente4','87654321','test','CR')
+INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion, Estado)
+VALUES ('Cliente4','87654321','test','CR', 1)
 
-INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion)
-VALUES ('Cliente5','12345678','test','CR')
+INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion, Estado)
+VALUES ('Cliente5','12345678','test','CR', 1)

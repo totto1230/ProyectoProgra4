@@ -23,6 +23,7 @@ namespace ProyectoPrograCuatro.Repositorios
                 param.Add("@Nombre", chofer.Nombre, DbType.String, ParameterDirection.Input);
                 param.Add("@Cedula", chofer.Cedula, DbType.String, ParameterDirection.Input);
                 param.Add("@Telefono", chofer.Telefono, DbType.String, ParameterDirection.Input);
+                param.Add("@Estado", chofer.Estado, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
                     conn.Execute("actualizar_chofer", param, commandType: CommandType.StoredProcedure);
@@ -50,6 +51,7 @@ namespace ProyectoPrograCuatro.Repositorios
                 param.Add("@Nombre", chofer.Nombre, DbType.String, ParameterDirection.Input);
                 param.Add("@Cedula", chofer.Cedula, DbType.String, ParameterDirection.Input);
                 param.Add("@Telefono", chofer.Telefono, DbType.String, ParameterDirection.Input);
+                param.Add("@Estado", chofer.Estado, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
 

@@ -45,6 +45,7 @@ namespace ProyectoPrograCuatro.Repositorios
                 //param.Add("@Codigo", camion.Codigo, DbType.String, ParameterDirection.Input);
                 param.Add("@Unidad", camion.Unidad, DbType.String, ParameterDirection.Input);
                 param.Add("@Placa", camion.Placa, DbType.String, ParameterDirection.Input);
+                param.Add("@Estado", camion.Estado, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
 
@@ -88,7 +89,7 @@ namespace ProyectoPrograCuatro.Repositorios
                 param.Add("@Codigo", camion.Codigo, DbType.Int32, ParameterDirection.Input);
                 param.Add("@Unidad", camion.Unidad, DbType.String, ParameterDirection.Input);
                 param.Add("@Placa", camion.Placa, DbType.String, ParameterDirection.Input);
-
+                param.Add("@Estado", camion.Estado, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
                     conn.Execute("actualizar_camiones", param, commandType: CommandType.StoredProcedure);

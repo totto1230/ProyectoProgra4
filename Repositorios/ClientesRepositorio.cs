@@ -45,6 +45,7 @@ namespace ProyectoPrograCuatro.Repositorios
                 param.Add("@Telefono", cliente.Telefono, DbType.String, ParameterDirection.Input);
                 param.Add("@Contacto", cliente.Contacto, DbType.String, ParameterDirection.Input);
                 param.Add("@Direccion", cliente.Direccion, DbType.String, ParameterDirection.Input);
+                param.Add("@Estado", cliente.Estado, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
 
@@ -88,7 +89,7 @@ namespace ProyectoPrograCuatro.Repositorios
                 param.Add("@Telefono", cliente.Telefono, DbType.String, ParameterDirection.Input);
                 param.Add("@Contacto", cliente.Contacto, DbType.String, ParameterDirection.Input);
                 param.Add("@Direccion", cliente.Direccion, DbType.String, ParameterDirection.Input);
-
+                param.Add("@Estado", cliente.Estado, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
                     conn.Execute("actualizar_cliente", param, commandType: CommandType.StoredProcedure);

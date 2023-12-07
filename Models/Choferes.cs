@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ProyectoPrograCuatro.Models
@@ -20,5 +21,7 @@ namespace ProyectoPrograCuatro.Models
         [Required(ErrorMessage = "Ingrese Télefono")]
         public string Telefono { get; set; }
 
+        [DisplayName("Chofer Válido?")]
+        public int Estado { get; set; }
     }
 }

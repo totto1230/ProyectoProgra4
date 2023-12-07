@@ -12,7 +12,8 @@ CREATE PROCEDURE [dbo].[actualizar_cliente]
 		@Nombre varchar(255),
 		@Telefono varchar(255),
 		@Contacto varchar(255),
-		@Direccion varchar(255)
+		@Direccion varchar(255),
+		@Estado int
 	)
 AS
 BEGIN
@@ -23,7 +24,8 @@ BEGIN
 	Nombre = @Nombre,
 	Telefono = @Telefono,
 	Contacto = @Contacto,
-    Direccion = @Direccion
+    Direccion = @Direccion,
+	Estado = @Estado
 	where Codigo = @Codigo
 
 END
@@ -58,8 +60,8 @@ CREATE PROCEDURE [dbo].[insertar_cliente]
 	    @Nombre varchar(255),
 		@Telefono varchar(255),
 		@Contacto varchar(255),
-		@Direccion varchar(255)
-	
+		@Direccion varchar(255),
+		@Estado int	
 	)
 AS
 BEGIN
@@ -67,8 +69,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	Insert Into Clientes(Nombre,Telefono,Contacto,Direccion)	
-	Values(@Nombre,@Telefono,@Contacto,@Direccion)
+	Insert Into Clientes(Nombre,Telefono,Contacto,Direccion, Estado)	
+	Values(@Nombre,@Telefono,@Contacto,@Direccion, @Estado)
 
 	-- devuelve el id generado durante del Insert
 	Select cast(Scope_Identity() as int)
@@ -110,7 +112,8 @@ BEGIN
 			Nombre,
 			Telefono,
 			Contacto,
-			Direccion
+			Direccion,
+			Estado
     from    Clientes
 END
 
@@ -129,7 +132,8 @@ CREATE PROCEDURE [dbo].[actualizar_usuario]
 		@Codigo int,
 		@Nombre varchar(255),
 		@Usuario varchar(255),
-		@Contrasenia varchar(255)	
+		@Contrasenia varchar(255),
+		@Estado int
 	)
 AS
 BEGIN
@@ -139,7 +143,8 @@ BEGIN
 	SET 
 	Nombre = @Nombre,
 	Usuario = @Usuario,
-	Contrasenia = @Contrasenia
+	Contrasenia = @Contrasenia,
+	Estado = @Estado
 	where Codigo = @Codigo
 
 END
@@ -172,7 +177,8 @@ CREATE PROCEDURE [dbo].[insertar_usuario]
 	(
 		@Nombre varchar(255),
 		@Usuario varchar(255),
-		@Contrasenia varchar(255)	
+		@Contrasenia varchar(255),
+		@Estado int
 	)
 AS
 BEGIN
@@ -180,8 +186,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	Insert Into Usuarios(Nombre,Usuario,Contrasenia)	
-	Values(@Nombre,@Usuario,@Contrasenia)
+	Insert Into Usuarios(Nombre,Usuario,Contrasenia,Estado)	
+	Values(@Nombre,@Usuario,@Contrasenia,@Estado)
 
 	-- devuelve el id generado durante del Insert
 	Select cast(Scope_Identity() as int)
@@ -220,7 +226,8 @@ BEGIN
 	SELECT  Codigo,
 			Nombre,
 			Usuario,
-			Contrasenia
+			Contrasenia,
+			Estado
     from    Usuarios
 END
 
@@ -241,7 +248,7 @@ AS
 BEGIN
 
 	SET NOCOUNT ON;
-	SELECT * from Usuarios where Usuario = @Usuario and Contrasenia = @contrasenia
+	SELECT * from Usuarios where Usuario = @Usuario and Contrasenia = @contrasenia and Estado = 1
 END
 GO
 
@@ -259,7 +266,8 @@ CREATE PROCEDURE [dbo].[actualizar_chofer]
 		@Codigo int,
 		@Nombre varchar(255),
 		@Cedula varchar(255),
-		@Telefono varchar(255)
+		@Telefono varchar(255),
+		@Estado int
 	)
 AS
 BEGIN
@@ -269,7 +277,8 @@ BEGIN
 	SET 
 	Nombre = @Nombre,
 	Cedula = @Cedula,
-    Telefono = @Telefono
+    Telefono = @Telefono,
+	Estado = @Estado
 	where Codigo = @Codigo
 
 END
@@ -304,8 +313,8 @@ CREATE PROCEDURE [dbo].[insertar_chofer]
 	(
 		@Nombre varchar(255),
 		@Cedula varchar(255),
-		@Telefono varchar(255)
-
+		@Telefono varchar(255),
+		@Estado int
 	)
 AS
 BEGIN
@@ -313,8 +322,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	Insert Into Choferes(Nombre,Cedula,Telefono)	
-	Values(@Nombre,@Cedula,@Telefono)
+	Insert Into Choferes(Nombre,Cedula,Telefono, Estado)	
+	Values(@Nombre,@Cedula,@Telefono, @Estado)
 
 	-- devuelve el id generado durante del Insert
 	Select cast(Scope_Identity() as int)
@@ -355,7 +364,8 @@ BEGIN
 	SELECT  Codigo,
 			Nombre,
 			Cedula,
-			Telefono
+			Telefono,
+			Estado
     from    Choferes
 END
 
@@ -373,7 +383,8 @@ CREATE PROCEDURE [dbo].[actualizar_camiones]
 	(
 		@Codigo int,
 		@Unidad varchar(255),
-		@Placa varchar(255)
+		@Placa varchar(255),
+		@Estado int
 	)
 AS
 BEGIN
@@ -382,7 +393,8 @@ BEGIN
 	Update Camiones
 	SET 
 	Unidad = @Unidad,
-	Placa = @Placa
+	Placa = @Placa,
+	Estado = @Estado
 	where Codigo = @Codigo
 
 END
@@ -415,7 +427,8 @@ GO
 CREATE PROCEDURE [dbo].[insertar_camiones]
 	(
 		@Unidad varchar(255),
-		@Placa varchar(255)
+		@Placa varchar(255),
+		@Estado int
 	)
 AS
 BEGIN
@@ -423,8 +436,8 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-	Insert Into Camiones(Unidad,Placa)	
-	Values(@Unidad,@Placa)
+	Insert Into Camiones(Unidad,Placa, Estado)	
+	Values(@Unidad,@Placa,@Estado)
 
 	-- devuelve el id generado durante del Insert
 	Select cast(Scope_Identity() as int)
@@ -464,6 +477,7 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT  Codigo,
 			Unidad,
-			Placa
+			Placa,
+			Estado
     from    Camiones
 END

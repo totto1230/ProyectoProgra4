@@ -15,5 +15,8 @@ namespace ProyectoPrograCuatro.Models
         [DisplayName("Placa")]
         [Required(ErrorMessage = "Ingrese la Placa")]
         public string Placa { get; set; }
+
+        [DisplayName("Camión Válido?")]
+        public int Estado { get; set; }
     }
 }

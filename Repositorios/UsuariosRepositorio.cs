@@ -44,6 +44,7 @@ namespace ProyectoPrograCuatro.Repositorios
                 param.Add("@Nombre", usuarios.Nombre, DbType.String, ParameterDirection.Input);
                 param.Add("@Usuario", usuarios.Usuario, DbType.String, ParameterDirection.Input);
                 param.Add("@Contrasenia", usuarios.Contrasenia, DbType.String, ParameterDirection.Input);
+                param.Add("@Estado", usuarios.Estado, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
                     var id = conn.QuerySingle<int>("insertar_usuario", param, commandType: CommandType.StoredProcedure);
@@ -83,6 +84,7 @@ namespace ProyectoPrograCuatro.Repositorios
                 param.Add("@Nombre", usuarios.Nombre, DbType.String, ParameterDirection.Input);
                 param.Add("@Usuario", usuarios.Usuario, DbType.String, ParameterDirection.Input);
                 param.Add("@Contrasenia", usuarios.Contrasenia, DbType.String, ParameterDirection.Input);
+                param.Add("@Estado", usuarios.Estado, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
                     conn.Execute("actualizar_usuario", param, commandType: CommandType.StoredProcedure);
@@ -110,7 +112,6 @@ namespace ProyectoPrograCuatro.Repositorios
                 //ESTABLECEMOS LOS PARAMETROS usando el metodo add
                 param.Add("@Usuario", usuarios.Usuario, DbType.String, ParameterDirection.Input);
                 param.Add("@Contrasenia", usuarios.Contrasenia, DbType.String, ParameterDirection.Input);
-
                 //Creamos la conexion, llamamos al metodo almacenado y le pasamos el modelo
                 using (var conn = _dapperContext.CrearConexion())
                 {

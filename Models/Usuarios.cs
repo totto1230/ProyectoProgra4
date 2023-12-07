@@ -24,7 +24,10 @@ namespace ProyectoPrograCuatro.Models
         [Required(ErrorMessage = "Ingrese la contraseña")]
         [DataType(DataType.Password)]
         public string Contrasenia { get; set; }
-        
+
+        [ValidateNever]
+        [DisplayName("Usuario Válido?")]
+        public int Estado { get; set; }
 
     }
 }
