@@ -23,7 +23,7 @@
                         @Html.DisplayNameFor(model => model.Nombre)
                     </span>
                 </th>
-                <th>
+@*                 <th>
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Usuario)
                     </span>
@@ -32,12 +32,12 @@
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Contrasenia)
                     </span>
-                </th>
+                </th>*@
                 <th>
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Estado)
                     </span>
-                </th>
+                </th> 
                 <th></th>
             </tr>
         </thead>
@@ -51,12 +51,12 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Nombre)
                     </td>
-                    <td>
+@*                     <td>
                         @Html.DisplayFor(modelItem => item.Usuario)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Contrasenia)
-                    </td>
+                    </td> *@
                     <td>
                         @if (item.Estado == 1)
                         {

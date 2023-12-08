@@ -113,9 +113,6 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT  Codigo,
 			Nombre,
-			Telefono,
-			Contacto,
-			Direccion,
 			Estado
     from    Clientes
 END
@@ -231,8 +228,6 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT  Codigo,
 			Nombre,
-			Usuario,
-			Contrasenia,
 			Estado
     from    Usuarios
 END
@@ -372,8 +367,6 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT  Codigo,
 			Nombre,
-			Cedula,
-			Telefono,
 			Estado
     from    Choferes
 END
@@ -489,7 +482,6 @@ BEGIN
 	SET NOCOUNT ON;
 	SELECT  Codigo,
 			Unidad,
-			Placa,
 			Estado
     from    Camiones
 END

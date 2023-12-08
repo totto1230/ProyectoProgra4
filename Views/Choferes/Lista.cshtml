@@ -23,7 +23,7 @@
                         @Html.DisplayNameFor(model => model.Nombre)
                     </span>
                 </th>
-                <th>
+@*                 <th>
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Telefono)
                     </span>
@@ -32,7 +32,7 @@
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Cedula)
                     </span>
-                </th>
+                </th> *@
                 <th>
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Estado)
@@ -51,12 +51,12 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Nombre)
                     </td>
-                    <td>
+                    @* <td>
                         @Html.DisplayFor(modelItem => item.Telefono)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Cedula)
-                    </td>
+                    </td> *@
                     <td>
                         @if (item.Estado == 1)
                         {
