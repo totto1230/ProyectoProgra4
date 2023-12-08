@@ -35,7 +35,7 @@ builder.Services.AddSingleton<IChoferesBLL, ChoferBLL>();
 
 builder.Services.AddSingleton<IUsuariosBLL, UsuariosBLL>();
 
-builder.Services.AddSingleton<RutasBLL, RutasBLL>();
+builder.Services.AddSingleton<IRutasBLL, RutasBLL>();
 
 var app = builder.Build();
 
