@@ -512,6 +512,7 @@ BEGIN
             CodigoChoferes,
             CodigoCamiones,
 			DireccionEntrega,
+			FechaCreacion,
             Estado
     FROM    Rutas
 END
@@ -531,6 +532,7 @@ CREATE PROCEDURE [dbo].[insertar_ruta]
     @CodigoChoferes INT,
     @CodigoCamiones INT,
 	@DireccionEntrega VARCHAR (225),
+	@FechaCreacion DATETIME,
     @Estado INT
 AS
 BEGIN
@@ -541,8 +543,8 @@ BEGIN
        AND EXISTS (SELECT 1 FROM Camiones WHERE Codigo = @CodigoCamiones)
     BEGIN
         
-        INSERT INTO db.Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, Estado)
-        VALUES (@CodigoClientes, @CodigoChoferes, @CodigoCamiones, @direccionentrega, @Estado);
+        INSERT INTO db.Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
+        VALUES (@CodigoClientes, @CodigoChoferes, @CodigoCamiones, @direccionentrega, @FechaCreacion, @Estado);
 
 		END
 END
