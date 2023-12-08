@@ -24,6 +24,8 @@ builder.Services.AddSingleton<IChoferesRepositorio, ChoferesRepositorio>();
 
 builder.Services.AddSingleton<IUsuariosRepositorio, UsuariosRepositorio>();
 
+builder.Services.AddSingleton<IRutasRepositorio, RutasRepositorio>();
+
 //instancias de BLL's
 builder.Services.AddSingleton<ICLienteBLL, ClienteBLL>();
 
@@ -32,6 +34,8 @@ builder.Services.AddSingleton<ICamionesBLL, CamionesBLL>();
 builder.Services.AddSingleton<IChoferesBLL, ChoferBLL>();
 
 builder.Services.AddSingleton<IUsuariosBLL, UsuariosBLL>();
+
+builder.Services.AddSingleton<RutasBLL, RutasBLL>();
 
 var app = builder.Build();
 
