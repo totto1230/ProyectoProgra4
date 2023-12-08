@@ -37,9 +37,25 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
-        public int EliminarChofer(int Codigo)
+        public Choferes EliminarChofer(Choferes chofer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var param = new DynamicParameters();
+                param.Add("Codigo", chofer.Codigo, DbType.Int32, ParameterDirection.Input);
+                param.Add("Estado", 0, DbType.Int32, ParameterDirection.Input);
+
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    conn.Execute("eliminar_chofer", param, commandType: CommandType.StoredProcedure);
+                    return chofer;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public int InsertarChofer(Choferes chofer)

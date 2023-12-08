@@ -307,7 +307,8 @@ BEGIN
 	SET NOCOUNT ON;
 	Update Choferes
 	Set Estado = @Estado
-	where Codigo = @CodigoEND
+	where Codigo = @Codigo
+END
 
 
 -- =============================================

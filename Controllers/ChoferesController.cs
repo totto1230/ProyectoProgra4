@@ -109,5 +109,45 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
+        public IActionResult Eliminar(int idchofer)
+        {
+            try
+            {
+                var chofer = _choferesBLL.ObtenerChofer(idchofer);
+                if (chofer == null)//si no se encontró datos del cliente
+                {
+                    return View();
+                }
+                else
+                {
+                    return View(chofer);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
+        [HttpPost]
+        public IActionResult Eliminar(Choferes chofer)
+        {
+            try
+            {
+                var chofer_eliminado = _choferesBLL.EliminarChofer(chofer);
+                return RedirectToAction("Lista");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
     }
 }

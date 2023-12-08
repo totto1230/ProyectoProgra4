@@ -16,7 +16,7 @@ BASE PROYECTO:
 		- Camiones ✅
 		- Usuarios ✅
 	Eliminar SIN BORRAR EN LA BASE DE DATOS:
-		- Clientes 
+		- Clientes ✅
 		- Choferes
 		- Camiones
 		- Usuarios

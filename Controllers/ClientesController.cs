@@ -135,7 +135,7 @@ namespace ProyectoPrograCuatro.Controllers
         {
             try
             {
-                var cliente_updated = _clienteBLL.EliminarCliente(cliente);
+                var chofer_updated = _clienteBLL.EliminarCliente(cliente);
                 return RedirectToAction("Lista");
             }
             catch (Exception)

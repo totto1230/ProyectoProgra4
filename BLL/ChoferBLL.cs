@@ -27,11 +27,6 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        public int EliminarChofer(int idchofer)
-        {
-            throw new NotImplementedException();
-        }
-
         public int InsertarChofer(Choferes chofer)
         {
             try
@@ -70,5 +65,19 @@ namespace ProyectoPrograCuatro.BLL
                 throw;
             }
         }
+
+        public Choferes EliminarChofer(Choferes chofer)
+        {
+            try
+            {
+                return _choferRepositorio.EliminarChofer(chofer);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

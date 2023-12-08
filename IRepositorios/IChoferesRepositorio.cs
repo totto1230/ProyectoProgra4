@@ -12,6 +12,6 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public Choferes ActualizarChofer(Choferes chofer);
 
-        public int EliminarChofer(int Codigo);
+        public Choferes EliminarChofer(Choferes chofer);
     }
 }

@@ -46,16 +46,22 @@
                 @Html.DisplayFor(modelItem => item.Cedula)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Estado)
+                @if (item.Estado == 1)
+                {
+                    <text>Activo</text>
+                }
+                else
+                {
+                    <text>Inactivo</text>
+                }
             </td>
 
             
             <td>
                 @Html.ActionLink("Editar", "Actualizar","Choferes", new { idchofer=item.Codigo }) |
                 @Html.ActionLink("Eliminar","Eliminar","Choferes",
-            new { idcliente=item.Codigo },
-            new { onclick = "return confirm('¿Desea eliminar el chofer: " + item.Nombre + "?')"  })
-            </td>
+            new { idchofer=item.Codigo })
+           </td>
         </tr>
     }
 </table>
