@@ -21,17 +21,41 @@ namespace ProyectoPrograCuatro.BLL
 
         public int InsertarRuta(Rutas ruta)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _rutasRepositorio.InsertarRuta(ruta);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<Rutas> ListaRutas()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _rutasRepositorio.ListaRutas();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Rutas ObtenerRuta(int codigoruta)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _rutasRepositorio.ObtenerRuta(codigoruta);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
