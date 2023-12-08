@@ -45,14 +45,20 @@
                 @Html.DisplayFor(modelItem => item.Contrasenia)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Estado)
+                @if (item.Estado == 1)
+                {
+                    <text>Activo</text>
+                }
+                else
+                {
+                    <text>Inactivo</text>
+                }
             </td>
             <td>
                 @Html.ActionLink("Editar", "Actualizar","Usuarios", new { idUsuario=item.Codigo }) |
                 <!--Primero el label, accion, controller-->
                 @Html.ActionLink("Eliminar","Eliminar","Usuarios",
-            new { idUsuario=item.Codigo },
-            new { onclick = "return confirm('¿Desea eliminar el usuario: " + item.Codigo + "?')"  })
+            new { idUsuario=item.Codigo })            
             </td>
         </tr>
     }

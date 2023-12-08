@@ -178,10 +178,50 @@ namespace ProyectoPrograCuatro.Controllers
         }
 
         [Autenticacion]
+        //HTTPGET devuelve datos del servidor al cliente en base al id del cliente
         public IActionResult Eliminar(int idUsuario)
         {
-            return View();
+            try
+            {
+                var usuario = _usuariosBLL.ObtenerUsuario(idUsuario);
+                if (usuario == null)//si no se encontró datos del cliente
+                {
+                    return View();
+                }
+                else
+                {
+                    return View(usuario);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
+        [Autenticacion]
+        // Esta accion se ejecuta al presionar el boton de 
+        //Actualizar
+        [HttpPost]
+        public IActionResult Eliminar(Usuarios usuarios)
+        {
+            try
+            {
+                var usuarioeliminado = _usuariosBLL.EliminarUsuario(usuarios);
+                //redirecciona a la accion Lista
+                //esta acción esta creada como primer método del controller
+                return RedirectToAction("Lista");
+            }
+            catch (Exception)
+            {
+                //devolver el mensaje de error
+                //Y se queda en la vista de actualizar
+                ViewBag.Message = "Error al actualizar el usuario";
+                return View();
+            }
+        }
     }
 }

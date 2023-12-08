@@ -103,9 +103,28 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
-        public int EliminarCamion(int codigoCamion)
+        public Camiones EliminarCamion(Camiones camion)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var param = new DynamicParameters();
+
+                param.Add("@Codigo", camion.Codigo, DbType.Int32, ParameterDirection.Input);
+                param.Add("@Estado", 0, DbType.String, ParameterDirection.Input);
+
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    conn.Execute("eliminar_camiones", param, commandType: CommandType.StoredProcedure);
+                    return camion;
+                }
+               
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
  

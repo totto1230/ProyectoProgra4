@@ -14,6 +14,6 @@ namespace ProyectoPrograCuatro.IBLL
 
         public Usuarios ActualizarUsuario(Usuarios usuarios);
 
-        public int EliminarUsuario(int idUsuario);
+        public Usuarios EliminarUsuario(Usuarios usuarios);
     }
 }

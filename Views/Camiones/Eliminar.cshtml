@@ -1,12 +1,12 @@
-﻿@model ProyectoPrograCuatro.Models.Usuarios
+﻿@model ProyectoPrograCuatro.Models.Camiones
 
 @{
-    ViewBag.Title = "Confirmar Eliminación Usuario";
+    ViewBag.Title = "Confirmar Eliminación Camión";
 }
 
-<h2>Eliminar</h2>
+<h2>Actualizar</h2>
 
-@using (Html.BeginForm("Eliminar", "Usuarios"))
+@using (Html.BeginForm("Eliminar", "Camiones"))
 {
     <div class="form-horizontal">
         <h4>Eliminar</h4>
@@ -24,5 +24,5 @@
 <br />
 
 <div>
-    @Html.ActionLink("Regresar a Usuarios", "Lista")
+    @Html.ActionLink("Regresar a Camiones", "Lista")
 </div>

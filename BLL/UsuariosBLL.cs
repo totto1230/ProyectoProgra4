@@ -67,9 +67,17 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        public int EliminarUsuario(int idUsuario)
+        public Usuarios EliminarUsuario(Usuarios usuarios)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _usuariosRepositorio.EliminarUsuario(usuarios);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Usuarios ValidarUsuario(Usuarios usuarios)

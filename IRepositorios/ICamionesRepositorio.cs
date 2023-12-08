@@ -12,6 +12,6 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public Camiones ActualizarCamion(Camiones camion);
 
-        public int EliminarCamion(int codigoCamion);
+        public Camiones EliminarCamion(Camiones camion);
     }
 }

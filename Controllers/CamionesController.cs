@@ -96,7 +96,7 @@ namespace ProyectoPrograCuatro.Controllers
         {
             try
             {
-                var choferactualizado = _camionesBLL.ActualizarCamion(camion);
+                var camionactualizado = _camionesBLL.ActualizarCamion(camion);
                 //redirecciona a la accion Lista
                 //esta acción esta creada como primer método del controller
                 return RedirectToAction("Lista");
@@ -108,6 +108,51 @@ namespace ProyectoPrograCuatro.Controllers
                 ViewBag.Message = "Error al actualizar el camion";
                 
                  return View();
+            }
+        }
+
+        public IActionResult Eliminar(int codigoCamion)
+        {
+            try
+            {
+                var camion = _camionesBLL.ObtenerCamion(codigoCamion);
+                if (camion == null)//si no se encontró datos del camion
+                {
+                    return View();
+                }
+                else
+                {
+                    return View(camion);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        // Esta accion se ejecuta al presionar el boton de 
+        //Actualizar
+        [HttpPost]
+        public IActionResult Eliminar(Camiones camion)
+        {
+            try
+            {
+                var chofereliminado = _camionesBLL.EliminarCamion(camion);
+                //redirecciona a la accion Lista
+                //esta acción esta creada como primer método del controller
+                return RedirectToAction("Lista");
+            }
+            catch (Exception)
+            {
+                //devolver el mensaje de error
+                //Y se queda en la vista de actualizar
+                ViewBag.Message = "Error al eliminar el camion";
+
+                return View();
             }
         }
 

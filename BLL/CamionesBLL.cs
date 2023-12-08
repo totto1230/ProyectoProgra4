@@ -66,9 +66,17 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        public int EliminarCamion(int codigoCamion)
+        public Camiones EliminarCamion(Camiones camion)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _camionesRepositorio.EliminarCamion(camion);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

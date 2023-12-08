@@ -98,9 +98,25 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
-        public int EliminarUsuario(int idUsuario)
+        public Usuarios EliminarUsuario(Usuarios usuarios)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var param = new DynamicParameters();
+                param.Add("@Codigo", usuarios.Codigo, DbType.Int32, ParameterDirection.Input);
+                param.Add("@Estado", 0, DbType.Int32, ParameterDirection.Input);
+
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    conn.Execute("eliminar_usuario", param, commandType: CommandType.StoredProcedure);
+                    return usuarios;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Usuarios ValidarUsuario(Usuarios usuarios)

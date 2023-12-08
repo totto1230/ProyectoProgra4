@@ -41,14 +41,20 @@
                 @Html.DisplayFor(modelItem => item.Placa)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Estado)
+                @if (item.Estado == 1)
+                {
+                    <text>Activo</text>
+                }
+                else
+                {
+                    <text>Inactivo</text>
+                }
             </td>
 
             <td>
                 @Html.ActionLink("Editar", "Actualizar","Camiones", new { codigoCamion=item.Codigo }) |
                 @Html.ActionLink("Eliminar","Eliminar","Camiones",
-            new { codigoCamion=item.Codigo },
-            new { onclick = "return confirm('¿Desea eliminar el camion: " + item.Unidad + "?')"  })
+            new { codigoCamion=item.Codigo })            
             </td>
         </tr>
     }
