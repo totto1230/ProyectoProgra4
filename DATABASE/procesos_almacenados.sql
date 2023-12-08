@@ -496,6 +496,27 @@ END
 
 
 ----RUTAS PROCESOS ALMACENADOS
+-- =============================================
+--OBTENER Rutas
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Obtener_Rutas] 
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT  Codigo,
+            CodigoCliente,
+            CodigoChofer,
+            CodigoCamion,
+            Estado
+    FROM    Rutas
+END
+
+
+
 
 -- =============================================
 --INSERTAR Rutas
