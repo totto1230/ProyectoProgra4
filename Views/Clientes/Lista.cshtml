@@ -52,7 +52,14 @@
                 @Html.DisplayFor(modelItem => item.Direccion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Estado)
+                @if (item.Estado == 1)
+                {
+                    <text>Activo</text>
+                }
+                else
+                {
+                    <text>Inactivo</text>
+                }             
             </td>
             <td>
                 @Html.ActionLink("Editar", "Actualizar","Clientes", new { idcliente=item.Codigo }) |
