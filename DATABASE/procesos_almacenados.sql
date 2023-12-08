@@ -493,3 +493,61 @@ BEGIN
 			Estado
     from    Camiones
 END
+
+
+----RUTAS PROCESOS ALMACENADOS
+
+-- =============================================
+--INSERTAR Rutas
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[insertar_ruta]
+    @CodigoCliente INT,
+    @CodigoChofer INT,
+    @CodigoCamion INT,
+    @Estado INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF EXISTS (SELECT 1 FROM Clientes WHERE CodigoCliente = @CodigoCliente)
+       AND EXISTS (SELECT 1 FROM Choferes WHERE CodigoChofer = @CodigoChofer)
+       AND EXISTS (SELECT 1 FROM Camiones WHERE CodigoCamion = @CodigoCamion)
+    BEGIN
+        
+        INSERT INTO db.Rutas (CodigoCliente, CodigoChofer, CodigoCamion, Estado)
+        VALUES (@CodigoCliente, @CodigoChofer, @CodigoCamion, @Estado);
+
+		END
+END
+
+
+-- =============================================
+--CAMBIAR ESTADO Rutas
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[Cambiarestado_ruta]
+    @CodigoRuta INT,
+    @NuevoEstado INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    
+    IF EXISTS (SELECT 1 FROM Rutas WHERE Codigo = @CodigoRuta)
+    BEGIN
+        
+        UPDATE Rutas
+        SET Estado = @NuevoEstado
+        WHERE Codigo = @CodigoRuta;
+
+    END
+END

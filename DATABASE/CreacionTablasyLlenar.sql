@@ -39,6 +39,19 @@ CREATE TABLE dbo.Clientes (
     Estado INT NOT NULL
 );
 
+--Rutas
+CREATE TABLE db.Rutas (
+    Codigo INT IDENTITY(1,1) PRIMARY KEY,
+    CodigoClientes INT NOT NULL,
+    CodigoChoferes INT NOT NULL,
+	CodigoCamiones INT NOT NULL,
+    DireccionEntrega VARCHAR (255),
+    Estado INT NOT NULL
+
+    FOREIGN KEY (CodigoCliente) REFERENCES Clientes(Codigo),
+    FOREIGN KEY (CodigoChofer) REFERENCES Choferes(Codigo),
+    FOREIGN KEY (CodigoCamion) REFERENCES Camiones(Codigo)
+);
 ------LLENAR TABLAS
 ---USUARIOS:
 
