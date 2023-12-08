@@ -1,14 +1,4 @@
-﻿@* @{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Proyecto Progra 4</h1>
-    <p>Joseph y Alejandro</p>
-</div>
- *@
-
-@{
+﻿@{
     ViewData["Title"] = "Página Principal";
 }
 
@@ -18,6 +8,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Proyecto Programación IV</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <!-- Add your additional head content here -->
     <!-- Example JavaScript -->
     <script>
@@ -26,9 +18,36 @@
             alert('¡Bienvenido al Proyecto de Programación IV!');
         }
     </script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        main {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container text-center">
+    <div class="container">
         <header>
             <h1 class="display-4">Bienvenido al Proyecto de Programación IV</h1>
             <p>Desarrollado por Joseph y Alejandro</p>
@@ -36,7 +55,20 @@
 
         <main>
             <!-- Your main content goes here -->
-            <button onclick="greetUser()">Saludar</button>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/Clientes/Lista" class="btn btn-primary btn-block">Clientes</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/Choferes/Lista" class="btn btn-primary btn-block">Choferes</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/Usuarios/Lista" class="btn btn-primary btn-block">Usuarios</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="/Camiones/Lista" class="btn btn-primary btn-block">Camiones</a>
+                </div>
+            </div>
         </main>
 
         <footer>
@@ -45,6 +77,16 @@
         </footer>
     </div>
 
+    <!-- Bootstrap JS and additional scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
     <!-- Add your scripts and additional body content here -->
 </body>
 </html>

@@ -4,25 +4,37 @@
     ViewBag.Title = "Confirmar Eliminación Choferes";
 }
 
-<h2>Actualizar</h2>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h2 class="mb-0">Confirmar Eliminación</h2>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Eliminar", "Choferes", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        <h4>Eliminar</h4>
+                        <hr />
+                        @Html.HiddenFor(model => model.Codigo)
 
-@using (Html.BeginForm("Eliminar", "Choferes"))
-{
-    <div class="form-horizontal">
-        <h4>ELIMINAR</h4>
-        <hr />
-        @Html.HiddenFor(model => model.Codigo)
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Eliminar" class="btn-primary" />
-                @ViewBag.Message
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-danger">
+                                    Eliminar
+                                </button>
+                                @ViewBag.Message
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
-}
-<br />
 
-<div>
-    @Html.ActionLink("Regresar a Choferes", "Lista")
+    <div class="row mt-3">
+        <div class="col-md-12 text-center">
+            <a asp-action="Lista" class="btn btn-secondary">Regresar a Choferes</a>
+        </div>
+    </div>
 </div>

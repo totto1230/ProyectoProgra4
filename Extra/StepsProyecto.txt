@@ -18,8 +18,8 @@ BASE PROYECTO:
 	Eliminar SIN BORRAR EN LA BASE DE DATOS:
 		- Clientes ✅
 		- Choferes ✅
-		- Camiones 
-		- Usuarios
+		- Camiones ✅
+		- Usuarios ✅
 	
 Login ✅
 PARTE DE GESTIÓN DE RUTA RUTAS:
