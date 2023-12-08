@@ -21,7 +21,8 @@ namespace ProyectoPrograCuatro.Models
         [Required(ErrorMessage = "Ingrese Télefono")]
         public string Telefono { get; set; }
 
-        [DisplayName("Chofer Válido?")]
+        [DisplayName("Estado del Chofer")]
+        [Range(0, 1, ErrorMessage = "VALORES SOLO 1 o 0")]
         public int Estado { get; set; }
     }
 }

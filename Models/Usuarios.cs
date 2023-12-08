@@ -26,7 +26,8 @@ namespace ProyectoPrograCuatro.Models
         public string Contrasenia { get; set; }
 
         [ValidateNever]
-        [DisplayName("Usuario Válido?")]
+        [DisplayName("Estado del Usuario")]
+        [Range(0,1, ErrorMessage = "VALORES SOLO 1 o 0")]
         public int Estado { get; set; }
 
     }

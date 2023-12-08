@@ -25,12 +25,12 @@
                         @Html.DisplayNameFor(model => model.Unidad)
                     </span>
                 </th>
-                <th>
+@*                 <th>
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Placa)
                     </span>
-                </th>
-                <th>
+                </th>*@
+                <th> 
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Estado)
                     </span>
@@ -48,9 +48,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Unidad)
                     </td>
-                    <td>
+@*                     <td>
                         @Html.DisplayFor(modelItem => item.Placa)
-                    </td>
+                    </td> *@
                     <td>
                         @if (item.Estado == 1)
                         {

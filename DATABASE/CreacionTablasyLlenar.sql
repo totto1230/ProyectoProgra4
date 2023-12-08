@@ -53,6 +53,7 @@ CREATE TABLE dbo.Rutas (
     FOREIGN KEY (CodigoChoferes) REFERENCES Choferes(Codigo),
     FOREIGN KEY (CodigoCamiones) REFERENCES Camiones(Codigo)
 );
+
 ------LLENAR TABLAS
 ---USUARIOS:
 

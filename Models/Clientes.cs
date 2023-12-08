@@ -27,7 +27,8 @@ namespace ProyectoPrograCuatro.Models
         public string Direccion { get; set; }
 
     
-        [DisplayName("Cliente Válido?")]
+        [DisplayName("Estado del Cliente")]
+        [Range(0, 1, ErrorMessage = "VALORES SOLO 1 o 0")]
         public int Estado { get; set; }
     }
 }

@@ -16,7 +16,8 @@ namespace ProyectoPrograCuatro.Models
         [Required(ErrorMessage = "Ingrese la Placa")]
         public string Placa { get; set; }
 
-        [DisplayName("Camión Válido?")]
+        [DisplayName("Estado del Camión")]
+        [Range(0, 1, ErrorMessage = "VALORES SOLO 1 o 0")]
         public int Estado { get; set; }
     }
 }
