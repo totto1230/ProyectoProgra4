@@ -26,7 +26,7 @@ namespace ProyectoPrograCuatro.Models
         [Required(ErrorMessage = "Ingrese la dirección de entrega")]
         public string DireccionEntrega { get; set; }
 
-        [DisplayName("Fecha de creacion")
+        [DisplayName("Fecha de creacion")]
         public string FechaCreacion { get; set; }
 
         [DisplayName("Estado de la Ruta")]
