@@ -494,7 +494,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[Obtener_Rutas] 
+CREATE PROCEDURE [dbo].[obtener_rutas] 
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -504,6 +504,7 @@ BEGIN
             CodigoChoferes,
             CodigoCamiones,
 			DireccionEntrega,
+			FechaCreacion,
             Estado
     FROM    Rutas
 END
@@ -523,6 +524,7 @@ CREATE PROCEDURE [dbo].[insertar_ruta]
     @CodigoChoferes INT,
     @CodigoCamiones INT,
 	@DireccionEntrega VARCHAR (225),
+	@FechaCreacion DATETIME,
     @Estado INT
 AS
 BEGIN
@@ -533,8 +535,8 @@ BEGIN
        AND EXISTS (SELECT 1 FROM Camiones WHERE Codigo = @CodigoCamiones)
     BEGIN
         
-        INSERT INTO db.Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, Estado)
-        VALUES (@CodigoClientes, @CodigoChoferes, @CodigoCamiones, @direccionentrega, @Estado);
+        INSERT INTO db.Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
+        VALUES (@CodigoClientes, @CodigoChoferes, @CodigoCamiones, @direccionentrega, @FechaCreacion, @Estado);
 
 		END
 END
@@ -549,7 +551,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[Cambiarestado_ruta]
+CREATE PROCEDURE [dbo].[cambiarestado_ruta]
     @CodigoRuta INT,
     @NuevoEstado INT
 AS
