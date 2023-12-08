@@ -1,5 +1,92 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<ProyectoPrograCuatro.Models.Rutas>
 @{
+    ViewBag.Title = "Rutas";
 }
+
+<div class="container text-center">
+    <h2 class="text-primary font-weight-bold">Lista de Clientes</h2>
+
+    <p>
+        <a class="btn btn-primary" asp-action="Crear" asp-controller="Clientes">Crear Cliente</a>
+    </p>
+
+    <table class="table table-bordered table-striped mx-auto">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    <span class="badge badge-primary">
+                        @Html.DisplayNameFor(model => model.Codigo)
+                    </span>
+                </th>
+                @*<th>
+                    <span class="badge badge-primary">
+                        @Html.DisplayNameFor(model => model.Nombre)
+                    </span>
+                </th>
+                @* <th>
+                <span class="badge badge-primary">
+                @Html.DisplayNameFor(model => model.Telefono)
+                </span>
+                </th>
+                <th>
+                <span class="badge badge-primary">
+                @Html.DisplayNameFor(model => model.Contacto)
+                </span>
+                </th>
+                <th>
+                <span class="badge badge-primary">
+                @Html.DisplayNameFor(model => model.Direccion)
+                </span>
+                </th> *@
+                <th>
+                    <span class="badge badge-primary">
+                        @Html.DisplayNameFor(model => model.Estado)
+                    </span>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ToList())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Codigo)
+                    </td>
+                    @* <td>
+                        @Html.DisplayFor(modelItem => item)
+                    </td>
+                    @*                     <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.Contacto)
+                </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+                </td> *@
+                    <td>
+                        @if (item.Estado == 1)
+                        {
+                            <span class="text-success font-weight-bold">Activo</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger font-weight-bold">Inactivo</span>
+                        }
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-primary" asp-action="Actualizar" asp-controller="Clientes" asp-route-idcliente="@item.Codigo">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a class="btn btn-danger" asp-action="Eliminar" asp-controller="Clientes" asp-route-idcliente="@item.Codigo">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
