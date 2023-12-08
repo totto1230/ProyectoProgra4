@@ -40,7 +40,7 @@ CREATE TABLE dbo.Clientes (
 );
 
 --Rutas
-CREATE TABLE db.Rutas (
+CREATE TABLE dbo.Rutas (
     Codigo INT IDENTITY(1,1) PRIMARY KEY,
     CodigoClientes INT NOT NULL,
     CodigoChoferes INT NOT NULL,
@@ -48,9 +48,9 @@ CREATE TABLE db.Rutas (
     DireccionEntrega VARCHAR (255),
     Estado INT NOT NULL
 
-    FOREIGN KEY (CodigoCliente) REFERENCES Clientes(Codigo),
-    FOREIGN KEY (CodigoChofer) REFERENCES Choferes(Codigo),
-    FOREIGN KEY (CodigoCamion) REFERENCES Camiones(Codigo)
+    FOREIGN KEY (CodigoClientes) REFERENCES Clientes(Codigo),
+    FOREIGN KEY (CodigoChoferes) REFERENCES Choferes(Codigo),
+    FOREIGN KEY (CodigoCamiones) REFERENCES Camiones(Codigo)
 );
 ------LLENAR TABLAS
 ---USUARIOS:
