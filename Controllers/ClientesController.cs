@@ -90,6 +90,7 @@ namespace ProyectoPrograCuatro.Controllers
             }
             
         }
+
         [HttpPost]
         public IActionResult Actualizar(Clientes cliente)
         {
@@ -105,6 +106,44 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
+        public IActionResult Eliminar(int idcliente)
+        {
+            try
+            {
+                var cliente = _clienteBLL.ObtenerCliente(idcliente);
+                if (cliente == null)//si no se encontró datos del cliente
+                {
+                    return View();
+                }
+                else
+                {
+                    return View(cliente);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
+        [HttpPost]
+        public IActionResult Eliminar(Clientes cliente)
+        {
+            try
+            {
+                var cliente_updated = _clienteBLL.EliminarCliente(cliente);
+                return RedirectToAction("Lista");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
 
 

@@ -103,9 +103,25 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
-        public int EliminarCliente(int idcliente)
+        public Clientes EliminarCliente(Clientes cliente)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var param = new DynamicParameters();
+                param.Add("Codigo", cliente.Codigo, DbType.Int32, ParameterDirection.Input);
+                param.Add("Estado", 0, DbType.Int32, ParameterDirection.Input);
+
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    conn.Execute("eliminar_cliente", param, commandType: CommandType.StoredProcedure);
+                    return cliente;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

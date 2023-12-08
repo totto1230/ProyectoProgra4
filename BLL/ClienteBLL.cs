@@ -65,11 +65,11 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        public int EliminarCliente(int idcliente)
+        public Clientes EliminarCliente(Clientes cliente)
         {
             try
             {
-                return _clientesRepositorio.EliminarCliente(idcliente);
+                return _clientesRepositorio.EliminarCliente(cliente);
             }
             catch (Exception)
             {

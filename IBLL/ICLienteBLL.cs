@@ -8,6 +8,7 @@ namespace ProyectoPrograCuatro.IBLL
         public int InsertarCliente(Clientes cliente);
         public Clientes ObtenerCliente(int idcliente);
         public Clientes ActualizarCliente(Clientes cliente);
-        public int EliminarCliente(int idcliente);
+
+        public Clientes EliminarCliente(Clientes cliente);
     }
 }

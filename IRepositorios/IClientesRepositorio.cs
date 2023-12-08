@@ -10,7 +10,8 @@ namespace ProyectoPrograCuatro.IRepositorios
         public Clientes ObtenerCliente(int idcliente);
 
         public Clientes ActualizarCliente(Clientes cliente);
-        public int EliminarCliente(int idcliente);
+
+        public Clientes EliminarCliente(Clientes cliente);
 
     }
 }

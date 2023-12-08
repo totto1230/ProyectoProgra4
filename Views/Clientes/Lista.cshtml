@@ -57,8 +57,7 @@
             <td>
                 @Html.ActionLink("Editar", "Actualizar","Clientes", new { idcliente=item.Codigo }) |
                 @Html.ActionLink("Eliminar","Eliminar","Clientes",
-            new { idcliente=item.Codigo },
-            new { onclick = "return confirm('¿Desea eliminar el cliente: " + item.Nombre + "?')"  })
+            new { idcliente=item.Codigo })
             </td>
         </tr>
     } 
