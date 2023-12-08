@@ -4,6 +4,7 @@ using ProyectoPrograCuatro.IBLL;
 using ProyectoPrograCuatro.Login;
 using ProyectoPrograCuatro.Models;
 
+
 namespace ProyectoPrograCuatro.Controllers
 {
     [Autenticacion]
@@ -41,7 +42,13 @@ namespace ProyectoPrograCuatro.Controllers
 
         public IActionResult Crear()
         {
-            return View();
+            Rutas nuevaRuta = new Rutas
+            {
+                
+                FechaCreacion = DateTime.Now 
+            };
+
+            return View(nuevaRuta);
         }
 
 

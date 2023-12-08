@@ -27,7 +27,7 @@ namespace ProyectoPrograCuatro.Models
         public string DireccionEntrega { get; set; }
 
         [DisplayName("Fecha de creacion")]
-        public string FechaCreacion { get; set; }
+        public DateTime FechaCreacion { get; set; }
 
         [DisplayName("Estado de la Ruta")]
         public int Estado { get; set; }
