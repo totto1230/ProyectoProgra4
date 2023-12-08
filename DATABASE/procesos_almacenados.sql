@@ -508,9 +508,10 @@ BEGIN
     SET NOCOUNT ON;
 
     SELECT  Codigo,
-            CodigoCliente,
-            CodigoChofer,
-            CodigoCamion,
+            CodigoClientes,
+            CodigoChoferes,
+            CodigoCamiones,
+			DireccionEntrega,
             Estado
     FROM    Rutas
 END
@@ -526,21 +527,22 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[insertar_ruta]
-    @CodigoCliente INT,
-    @CodigoChofer INT,
-    @CodigoCamion INT,
+    @CodigoClientes INT,
+    @CodigoChoferes INT,
+    @CodigoCamiones INT,
+	@DireccionEntrega VARCHAR (225),
     @Estado INT
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    IF EXISTS (SELECT 1 FROM Clientes WHERE CodigoCliente = @CodigoCliente)
-       AND EXISTS (SELECT 1 FROM Choferes WHERE CodigoChofer = @CodigoChofer)
-       AND EXISTS (SELECT 1 FROM Camiones WHERE CodigoCamion = @CodigoCamion)
+    IF EXISTS (SELECT 1 FROM Clientes WHERE Codigo = @CodigoClientes)
+       AND EXISTS (SELECT 1 FROM Choferes WHERE Codigo = @CodigoChoferes)
+       AND EXISTS (SELECT 1 FROM Camiones WHERE Codigo = @CodigoCamiones)
     BEGIN
         
-        INSERT INTO db.Rutas (CodigoCliente, CodigoChofer, CodigoCamion, Estado)
-        VALUES (@CodigoCliente, @CodigoChofer, @CodigoCamion, @Estado);
+        INSERT INTO db.Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, Estado)
+        VALUES (@CodigoClientes, @CodigoChoferes, @CodigoCamiones, @direccionentrega, @Estado);
 
 		END
 END
