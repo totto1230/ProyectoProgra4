@@ -19,13 +19,7 @@
     @* <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script> *@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    <!-- Example JavaScript -->
-    <script>
-        // Simple JavaScript function
-        function greetUser() {
-            alert('¡Bienvenido al Proyecto de Programación IV!');
-        }
-    </script>
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -78,6 +72,9 @@
                 </div>
                 <div class="col-md-3">
                     <a href="/Camiones/Lista" class="btn btn-primary btn-block">Camiones</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="@Url.Action("LogOut", "Usuarios")" class="btn btn-primary btn-block">Salir</a>
                 </div>
             </div>
 
