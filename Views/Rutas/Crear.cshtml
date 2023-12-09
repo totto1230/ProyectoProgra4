@@ -9,7 +9,7 @@
 @using (Html.BeginForm("Crear", "Rutas"))
 {
     <div class="form-horizontal">
-        <h4>Datos de la Ruta</h4>
+        <h4>Datos del Cliente</h4>
         <hr />
 
         <div class="form-group">
@@ -52,7 +52,6 @@
             </div>
         </div>
 
-
         <div class="form-group">
             @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -75,7 +74,6 @@
 }
 <br />
 
-
 <div>
-    @Html.ActionLink("Regresar a Rutas", "Lista")
+    @Html.ActionLink("Regresar a Clientes", "Lista")
 </div>
