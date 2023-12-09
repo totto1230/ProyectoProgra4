@@ -42,26 +42,6 @@
                 </th>
                 <th>
                     <span class="badge badge-primary">
-                        @Html.DisplayNameFor(model => model.CodigoCliente)
-                    </span>
-                </th>
-                @* <th>
-                <span class="badge badge-primary">
-                @Html.DisplayNameFor(model => model.Telefono)
-                </span>
-                </th>
-                <th>
-                <span class="badge badge-primary">
-                @Html.DisplayNameFor(model => model.Contacto)
-                </span>
-                </th>
-                <th>
-                <span class="badge badge-primary">
-                @Html.DisplayNameFor(model => model.Direccion)
-                </span>
-                </th> *@
-                <th>
-                    <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Estado)
                     </span>
                 </th>
@@ -79,18 +59,6 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Codigo)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CodigoCliente)
-                    </td>
-                    @*                     <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-                </td>
-                <td>
-                @Html.DisplayFor(modelItem => item.Contacto)
-                </td>
-                <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-                </td> *@
                     <td>
                         @if (item.Estado == 1)
                         {

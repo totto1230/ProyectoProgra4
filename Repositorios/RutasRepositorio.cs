@@ -18,6 +18,29 @@ namespace ProyectoPrograCuatro.Repositorios
             _dapperContext = dapperContext;
         }
 
+        //public Rutas GenerarReporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal)
+        //{
+        //    try
+        //    {
+        //        var param = new DynamicParameters();
+        //        param.Add("@CodigoCliente", codigoCliente , DbType.Int32, ParameterDirection.Input);
+        //        param.Add("@FechaInicio", fechaInicio, DbType.DateTime, ParameterDirection.Input);
+        //        param.Add("@FechaFinal", fechaFinal, DbType.DateTime, ParameterDirection.Input);
+        //        using (var conn = _dapperContext.CrearConexion())
+        //        {
+        //            var reporte = conn.QuerySingleOrDefault<Rutas>("obtener_reporte_rutas", param, commandType: CommandType.StoredProcedure);
+        //            return reporte;
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
+
+ 
+
         public int InsertarRuta(Rutas ruta)
         {
             try

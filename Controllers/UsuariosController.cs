@@ -19,7 +19,6 @@ namespace ProyectoPrograCuatro.Controllers
         
             return View();
         }
-        
         //UTILIZA HTTP GET para validar si hay una sesion
 
         public IActionResult Login()
@@ -222,6 +221,13 @@ namespace ProyectoPrograCuatro.Controllers
                 ViewBag.Message = "Error al actualizar el usuario";
                 return View();
             }
+        }
+
+        [Autenticacion]
+        public IActionResult Informacion()
+        {
+
+            return View();
         }
     }
 }

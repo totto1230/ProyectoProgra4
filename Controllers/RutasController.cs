@@ -103,10 +103,19 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
+        //public IActionResult Reporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal) 
+        //{
+        //    try
+        //    {
+        //        var reporte = _rutasBLL.GenerarReporte(codigoCliente, fechaInicio, fechaFinal);
+        //        return View(reporte);
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
     }
 
- 
-
-
-
-}
+ }
