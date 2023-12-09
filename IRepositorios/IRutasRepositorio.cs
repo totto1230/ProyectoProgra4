@@ -11,5 +11,13 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public Rutas ObtenerRuta(int codigoruta);
 
+        // Obtiene una lista de clientes disponibles
+        List<Clientes> ObtenerClientesDisponibles();
+
+        // Obtiene una lista de choferes disponibles
+        List<Choferes> ObtenerChoferesDisponibles();
+
+        // Obtiene una lista de camiones disponibles
+        List<Camiones> ObtenerCamionesDisponibles();
     }
 }
