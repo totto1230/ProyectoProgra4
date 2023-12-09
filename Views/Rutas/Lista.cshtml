@@ -1,13 +1,35 @@
-﻿@model IEnumerable<ProyectoPrograCuatro.Models.Rutas>
-@{
-    ViewBag.Title = "Rutas";
-}
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Mi aplicación</title>
+
+    <!-- Agrega estos enlaces para Font Awesome y Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Tu contenido Razor sigue aquí -->
+    @model IEnumerable<ProyectoPrograCuatro.Models.Rutas>
+    @{
+        ViewBag.Title = "Rutas";
+    }
+
+
+    <!-- El resto de tu código Razor... -->
+    <!-- Scripts de Bootstrap y jQuery (al final del cuerpo) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    @*  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script> *@
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
 
 <div class="container text-center">
     <h2 class="text-primary font-weight-bold">Lista de Rutas</h2>
 
     <p>
-        <a class="btn btn-primary" asp-action="Crear" asp-controller="Rutas">Crear </a>
+        <a class="btn btn-primary" asp-action="Crear" asp-controller="Rutas">Crear ruta</a>
     </p>
 
     <table class="table table-bordered table-striped mx-auto">
@@ -18,12 +40,39 @@
                         @Html.DisplayNameFor(model => model.Codigo)
                     </span>
                 </th>
+<<<<<<< HEAD
+=======
+                <th>
+                    <span class="badge badge-primary">
+                        @Html.DisplayNameFor(model => model.CodigoCliente)
+                    </span>
+                </th>
+                @* <th>
+                <span class="badge badge-primary">
+                @Html.DisplayNameFor(model => model.Telefono)
+                </span>
+                </th>
+                <th>
+                <span class="badge badge-primary">
+                @Html.DisplayNameFor(model => model.Contacto)
+                </span>
+                </th>
+                <th>
+                <span class="badge badge-primary">
+                @Html.DisplayNameFor(model => model.Direccion)
+                </span>
+                </th> *@
+>>>>>>> f2b20ea607c0e7a7837eeb82fba8e65d0872d246
                 <th>
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Estado)
                     </span>
                 </th>
-                <th></th>
+                <th>
+                    <span class="badge badge-primary">
+                        Acciones Disponibles:
+                    </span>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -33,22 +82,36 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Codigo)
                     </td>
+<<<<<<< HEAD
+=======
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoCliente)
+                    </td>
+                    @*                     <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.Contacto)
+                </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+                </td> *@
+>>>>>>> f2b20ea607c0e7a7837eeb82fba8e65d0872d246
                     <td>
                         @if (item.Estado == 1)
                         {
-                            <span class="text-success font-weight-bold">Activo</span>
+                            <span class="text-success font-weight-bold"> <i class="fas fa-check-circle" style="font-size: 30px;"></i></span>
                         }
                         else
                         {
-                            <span class="text-danger font-weight-bold">Inactivo</span>
+                            <span class="text-danger font-weight-bold"> <i class="fas fa-times-circle" style="font-size: 30px;"></i></span>
                         }
-                    </td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a class="btn btn-primary" asp-action="Actualizar" asp-controller="Clientes" asp-route-idcliente="@item.Codigo">
+                            <a class="btn btn-primary" asp-action="Actualizar" asp-controller="Rutas" asp-route-idcliente="@item.Codigo">
                                 <i class="fas fa-edit"></i> Editar
                             </a>
-                            <a class="btn btn-danger" asp-action="Eliminar" asp-controller="Clientes" asp-route-idcliente="@item.Codigo">
+                            <a class="btn btn-danger" asp-action="Eliminar" asp-controller="Rutas" asp-route-idcliente="@item.Codigo">
                                 <i class="fas fa-trash-alt"></i> Eliminar
                             </a>
                         </div>
@@ -58,3 +121,4 @@
         </tbody>
     </table>
 </div>
+
