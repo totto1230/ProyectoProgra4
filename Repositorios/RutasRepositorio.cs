@@ -69,7 +69,7 @@ namespace ProyectoPrograCuatro.Repositorios
                 param.Add("@Codigo", codigoruta, DbType.Int32, ParameterDirection.Input);
                 using (var conn = _dapperContext.CrearConexion())
                 {
-                    var ruta = conn.QuerySingleOrDefault<Rutas>("obtener_cliente_porID", param, commandType: CommandType.StoredProcedure);
+                    var ruta = conn.QuerySingleOrDefault<Rutas>("obtener_ruta_porID", param, commandType: CommandType.StoredProcedure);
 
                     return ruta;
                 }

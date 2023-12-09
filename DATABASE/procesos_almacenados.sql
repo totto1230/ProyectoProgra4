@@ -537,8 +537,9 @@ BEGIN
         
         INSERT INTO db.Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
         VALUES (@CodigoClientes, @CodigoChoferes, @CodigoCamiones, @direccionentrega, @FechaCreacion, @Estado);
+	END
 
-		END
+	Select cast(Scope_Identity() as int)
 END
 
 
@@ -567,4 +568,22 @@ BEGIN
         WHERE Codigo = @CodigoRuta;
 
     END
+END
+
+--OBTENER Rutas POR ID
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[obtener_ruta_porID]
+	(
+	  @Codigo int
+	)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+	Select * from Rutas
+	where Codigo = @Codigo
+
 END
