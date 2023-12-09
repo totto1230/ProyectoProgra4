@@ -45,13 +45,7 @@ namespace ProyectoPrograCuatro.Controllers
         {
             try
             {
-                var clientes = _rutasBLL.ObtenerClientesDisponibles();
-                var choferes = _rutasBLL.ObtenerChoferesDisponibles();
-                var camiones = _rutasBLL.ObtenerCamionesDisponibles();
-
-                ViewBag.Clientes = new SelectList(clientes, "Codigo", "Nombre");
-                ViewBag.Choferes = new SelectList(choferes, "Codigo", "Nombre");
-                ViewBag.Camiones = new SelectList(camiones, "Codigo", "Unidad");
+             
 
                 Rutas nuevaRuta = new Rutas
                 {
@@ -86,13 +80,7 @@ namespace ProyectoPrograCuatro.Controllers
                     return View(); // Puedes redirigir a una vista de éxito o a donde sea necesario
                 }
 
-                var clientes = _rutasBLL.ObtenerClientesDisponibles();
-                var choferes = _rutasBLL.ObtenerChoferesDisponibles();
-                var camiones = _rutasBLL.ObtenerCamionesDisponibles();
-
-                ViewBag.Clientes = new SelectList(clientes, "Codigo", "Nombre");
-                ViewBag.Choferes = new SelectList(choferes, "Codigo", "Nombre");
-                ViewBag.Camiones = new SelectList(camiones, "Codigo", "Unidad");
+    
 
                 return View(ruta);
             }
@@ -105,13 +93,45 @@ namespace ProyectoPrograCuatro.Controllers
 
 
 
-        public IActionResult Actualizar() 
+        public IActionResult Actualizar(int codigoruta) 
         {
-            
-            return View();
+
+            try
+            {
+                var ruta = _rutasBLL.ObtenerRuta(codigoruta);
+                if (ruta == null)//si no se encontró datos del cliente
+                {
+                    return View();
+                }
+                else
+                {
+                    return View(ruta);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        
+
+        [HttpPost]
+        public IActionResult Actualizar(Rutas ruta)
+        {
+            try
+            {
+                var cliente_updated = _rutasBLL.ActualizarRuta(ruta);
+                return RedirectToAction("Lista");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
 
 
         //public IActionResult Reporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal) 

@@ -591,7 +591,7 @@ END
 
 -- =============================================
 
---Obtener Choferes Disponibles
+
 
 SET ANSI_NULLS ON
 GO
@@ -613,6 +613,8 @@ GO
 
 GO
 /****** Object:  StoredProcedure [dbo].[obtener_todos_reportes]    Script Date: 12/8/2023 5:42:56 PM ******/
+
+--Obtener Choferes Disponibles
 CREATE PROCEDURE [dbo].[obtener_choferes_disponibles]
 AS
 BEGIN
