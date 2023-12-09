@@ -14,5 +14,7 @@ namespace ProyectoPrograCuatro.IBLL
 
         public Camiones EliminarCamion(Camiones camion);
 
+        public List<ModeloDD> DDCamiones();
+
     }
 }

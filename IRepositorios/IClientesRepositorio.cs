@@ -13,5 +13,7 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public Clientes EliminarCliente(Clientes cliente);
 
+        public List<ModeloDD> DDClientes();
+
     }
 }

@@ -15,24 +15,30 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CodigoCliente, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CodigoCliente, (IEnumerable<SelectListItem>)ViewBag.Clientes, "Seleccione un cliente", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CodigoCliente, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.CodigoCliente,
+                                               new SelectList(ViewBag.Clientes, "Codigo", "Nombre"),
+                                               "Seleccione un Cliente",
+                                               new { @class = "btn dropdown-toggle" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.CodigoChofer, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CodigoChofer, (IEnumerable<SelectListItem>)ViewBag.Choferes, "Seleccione un chofer", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CodigoChofer, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.CodigoChofer,
+                                           new SelectList(ViewBag.Choferes, "Codigo", "Nombre"),
+                                           "Seleccione un Cliente",
+                                           new { @class = "btn dropdown-toggle" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.CodigoCamion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CodigoCamion, (IEnumerable<SelectListItem>)ViewBag.Camiones, "Seleccione un camión", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CodigoCamion, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.CodigoCamion,
+                                      new SelectList(ViewBag.Camiones, "Codigo", "Unidad"),
+                                      "Seleccione un Camion",
+                                         new { @class = "btn dropdown-toggle" })
             </div>
         </div>
 

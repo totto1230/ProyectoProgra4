@@ -77,5 +77,18 @@ namespace ProyectoPrograCuatro.BLL
                 throw;
             }
         }
+
+        public List<ModeloDD> DDClientes()
+        {
+            try
+            {
+                return _clientesRepositorio.DDClientes();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

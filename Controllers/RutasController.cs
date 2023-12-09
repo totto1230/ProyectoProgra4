@@ -12,10 +12,17 @@ namespace ProyectoPrograCuatro.Controllers
     public class RutasController : Controller
     {
         private readonly IRutasBLL _rutasBLL;
+        private readonly ICLienteBLL _cLienteBLL;
+        private readonly IChoferesBLL _choferesBLL;
+        private readonly ICamionesBLL _camionesBLL;
 
-        public RutasController (IRutasBLL rutasBLL)
+        public RutasController (ICLienteBLL clienteBLL,IChoferesBLL choferesBLL, ICamionesBLL camionesBLL, IRutasBLL rutasBLL)
         {
+            _cLienteBLL = clienteBLL;
+            _choferesBLL = choferesBLL;
+            _camionesBLL = camionesBLL;
             _rutasBLL = rutasBLL;
+            
         }
 
 
@@ -43,23 +50,10 @@ namespace ProyectoPrograCuatro.Controllers
 
         public IActionResult Crear()
         {
-            try
-            {
-             
-
-                Rutas nuevaRuta = new Rutas
-                {
-                    FechaCreacion = DateTime.Now
-                };
-
-
-                return View(nuevaRuta);
-            }
-            catch (Exception ex)
-            {
-                ViewBag.ErrorMessage = "Ocurrió un error al cargar los datos: " + ex.Message;
-                return View(); // Puedes redirigir a una vista de error o a donde sea necesario
-            }
+            ViewBag.Clientes = _cLienteBLL.DDClientes();
+            ViewBag.Choferes = _choferesBLL.DDChoferes();
+            ViewBag.Camiones = _camionesBLL.DDCamiones();
+            return View();
         }
 
 

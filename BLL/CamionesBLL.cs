@@ -78,5 +78,18 @@ namespace ProyectoPrograCuatro.BLL
                 throw;
             }
         }
+
+        public List<ModeloDD> DDCamiones()
+        {
+            try
+            {
+                return _camionesRepositorio.DDCamiones();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

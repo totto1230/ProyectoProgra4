@@ -127,6 +127,21 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
- 
+        public List<ModeloDD> DDCamiones()
+        {
+            try
+            {
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    return conn.Query<ModeloDD>("carga_dropdown_camiones").ToList();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

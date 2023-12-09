@@ -62,7 +62,6 @@
                             <div class="col-md-10">
                                 @Html.DropDownListFor(model => model.Estado, new SelectList(new List<SelectListItem>
                             {
-                            new SelectListItem { Text = "Creado", Value = "0" },
                             new SelectListItem { Text = "En progreso", Value = "1" },
                             new SelectListItem { Text = "Finalizada", Value = "2" }
                             }, "Value", "Text"), new { @class = "form-control" })

@@ -37,6 +37,23 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
+        public List<ModeloDD> DDChoferes()
+        {
+            try
+            {
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    return conn.Query<ModeloDD>("carga_dropdown_choferes").ToList();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public Choferes EliminarChofer(Choferes chofer)
         {
             try

@@ -10,5 +10,7 @@ namespace ProyectoPrograCuatro.IBLL
         public Clientes ActualizarCliente(Clientes cliente);
 
         public Clientes EliminarCliente(Clientes cliente);
+
+        public List<ModeloDD> DDClientes();
     }
 }

@@ -13,5 +13,7 @@ namespace ProyectoPrograCuatro.IRepositorios
         public Camiones ActualizarCamion(Camiones camion);
 
         public Camiones EliminarCamion(Camiones camion);
+
+        public List<ModeloDD> DDCamiones();
     }
 }

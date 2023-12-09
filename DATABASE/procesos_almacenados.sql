@@ -591,7 +591,7 @@ END
 
 -- =============================================
 
-
+-----Obtener_reporte_rutas
 
 SET ANSI_NULLS ON
 GO
@@ -611,63 +611,92 @@ BEGIN
 END
 GO
 
-GO
-/****** Object:  StoredProcedure [dbo].[obtener_todos_reportes]    Script Date: 12/8/2023 5:42:56 PM ******/
-
---Obtener Choferes Disponibles
-CREATE PROCEDURE [dbo].[obtener_choferes_disponibles]
-AS
-BEGIN
-    SET NOCOUNT ON;
-
-    SELECT *
-    FROM Choferes
-    WHERE Estado = 1;
-END
-GO
-
-
---Obtener Clientes Disponibles
-
+--------- obtener_todos_reportes
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[obtener_todos_reportes]
+CREATE PROCEDURE obtener_todos_reportes
+   
 AS
 BEGIN
-
 	SET NOCOUNT ON;
-	SELECT FechaCreacion,CodigoChoferes,CodigoCamiones,Estado from Rutas
+	SELECT *
+	From Rutas
+	
+
 END
+GO
+
+-------Carga_dropdown_clientes
+
+GO
 
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[obtener_clientes_disponibles]
+
+CREATE PROCEDURE [dbo].[carga_dropdown_clientes]
+	
 AS
 BEGIN
-    SET NOCOUNT ON;
+	
+	SET NOCOUNT ON;
 
-    SELECT *
-    FROM Clientes
-    WHERE Estado = 1;
-END
+	SELECT Codigo, Nombre from Clientes
+	Order by Nombre ASC
+
+	END
+
 GO
 
---Obtener Camiones Disponibles
+-------Carga_dropdown_choferes
+
+
+GO
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[obtener_camiones_disponibles]
+
+CREATE PROCEDURE [dbo].[carga_dropdown_choferes]
+	
 AS
 BEGIN
-    SET NOCOUNT ON;
+	
+	SET NOCOUNT ON;
 
-    SELECT *
-    FROM Camiones
-    WHERE Estado = 1;
-END
+	SELECT Codigo, Nombre from Choferes
+	Order by Nombre ASC
+
+	END
+
+GO
+
+
+---------------Carga_dropdown_camiones 
+
+
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[carga_dropdown_camiones]
+	
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+
+	SELECT Codigo, Unidad from Camiones
+	Order by Unidad ASC
+
+	END
+
 GO

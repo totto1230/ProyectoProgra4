@@ -123,5 +123,22 @@ namespace ProyectoPrograCuatro.Repositorios
                 throw;
             }
         }
+
+        public List<ModeloDD> DDClientes()
+        {
+            try
+            {
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    return conn.Query<ModeloDD>("carga_dropdown_clientes").ToList();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

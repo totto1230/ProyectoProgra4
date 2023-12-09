@@ -79,5 +79,17 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
+        public List<ModeloDD> DDChoferes()
+        {
+            try
+            {
+                return _choferRepositorio.DDChoferes();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

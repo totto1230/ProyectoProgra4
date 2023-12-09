@@ -12,5 +12,7 @@ namespace ProyectoPrograCuatro.IBLL
         public Choferes ActualizarChofer(Choferes chofer);
 
         public Choferes EliminarChofer(Choferes chofer);
+
+        public List<ModeloDD> DDChoferes();
     }
 }
