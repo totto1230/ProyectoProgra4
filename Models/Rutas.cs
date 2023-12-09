@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace ProyectoPrograCuatro.Models
 {
@@ -13,14 +13,18 @@ namespace ProyectoPrograCuatro.Models
         [DisplayName("Cliente")]
         [Required(ErrorMessage = "Seleccione el cliente")]
         public int CodigoCliente { get; set; }
+        [ValidateNever]
 
         [DisplayName("Chofer")]
         [Required(ErrorMessage = "Seleccione el chofer")]
         public int CodigoChofer { get; set; }
+        [ValidateNever]
 
         [DisplayName("Camión")]
         [Required(ErrorMessage = "Seleccione el camión")]
         public int CodigoCamion { get; set; }
+        [ValidateNever]
+
 
         [DisplayName("Dirección de Entrega")]
         [Required(ErrorMessage = "Ingrese la dirección de entrega")]
