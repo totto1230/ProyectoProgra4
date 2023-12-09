@@ -1,4 +1,5 @@
-﻿using ProyectoPrograCuatro.IBLL;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using ProyectoPrograCuatro.IBLL;
 using ProyectoPrograCuatro.IRepositorios;
 using ProyectoPrograCuatro.Models;
 using ProyectoPrograCuatro.Repositorios;
@@ -16,6 +17,15 @@ namespace ProyectoPrograCuatro.BLL
                _rutasRepositorio = rutasRepositorio;
         
         }
+
+        public Rutas ActualizarRuta(Rutas ruta)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
 
         //public Rutas GenerarReporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal)
         //{

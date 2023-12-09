@@ -11,6 +11,8 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public Rutas ObtenerRuta(int codigoruta);
 
+        public Rutas ActualizarRuta(Rutas ruta);
+
         // Obtiene una lista de clientes disponibles
         List<Clientes> ObtenerClientesDisponibles();
 

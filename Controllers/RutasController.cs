@@ -103,6 +103,17 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
+
+
+        public IActionResult Actualizar() 
+        {
+            
+            return View();
+        }
+
+        
+
+
         //public IActionResult Reporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal) 
         //{
         //    try

@@ -18,6 +18,13 @@ namespace ProyectoPrograCuatro.Repositorios
             _dapperContext = dapperContext;
         }
 
+        public Rutas ActualizarRuta(Rutas ruta)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
         //public Rutas GenerarReporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal)
         //{
         //    try
@@ -39,7 +46,7 @@ namespace ProyectoPrograCuatro.Repositorios
         //    }
         //}
 
- 
+
 
         public int InsertarRuta(Rutas ruta)
         {
