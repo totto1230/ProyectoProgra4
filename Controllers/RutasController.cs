@@ -65,7 +65,7 @@ namespace ProyectoPrograCuatro.Controllers
                 }
 
                 var codigo = _rutasBLL.InsertarRuta(ruta);
-                ViewBag.Message = "Cliente creado con exito con codigo: " + codigo.ToString();
+                ViewBag.Message = "Ruta creada con exito con codigo: " + codigo.ToString();
                 return View();
 
             }
