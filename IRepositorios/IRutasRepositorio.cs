@@ -1,5 +1,5 @@
 ﻿using ProyectoPrograCuatro.Models;
-
+using System.Timers;
 
 namespace ProyectoPrograCuatro.IRepositorios
 {
@@ -11,5 +11,8 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public Rutas ObtenerRuta(int codigoruta);
 
+        //public Rutas GenerarReporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal);
+
+        //public List<Rutas> ListaReportes();
     }
 }

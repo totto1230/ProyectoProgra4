@@ -17,7 +17,18 @@ namespace ProyectoPrograCuatro.BLL
         
         }
 
+        //public Rutas GenerarReporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal)
+        //{
+        //    try
+        //    {
+        //        return _rutasRepositorio.GenerarReporte(codigoCliente, fechaInicio, fechaFinal);
+        //    }
+        //    catch (Exception)
+        //    {
 
+        //        throw;
+        //    }
+        //}
 
         public int InsertarRuta(Rutas ruta)
         {

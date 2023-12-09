@@ -1,0 +1,57 @@
+﻿@model ProyectoPrograCuatro.Models.Rutas
+@* <div>
+    <p>Primera Fecha: @ViewBag.PrimeraFecha.ToString("yyyy-MM-dd HH:mm:ss")</p>
+    <p>Segunda Fecha: @ViewBag.SegundaFecha.ToString("yyyy-MM-dd HH:mm:ss")</p>
+    <p>Tu Entero: @ViewBag.TuEntero</p>
+</div>
+ *@
+
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>Crear</h2>
+
+@using (Html.BeginForm("Reporte", "Rutas"))
+{
+    <div class="form-horizontal">
+        <h4>Datos del Cliente</h4>
+        <hr />
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaCreacion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FechaCreacion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FechaCreacion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CodigoCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CodigoCliente, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CodigoCliente, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FechaCreacion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FechaCreacion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FechaCreacion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn-primary"/>
+                @ViewBag.Message
+            </div>
+        </div>
+    </div> 
+}
+<br />
+
+<div>
+    @Html.ActionLink("Regresar a Clientes", "Lista")
+</div>

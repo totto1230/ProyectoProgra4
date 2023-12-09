@@ -568,3 +568,38 @@ BEGIN
 
     END
 END
+
+
+-- =============================================
+--REPORTES RUTAS
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE obtener_reporte_rutas
+       @FechaInicio DATEtime,
+	   @FechaFinal Datetime,
+	   @Cliente int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT FechaCreacion, CodigoChoferes , CodigoCamiones , Estado
+	From Rutas
+	Where @Cliente = CodigoClientes and @FechaInicio >= FechaCreacion and FechaCreacion <= @FechaFinal
+	
+END
+GO
+
+GO
+/****** Object:  StoredProcedure [dbo].[obtener_todos_reportes]    Script Date: 12/8/2023 5:42:56 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[obtener_todos_reportes]
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+	SELECT FechaCreacion,CodigoChoferes,CodigoCamiones,Estado from Rutas
+END

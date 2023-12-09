@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,9 +10,9 @@
 </head>
 <body>
     <!-- Tu contenido Razor sigue aquí -->
-    @model IEnumerable<ProyectoPrograCuatro.Models.Clientes>
+    @model IEnumerable<ProyectoPrograCuatro.Models.Reporte>
     @{
-        ViewBag.Title = "Clientes";
+        ViewBag.Title = "Reporte";
     }
 
 
@@ -26,33 +25,27 @@
 </html>
 
 <div class="container text-center">
-    <h2 class="text-primary font-weight-bold">Lista de Clientes</h2>
-
-    <p>
-        <a class="btn btn-primary" asp-action="Crear" asp-controller="Clientes">Crear Cliente</a>
-    </p>
-
     <table class="table table-bordered table-striped mx-auto">
         <thead class="thead-dark">
             <tr>
                 <th>
                     <span class="badge badge-primary">
-                        @Html.DisplayNameFor(model => model.Codigo)
+                        @Html.DisplayNameFor(model => model.FechaCreacion)
                     </span>
                 </th>
                 <th>
                     <span class="badge badge-primary">
-                        @Html.DisplayNameFor(model => model.Nombre)
+                        @Html.DisplayNameFor(model => model.CodigoChoferes)
+                    </span>
+                </th>
+                <th>
+                    <span class="badge badge-primary">
+                        @Html.DisplayNameFor(model => model.CodigoCamiones)
                     </span>
                 </th>
                 <th>
                     <span class="badge badge-primary">
                         @Html.DisplayNameFor(model => model.Estado)
-                    </span>
-                </th>
-                <th>
-                    <span class="badge badge-primary">
-                        Acciones Disponibles:
                     </span>
                 </th>
             </tr>
@@ -62,10 +55,13 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Codigo)
+                        @Html.DisplayFor(modelItem => item.FechaCreacion)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Nombre)
+                        @Html.DisplayFor(modelItem => item.CodigoChoferes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoCamiones)
                     </td>
                     <td>
                         @if (item.Estado == 1)
@@ -76,18 +72,14 @@
                         {
                             <span class="text-danger font-weight-bold"> <i class="fas fa-times-circle" style="font-size: 30px;"></i></span>
                         }
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a class="btn btn-primary" asp-action="Actualizar" asp-controller="Clientes" asp-route-idcliente="@item.Codigo">
-                                <i class="fas fa-edit"></i> Editar
-                            </a>
-                            <a class="btn btn-danger" asp-action="Eliminar" asp-controller="Clientes" asp-route-idcliente="@item.Codigo">
-                                <i class="fas fa-trash-alt"></i> Eliminar
-                            </a>
-                        </div>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+</div>
+<div class="row mt-3">
+    <div class="col-md-12 text-center">
+        <a asp-action="Lista" class="btn btn-secondary">Regresar a Reportes</a>
+    </div>
 </div>

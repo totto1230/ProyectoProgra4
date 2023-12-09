@@ -10,5 +10,7 @@ namespace ProyectoPrograCuatro.IBLL
         public int InsertarRuta(Rutas ruta);
 
         public Rutas ObtenerRuta(int codigoruta);
+
+        //public Rutas GenerarReporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal);
     }
 }

@@ -1,0 +1,112 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Mi aplicación</title>
+
+    <!-- Agrega estos enlaces para Font Awesome y Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Tu contenido Razor sigue aquí -->
+    @model IEnumerable<ProyectoPrograCuatro.Models.Reporte>
+    @{
+        ViewBag.Title = "Reporte";
+    }
+
+
+    <!-- El resto de tu código Razor... -->
+    <!-- Scripts de Bootstrap y jQuery (al final del cuerpo) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    @*  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script> *@
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+<div class="container text-center">
+    <h2 class="text-primary font-weight-bold">Lista de Reportes</h2>
+
+    <!-- Formulario de filtros -->
+    <form method="get" action="@Url.Action("Filtrar", "Reportes")">
+        <div class="d-flex flex-wrap justify-content-center mb-3">
+            <div class="col-md-auto mb-3">
+                <label for="codigoCliente">Código Cliente:</label>
+                <input type="text" name="codigoCliente" class="form-control" />
+            </div>
+            <div class="col-md-auto mb-3">
+                <label for="fechaInicio">Fecha Inicio:</label>
+                <input type="date" name="fechaInicio" class="form-control" />
+            </div>
+            <div class="col-md-auto mb-3">
+                <label for="fechaFinal">Fecha Final:</label>
+                <input type="date" name="fechaFinal" class="form-control" />
+            </div>
+            <div class="col-md-auto">
+                <button type="submit" class="btn btn-primary mt-4">Filtrar</button>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-success mt-4">Descargar Reporte</button>
+            </div>
+        </div>
+    </form>
+
+
+<div class="container text-center">
+    <table class="table table-bordered table-striped mx-auto">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    <span class="badge badge-primary">
+                        @Html.DisplayNameFor(model => model.FechaCreacion)
+                    </span>
+                </th>
+                <th>
+                    <span class="badge badge-primary">
+                        @Html.DisplayNameFor(model => model.CodigoChoferes)
+                    </span>
+                </th>
+                <th>
+                    <span class="badge badge-primary">
+                        @Html.DisplayNameFor(model => model.CodigoCamiones)
+                    </span>
+                </th>
+                <th>
+                    <span class="badge badge-primary">
+                        @Html.DisplayNameFor(model => model.Estado)
+                    </span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ToList())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaCreacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoChoferes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodigoCamiones)
+                    </td>
+                        <td>
+                            @if (item.Estado == 1)
+                            {
+                                <span class="text-success font-weight-bold"> <i class="fas fa-check-circle" style="font-size: 30px;"></i></span>
+                            }
+                            else
+                            {
+                                <span class="text-danger font-weight-bold"> <i class="fas fa-times-circle" style="font-size: 30px;"></i></span>
+                            }
+                        </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+</div>
