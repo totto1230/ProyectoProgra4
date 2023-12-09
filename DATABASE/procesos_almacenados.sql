@@ -587,3 +587,55 @@ BEGIN
 	where Codigo = @Codigo
 
 END
+
+
+-- =============================================
+
+--Obtener Choferes Disponibles
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[obtener_choferes_disponibles]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT *
+    FROM Choferes
+    WHERE Estado = 1;
+END
+GO
+
+
+--Obtener Clientes Disponibles
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[obtener_clientes_disponibles]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT *
+    FROM Clientes
+    WHERE Estado = 1;
+END
+GO
+
+--Obtener Camiones Disponibles
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[obtener_camiones_disponibles]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT *
+    FROM Camiones
+    WHERE Estado = 1;
+END
+GO

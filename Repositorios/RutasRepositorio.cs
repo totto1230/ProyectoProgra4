@@ -61,6 +61,54 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
+        public List<Camiones> ObtenerCamionesDisponibles()
+        {
+            try
+            {
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    return conn.Query<Camiones>("obtener_camiones_disponibles").ToList();
+                    // Reemplaza "obtener_camiones_disponibles" por el nombre correcto de tu procedimiento almacenado o consulta SQL para obtener camiones disponibles
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Choferes> ObtenerChoferesDisponibles()
+        {
+            try
+            {
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    return conn.Query<Choferes>("obtener_choferes_disponibles").ToList();
+                    // Reemplaza "obtener_choferes_disponibles" por el nombre correcto de tu procedimiento almacenado o consulta SQL para obtener choferes disponibles
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Clientes> ObtenerClientesDisponibles()
+        {
+            try
+            {
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    return conn.Query<Clientes>("obtener_clientes_disponibles").ToList();
+                    // Reemplaza "obtener_clientes_disponibles" por el nombre correcto de tu procedimiento almacenado o consulta SQL para obtener clientes disponibles
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public Rutas ObtenerRuta(int codigoruta)
         {
             try

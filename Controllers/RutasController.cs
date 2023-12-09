@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ProyectoPrograCuatro.BLL;
 using ProyectoPrograCuatro.IBLL;
 using ProyectoPrograCuatro.Login;
@@ -42,13 +43,29 @@ namespace ProyectoPrograCuatro.Controllers
 
         public IActionResult Crear()
         {
-            Rutas nuevaRuta = new Rutas
+            try
             {
-                
-                FechaCreacion = DateTime.Now 
-            };
+                var clientes = _rutasBLL.ObtenerClientesDisponibles();
+                var choferes = _rutasBLL.ObtenerChoferesDisponibles();
+                var camiones = _rutasBLL.ObtenerCamionesDisponibles();
 
-            return View(nuevaRuta);
+                ViewBag.Clientes = new SelectList(clientes, "Codigo", "Nombre");
+                ViewBag.Choferes = new SelectList(choferes, "Codigo", "Nombre");
+                ViewBag.Camiones = new SelectList(camiones, "Codigo", "Unidad");
+
+                Rutas nuevaRuta = new Rutas
+                {
+                    FechaCreacion = DateTime.Now
+                };
+
+
+                return View(nuevaRuta);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = "Ocurrió un error al cargar los datos: " + ex.Message;
+                return View(); // Puedes redirigir a una vista de error o a donde sea necesario
+            }
         }
 
 
@@ -57,27 +74,33 @@ namespace ProyectoPrograCuatro.Controllers
         {
             try
             {
-                //valida si todos los campos requeridos tienen datos
-                if (!ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
-                    //devuelve la vista y muestra los mensajes de error
-                    return View();
+                    // Obtener la fecha actual
+                    ruta.FechaCreacion = DateTime.Now;
+
+                    // Llamar al método InsertarRuta del BLL y pasar la ruta
+                    var codigo = _rutasBLL.InsertarRuta(ruta);
+
+                    ViewBag.Message = "Ruta creada con éxito con código: " + codigo.ToString();
+                    return View(); // Puedes redirigir a una vista de éxito o a donde sea necesario
                 }
 
-                var codigo = _rutasBLL.InsertarRuta(ruta);
-                ViewBag.Message = "Ruta creada con exito con codigo: " + codigo.ToString();
-                return View();
+                var clientes = _rutasBLL.ObtenerClientesDisponibles();
+                var choferes = _rutasBLL.ObtenerChoferesDisponibles();
+                var camiones = _rutasBLL.ObtenerCamionesDisponibles();
 
+                ViewBag.Clientes = new SelectList(clientes, "Codigo", "Nombre");
+                ViewBag.Choferes = new SelectList(choferes, "Codigo", "Nombre");
+                ViewBag.Camiones = new SelectList(camiones, "Codigo", "Unidad");
+
+                return View(ruta);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                ViewBag.ErrorMessage = "Ocurrió un error al crear la ruta: " + ex.Message;
+                return View(ruta); // Puedes redirigir a una vista de error o a donde sea necesario
             }
-        }
-        public IActionResult Actualizar()
-        {
-            return View();
         }
 
     }

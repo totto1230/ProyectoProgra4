@@ -45,6 +45,42 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
+        public List<Camiones> ObtenerCamionesDisponibles()
+        {
+            try
+            {
+                return _rutasRepositorio.ObtenerCamionesDisponibles();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Choferes> ObtenerChoferesDisponibles()
+        {
+            try
+            {
+                return _rutasRepositorio.ObtenerChoferesDisponibles();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Clientes> ObtenerClientesDisponibles()
+        {
+            try
+            {
+                return _rutasRepositorio.ObtenerClientesDisponibles();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public Rutas ObtenerRuta(int codigoruta)
         {
             try
