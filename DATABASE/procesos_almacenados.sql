@@ -13,7 +13,7 @@ CREATE PROCEDURE [dbo].[actualizar_cliente]
 		@Telefono varchar(255),
 		@Contacto varchar(255),
 		@Direccion varchar(255),
-		@Estado int
+		@Estado bit
 	)
 AS
 BEGIN
@@ -40,7 +40,7 @@ GO
 CREATE PROCEDURE [dbo].[eliminar_cliente]
 	(
 	@Codigo int,
-	@Estado int
+	@Estado bit
 	)
 AS
 BEGIN
@@ -64,7 +64,7 @@ CREATE PROCEDURE [dbo].[insertar_cliente]
 		@Telefono varchar(255),
 		@Contacto varchar(255),
 		@Direccion varchar(255),
-		@Estado int	
+		@Estado bit	
 	)
 AS
 BEGIN
@@ -133,7 +133,7 @@ CREATE PROCEDURE [dbo].[actualizar_usuario]
 		@Nombre varchar(255),
 		@Usuario varchar(255),
 		@Contrasenia varchar(255),
-		@Estado int
+		@Estado bit
 	)
 AS
 BEGIN
@@ -159,7 +159,7 @@ GO
 CREATE PROCEDURE [dbo].[eliminar_usuario]
 	(
 	@Codigo int,
-	@Estado int
+	@Estado bit
 	)
 AS
 BEGIN
@@ -181,7 +181,7 @@ CREATE PROCEDURE [dbo].[insertar_usuario]
 		@Nombre varchar(255),
 		@Usuario varchar(255),
 		@Contrasenia varchar(255),
-		@Estado int
+		@Estado bit
 	)
 AS
 BEGIN
@@ -268,7 +268,7 @@ CREATE PROCEDURE [dbo].[actualizar_chofer]
 		@Nombre varchar(255),
 		@Cedula varchar(255),
 		@Telefono varchar(255),
-		@Estado int
+		@Estado bit
 	)
 AS
 BEGIN
@@ -294,7 +294,7 @@ GO
 CREATE PROCEDURE [dbo].[eliminar_chofer]
 	(
 	@Codigo int,
-	@Estado int
+	@Estado bit
 	)
 AS
 BEGIN
@@ -318,7 +318,7 @@ CREATE PROCEDURE [dbo].[insertar_chofer]
 		@Nombre varchar(255),
 		@Cedula varchar(255),
 		@Telefono varchar(255),
-		@Estado int
+		@Estado bit
 	)
 AS
 BEGIN
@@ -386,7 +386,7 @@ CREATE PROCEDURE [dbo].[actualizar_camiones]
 		@Codigo int,
 		@Unidad varchar(255),
 		@Placa varchar(255),
-		@Estado int
+		@Estado bit
 	)
 AS
 BEGIN
@@ -411,7 +411,7 @@ GO
 CREATE PROCEDURE [dbo].[eliminar_camiones]
 	(
 	@Codigo int,
-	@Estado int
+	@Estado bit
 	)
 AS
 BEGIN
@@ -433,7 +433,7 @@ CREATE PROCEDURE [dbo].[insertar_camiones]
 	(
 		@Unidad varchar(255),
 		@Placa varchar(255),
-		@Estado int
+		@Estado bit
 	)
 AS
 BEGIN
@@ -525,7 +525,7 @@ CREATE PROCEDURE [dbo].[insertar_ruta]
     @CodigoCamiones INT,
 	@DireccionEntrega VARCHAR (225),
 	@FechaCreacion DATETIME,
-    @Estado INT
+    @Estado bit
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -700,3 +700,17 @@ BEGIN
 	END
 
 GO
+
+GO
+/****** Object:  StoredProcedure [dbo].[obtener_todos_reportes]    Script Date: 12/10/2023 2:53:30 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[obtener_todos_reportes]
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+	SELECT FechaCreacion,CodigoChoferes,CodigoCamiones,Estado from Rutas
+END

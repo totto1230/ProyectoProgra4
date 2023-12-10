@@ -6,7 +6,7 @@ CREATE TABLE dbo.Usuarios (
     Nombre VARCHAR(255) NOT NULL,
     Usuario VARCHAR(255) NOT NULL,
 	Contrasenia VARCHAR(255) NOT NULL,
-    Estado INT NOT NULL
+    Estado BIT NOT NULL
 );
 
 --Choferes
@@ -16,7 +16,7 @@ CREATE TABLE dbo.Choferes (
     Nombre VARCHAR(255) NOT NULL,
     Cedula VARCHAR(255) NOT NULL,
 	Telefono VARCHAR(255) NOT NULL,
-    Estado INT NOT NULL
+    Estado BIT NOT NULL
 );
 
 --Camiones
@@ -25,7 +25,7 @@ CREATE TABLE dbo.Camiones (
     Codigo INT IDENTITY(1,1) PRIMARY KEY,
     Unidad VARCHAR(255) NOT NULL,
 	Placa VARCHAR(255) NOT NULL,
-    Estado INT NOT NULL
+    Estado BIT NOT NULL
 );
 
 --Clientes
@@ -36,7 +36,7 @@ CREATE TABLE dbo.Clientes (
 	Telefono VARCHAR(255) NOT NULL,
 	Contacto VARCHAR(255) NOT NULL,
 	Direccion VARCHAR(255) NOT NULL,
-    Estado INT NOT NULL
+    Estado BIT NOT NULL
 );
 
 --Rutas
@@ -47,7 +47,7 @@ CREATE TABLE dbo.Rutas (
 	CodigoCamiones INT NOT NULL,
     DireccionEntrega VARCHAR (255),
     FechaCreacion DATETIME,
-    Estado INT NOT NULL
+    Estado BIT NOT NULL
 
     FOREIGN KEY (CodigoClientes) REFERENCES Clientes(Codigo),
     FOREIGN KEY (CodigoChoferes) REFERENCES Choferes(Codigo),
