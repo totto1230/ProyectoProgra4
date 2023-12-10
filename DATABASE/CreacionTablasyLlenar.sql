@@ -121,7 +121,7 @@ VALUES ('Cliente4','87654321','test','CR', 1)
 INSERT INTO Clientes (Nombre, Telefono, Contacto, Direccion, Estado)
 VALUES ('Cliente5','12345678','test','CR', 1)
 
---Clientes
+--Rutas
 
 INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
 VALUES (1, 1, 1, 'CR', '2023-12-31', 1);
