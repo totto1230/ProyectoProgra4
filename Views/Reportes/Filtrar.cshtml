@@ -79,7 +79,67 @@
     </table>
 </div>
 <div class="row mt-3">
+    <div class="text-center">
+        <button type="button" onclick="descargarTabla()" class="btn btn-success mt-4">Descargar Reporte</button>
+    </div>
     <div class="col-md-12 text-center">
         <a asp-action="Lista" class="btn btn-secondary">Regresar a Reportes</a>
     </div>
+    <script>
+        // Función para descargar la tabla en formato CSV
+        function descargarTabla() {
+            // Obtener todas las filas de la tabla
+            var filas = document.querySelectorAll('table tbody tr');
+
+            // Crear un array para almacenar los datos de cada fila
+            var datosTabla = [];
+
+            // Iterar sobre cada fila y extraer los datos
+            filas.forEach(function (fila) {
+                var fecha = fila.querySelector('td:nth-child(1)').innerText.trim();
+                var codigoChoferes = fila.querySelector('td:nth-child(2)').innerText.trim();
+                var codigoCamiones = fila.querySelector('td:nth-child(3)').innerText.trim(); // Update this line
+
+                // Agregar datos al array
+                datosTabla.push([fecha, codigoChoferes, codigoCamiones]);
+            });
+
+            // Convertir datos de la tabla a formato CSV
+            var csvContent = "data:text/csv;charset=utf-8,";
+
+            // Agregar encabezados CSV
+            csvContent += "Fecha, Codigo Chofer, Codigo Camion, Estado\n";
+
+            // Agregar filas de datos CSV
+            datosTabla.forEach(function (fila) {
+                csvContent += fila.join(",") + "\n";
+            });
+
+            // Crear un objeto Blob con los datos CSV
+            var blob = new Blob([csvContent], { type: 'text/csv' });
+
+            // Crear un objeto URL para el Blob
+            var url = window.URL.createObjectURL(blob);
+
+            function fechaFormato() {
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+
+                return today = mm + '/' + dd + '/' + yyyy;
+            }
+
+            // Crear un enlace y simular el clic para iniciar la descarga
+            var a = document.createElement('a');
+            a.href = url;
+            const currentTimestamp = fechaFormato();
+            a.download = `reportes-filtrado-${currentTimestamp}.csv`;
+            document.body.appendChild(a);
+            a.click();
+
+            // Limpiar el objeto URL
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
 </div>

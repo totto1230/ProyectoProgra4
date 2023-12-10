@@ -1,16 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoPrograCuatro.BLL;
 using ProyectoPrograCuatro.IBLL;
+using static System.Net.Mime.MediaTypeNames;
+using System.Text;
 
 namespace ProyectoPrograCuatro.Controllers
 {
     public class ReportesController : Controller
     {
         private readonly IReporteBLL _reporteBLL;
+        private readonly ICLienteBLL _cLienteBLL;
 
-        public ReportesController(IReporteBLL reporteBLL)
+        public ReportesController(IReporteBLL reporteBLL, ICLienteBLL cLienteBLL)
         {
             _reporteBLL = reporteBLL;
+            _cLienteBLL = cLienteBLL;
         }
         public IActionResult Index()
         {
@@ -38,6 +42,7 @@ namespace ProyectoPrograCuatro.Controllers
             try
             {
                 var lista = _reporteBLL.Filtrar( codigoCliente,fechaInicio,  fechaFinal);
+                ViewBag.Clientes = _cLienteBLL.DDClientes();
                 return View(lista);
             }
             catch (Exception)
@@ -46,6 +51,5 @@ namespace ProyectoPrograCuatro.Controllers
                 throw;
             }
         }
-
     }
 }

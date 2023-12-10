@@ -6,6 +6,8 @@
 
         public int CodigoClientes { get; set; }
 
+        public String? NombreCliente { get; set; }
+
         public int CodigoChoferes { get; set; }
 
         public int CodigoCamiones { get; set; }
