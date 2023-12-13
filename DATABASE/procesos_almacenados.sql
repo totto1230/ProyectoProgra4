@@ -635,8 +635,6 @@ GO
 
 -------Carga_dropdown_clientes
 
-GO
-
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -650,10 +648,10 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT Codigo, Nombre from Clientes
+	where Estado = 1
 	Order by Nombre ASC
 
-	END
-
+END
 GO
 
 -------Carga_dropdown_choferes

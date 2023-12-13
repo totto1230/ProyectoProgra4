@@ -37,23 +37,6 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
-        public List<ModeloDD> DDChoferes()
-        {
-            try
-            {
-                using (var conn = _dapperContext.CrearConexion())
-                {
-                    return conn.Query<ModeloDD>("carga_dropdown_choferes").ToList();
-
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
         public Choferes EliminarChofer(Choferes chofer)
         {
             try
@@ -137,5 +120,23 @@ namespace ProyectoPrograCuatro.Repositorios
                 throw;
             }
         }
+
+        public List<ModeloDDChoferes> DDChoferes()
+        {
+            try
+            {
+                using (var conn = _dapperContext.CrearConexion())
+                {
+                    return conn.Query<ModeloDDChoferes>("carga_dropdown_choferes").ToList();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

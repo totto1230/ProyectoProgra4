@@ -79,7 +79,7 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        public List<ModeloDD> DDCamiones()
+        public List<ModeloDDCamiones> DDCamiones()
         {
             try
             {

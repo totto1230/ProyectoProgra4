@@ -78,7 +78,7 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        public List<ModeloDD> DDClientes()
+        public List<ModeloDDClientes> DDClientes()
         {
             try
             {

@@ -92,8 +92,9 @@ namespace ProyectoPrograCuatro.Repositorios
                 param.Add("@CodigoChofer", ruta.CodigoChofer, DbType.Int32, ParameterDirection.Input);
                 param.Add("@CodigoCamion", ruta.CodigoCamion, DbType.Int32, ParameterDirection.Input);
                 param.Add("@DireccionEntrega", ruta.DireccionEntrega, DbType.String, ParameterDirection.Input);
+                param.Add("@FechaCreacion", ruta.FechaCreacion, DbType.DateTime, ParameterDirection.Input);
                 param.Add("@Estado", 0, DbType.Int32, ParameterDirection.Input);
-                param.Add("@FechaCreacion", DateTime.Now, DbType.DateTime, ParameterDirection.Input);
+
 
                 using (var conn = _dapperContext.CrearConexion())
                 {

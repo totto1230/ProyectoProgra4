@@ -8,7 +8,7 @@ using ProyectoPrograCuatro.Models;
 
 namespace ProyectoPrograCuatro.Controllers
 {
-    [Autenticacion]
+    //[Autenticacion]
     public class RutasController : Controller
     {
         private readonly IRutasBLL _rutasBLL;
@@ -60,23 +60,25 @@ namespace ProyectoPrograCuatro.Controllers
         [HttpPost] //del cliente al servidor
         public IActionResult Crear(Rutas ruta)
         {
+
             try
             {
-                if (ModelState.IsValid)
+                ViewBag.Clientes = _cLienteBLL.DDClientes();
+                ViewBag.Choferes = _choferesBLL.DDChoferes();
+                ViewBag.Camiones = _camionesBLL.DDCamiones();
+                if (!ModelState.IsValid)
                 {
-                    // Obtener la fecha actual
-                    ruta.FechaCreacion = DateTime.Now;
-
-                    // Llamar al método InsertarRuta del BLL y pasar la ruta
-                    var codigo = _rutasBLL.InsertarRuta(ruta);
-
-                    ViewBag.Message = "Ruta creada con éxito con código: " + codigo.ToString();
-                    return View(); // Puedes redirigir a una vista de éxito o a donde sea necesario
+                    ViewBag.Clientes = _cLienteBLL.DDClientes();
+                    return View();
                 }
 
-    
-
-                return View(ruta);
+                if (ruta.FechaCreacion == null)
+                {
+                    ruta.FechaCreacion = DateTime.Now;
+                }
+                var codigo = _rutasBLL.InsertarRuta(ruta);
+                ViewBag.Message = "Ruta creada con éxito con código: " + codigo.ToString();
+                return View(); // Puedes redirigir a una vista de éxito o a donde sea necesario
             }
             catch (Exception ex)
             {

@@ -79,7 +79,7 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        public List<ModeloDD> DDChoferes()
+        public List<ModeloDDChoferes> DDChoferes()
         {
             try
             {

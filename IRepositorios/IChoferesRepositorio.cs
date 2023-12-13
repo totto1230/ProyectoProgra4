@@ -14,6 +14,6 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public Choferes EliminarChofer(Choferes chofer);
 
-        public List<ModeloDD> DDChoferes();
+        public List<ModeloDDChoferes> DDChoferes();
     }
 }

@@ -127,13 +127,13 @@ namespace ProyectoPrograCuatro.Repositorios
             }
         }
 
-        public List<ModeloDD> DDCamiones()
+        public List<ModeloDDCamiones> DDCamiones()
         {
             try
             {
                 using (var conn = _dapperContext.CrearConexion())
                 {
-                    return conn.Query<ModeloDD>("carga_dropdown_camiones").ToList();
+                    return conn.Query<ModeloDDCamiones>("carga_dropdown_camiones").ToList();
 
                 }
             }
