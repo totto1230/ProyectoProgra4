@@ -672,6 +672,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT Codigo, Nombre from Choferes
+	where Estado = 1
 	Order by Nombre ASC
 
 	END
@@ -698,6 +699,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT Codigo, Unidad from Camiones
+	where Estado = 1
 	Order by Unidad ASC
 
 	END
