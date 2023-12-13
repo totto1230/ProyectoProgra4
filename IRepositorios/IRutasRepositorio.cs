@@ -9,7 +9,7 @@ namespace ProyectoPrograCuatro.IRepositorios
 
         public int InsertarRuta(Rutas ruta);
 
-        public Rutas ObtenerRuta(int codigoruta);
+        public Rutas ObtenerRuta(int codigoRuta);
 
         public Rutas ActualizarRuta(Rutas ruta);
 

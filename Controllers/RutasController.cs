@@ -4,7 +4,7 @@ using ProyectoPrograCuatro.BLL;
 using ProyectoPrograCuatro.IBLL;
 using ProyectoPrograCuatro.Login;
 using ProyectoPrograCuatro.Models;
-
+using System.Globalization;
 
 namespace ProyectoPrograCuatro.Controllers
 {
@@ -53,7 +53,14 @@ namespace ProyectoPrograCuatro.Controllers
             ViewBag.Clientes = _cLienteBLL.DDClientes();
             ViewBag.Choferes = _choferesBLL.DDChoferes();
             ViewBag.Camiones = _camionesBLL.DDCamiones();
-            return View();
+            //PARA IMPRIMIR Y ESTABLECER LA FECHA
+            var modelo = new Rutas();
+            if (modelo.FechaCreacion == null)
+            {
+                modelo.FechaCreacion = DateTime.Now;
+            }
+            return View(modelo);
+
         }
 
 
@@ -69,16 +76,14 @@ namespace ProyectoPrograCuatro.Controllers
                 if (!ModelState.IsValid)
                 {
                     ViewBag.Clientes = _cLienteBLL.DDClientes();
+                    ViewBag.Choferes = _choferesBLL.DDChoferes();
+                    ViewBag.Camiones = _camionesBLL.DDCamiones();
                     return View();
                 }
 
-                if (ruta.FechaCreacion == null)
-                {
-                    ruta.FechaCreacion = DateTime.Now;
-                }
                 var codigo = _rutasBLL.InsertarRuta(ruta);
                 ViewBag.Message = "Ruta creada con éxito con código: " + codigo.ToString();
-                return View(); // Puedes redirigir a una vista de éxito o a donde sea necesario
+                return View("Lista"); // Puedes redirigir a una vista de éxito o a donde sea necesario
             }
             catch (Exception ex)
             {
@@ -89,11 +94,11 @@ namespace ProyectoPrograCuatro.Controllers
 
 
 
-        public IActionResult Actualizar(int codigoruta) 
+        public IActionResult Actualizar(int codigoRuta) 
         {
             try
             {
-                var ruta = _rutasBLL.ObtenerRuta(codigoruta);
+                var ruta = _rutasBLL.ObtenerRuta(codigoRuta);
 
                 // Verificar si la ruta existe
                 if (ruta == null)
@@ -120,9 +125,12 @@ namespace ProyectoPrograCuatro.Controllers
         {
             try
             {
+                ViewBag.Clientes = _cLienteBLL.DDClientes();
+                ViewBag.Choferes = _choferesBLL.DDChoferes();
+                ViewBag.Camiones = _camionesBLL.DDCamiones();
                 var rutaActualizada = _rutasBLL.ActualizarRuta(ruta);
-                var listaActualizada = _rutasBLL.ListaRutas(); // Obtener la lista actualizada después de la actualización
-                return View("Lista", listaActualizada); // Devolver la vista Lista con los datos actualizados
+                //var listaActualizada = _rutasBLL.ListaRutas(); // Obtener la lista actualizada después de la actualización
+                return View("Lista"); // Devolver la vista Lista con los datos actualizados
             }
             catch (Exception ex)
             {

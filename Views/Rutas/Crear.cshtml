@@ -13,9 +13,9 @@
         <hr />
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CodigoCliente, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CodigoClientes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CodigoCliente,
+                @Html.DropDownListFor(model => model.CodigoClientes,
                                                new SelectList(ViewBag.Clientes, "Codigo", "Nombre"),
                                                "Seleccione un Cliente",
                                                new { @class = "btn dropdown-toggle" })
@@ -23,18 +23,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CodigoChofer, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CodigoChoferes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-            @Html.DropDownListFor(model => model.CodigoChofer,
+            @Html.DropDownListFor(model => model.CodigoChoferes,
                                            new SelectList(ViewBag.Choferes, "Codigo", "Nombre"),
                                            "Seleccione un Chofer",
                                            new { @class = "btn dropdown-toggle" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.CodigoCamion, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CodigoCamiones, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CodigoCamion,
+                @Html.DropDownListFor(model => model.CodigoCamiones,
                                       new SelectList(ViewBag.Camiones, "Codigo", "Unidad"),
                                       "Seleccione un Camion",
                                          new { @class = "btn dropdown-toggle" })
@@ -64,7 +64,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FechaCreacion, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.FechaCreacion, new { @Value = DateTime.Now.ToString("yyyy-MM-ddTHH:mm"), @class = "form-control", @readonly = "readonly" })
+                @Html.TextBoxFor(model => model.FechaCreacion, new { @class = "form-control", @readonly = "readonly" })
                 @Html.ValidationMessageFor(model => model.FechaCreacion, "", new { @class = "text-danger" })
             </div>
         </div>

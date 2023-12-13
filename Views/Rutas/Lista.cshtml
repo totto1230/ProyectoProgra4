@@ -32,6 +32,11 @@
                     </th>
                     <th>
                         <span class="badge badge-primary">
+                            @Html.DisplayNameFor(model => model.CodigoClientes)
+                        </span>
+                    </th>
+                    <th>
+                        <span class="badge badge-primary">
                             @Html.DisplayNameFor(model => model.Estado)
                         </span>
                     </th>
@@ -50,6 +55,9 @@
                             @Html.DisplayFor(modelItem => item.Codigo)
                         </td>
                         <td>
+                            @Html.DisplayFor(modelItem => item.CodigoClientes)
+                        </td>
+                        <td>
                             @if (item.Estado == 0)
                             {
                                 <span class="text-info font-weight-bold">Creada</span>
@@ -58,10 +66,7 @@
                             {
                                 <span class="text-warning font-weight-bold">En Progreso</span>
                             }
-                            else if (item.Estado == 2)
-                            {
-                                <span class="text-success font-weight-bold">Finalizada</span>
-                            }
+
                         </td>
                         <td>
                             <div class="btn-group" role="group">

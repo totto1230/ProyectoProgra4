@@ -75,11 +75,11 @@ namespace ProyectoPrograCuatro.BLL
 
         
 
-        public Rutas ObtenerRuta(int codigoruta)
+        public Rutas ObtenerRuta(int codigoRuta)
         {
             try
             {
-                return _rutasRepositorio.ObtenerRuta(codigoruta);
+                return _rutasRepositorio.ObtenerRuta(codigoRuta);
             }
             catch (Exception)
             {

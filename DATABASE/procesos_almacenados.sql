@@ -501,12 +501,9 @@ BEGIN
 
     SELECT  Codigo,
             CodigoClientes,
-            CodigoChoferes,
-            CodigoCamiones,
-			DireccionEntrega,
-			FechaCreacion,
             Estado
     FROM    Rutas
+	Where Estado = 1 or Estado = 0
 END
 
 
@@ -534,9 +531,8 @@ BEGIN
        AND EXISTS (SELECT 1 FROM Choferes WHERE Codigo = @CodigoChoferes)
        AND EXISTS (SELECT 1 FROM Camiones WHERE Codigo = @CodigoCamiones)
     BEGIN
-        
-        INSERT INTO db.Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
-        VALUES (@CodigoClientes, @CodigoChoferes, @CodigoCamiones, @direccionentrega, @FechaCreacion, @Estado);
+		INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
+		VALUES (@CodigoClientes, @CodigoChoferes, @CodigoCamiones, @DireccionEntrega, @FechaCreacion, @Estado);
 	END
 
 	Select cast(Scope_Identity() as int)
@@ -555,20 +551,21 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 ALTER PROCEDURE [dbo].[cambiarestado_ruta]
-	@Codigo INT,
+    @CodigoRuta INT,
     @NuevoEstado INT,
-    @NuevaFechaCreacion DATETIME
+	@NuevaFechaCreacion datetime
 AS
 BEGIN
     SET NOCOUNT ON;
 
     
-    IF EXISTS (SELECT 1 FROM Rutas WHERE Codigo = @Codigo)
+    IF EXISTS (SELECT 1 FROM Rutas WHERE Codigo = @CodigoRuta)
     BEGIN
-            UPDATE Rutas
+        
+        UPDATE Rutas
         SET Estado = @NuevoEstado,
-            FechaCreacion = @NuevaFechaCreacion
-        WHERE Codigo = @Codigo;
+		    FechaCreacion = @NuevaFechaCreacion
+        WHERE Codigo = @CodigoRuta;
 
     END
 END

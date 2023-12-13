@@ -12,17 +12,17 @@ namespace ProyectoPrograCuatro.Models
 
         [DisplayName("Cliente")]
         [Required(ErrorMessage = "Seleccione el cliente")]
-        public int CodigoCliente { get; set; }
+        public int CodigoClientes { get; set; }
         [ValidateNever]
 
         [DisplayName("Chofer")]
         [Required(ErrorMessage = "Seleccione el chofer")]
-        public int CodigoChofer { get; set; }
+        public int CodigoChoferes { get; set; }
         [ValidateNever]
 
         [DisplayName("Camión")]
         [Required(ErrorMessage = "Seleccione el camión")]
-        public int CodigoCamion { get; set; }
+        public int CodigoCamiones { get; set; }
         [ValidateNever]
 
 
