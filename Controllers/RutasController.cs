@@ -89,23 +89,25 @@ namespace ProyectoPrograCuatro.Controllers
 
         public IActionResult Actualizar(int codigoruta) 
         {
-
             try
             {
                 var ruta = _rutasBLL.ObtenerRuta(codigoruta);
-                if (ruta == null)//si no se encontró datos del cliente
+
+                // Verificar si la ruta existe
+                if (ruta == null)
                 {
                     return View();
                 }
                 else
                 {
+                    // Establecer la fecha y hora actual antes de mostrar la vista
+                    ruta.FechaCreacion = DateTime.Now;
+
                     return View(ruta);
                 }
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -116,13 +118,15 @@ namespace ProyectoPrograCuatro.Controllers
         {
             try
             {
-                var cliente_updated = _rutasBLL.ActualizarRuta(ruta);
-                return RedirectToAction("Lista");
+                var rutaActualizada = _rutasBLL.ActualizarRuta(ruta);
+                var listaActualizada = _rutasBLL.ListaRutas(); // Obtener la lista actualizada después de la actualización
+                return View("Lista", listaActualizada); // Devolver la vista Lista con los datos actualizados
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                // Manejo de excepciones si es necesario
+                ViewBag.ErrorMessage = "Ocurrió un error al actualizar la ruta: " + ex.Message;
+                return View("Error"); // Redirigir a una vista de error en caso de excepción
             }
         }
 

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<ProyectoPrograCuatro.Models.Rutas>
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -9,80 +11,75 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-  
-    @model IEnumerable<ProyectoPrograCuatro.Models.Rutas>
-    @{
-        ViewBag.Title = "Rutas";
-    }
+    <div class="container text-center">
+        <h2 class="text-primary font-weight-bold">Lista de Rutas</h2>
 
+        <p>
+            <a class="btn btn-primary" asp-action="Crear" asp-controller="Rutas">Crear ruta</a>
+        </p>
 
-   
+        <div class="col-md-3">
+            <a href="/Reportes/Lista" class="btn btn-primary btn-block">Reporte Rutas</a>
+        </div>
+
+        <table class="table table-bordered table-striped mx-auto">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        <span class="badge badge-primary">
+                            @Html.DisplayNameFor(model => model.Codigo)
+                        </span>
+                    </th>
+                    <th>
+                        <span class="badge badge-primary">
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </span>
+                    </th>
+                    <th>
+                        <span class="badge badge-primary">
+                            Acciones Disponibles:
+                        </span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ToList())
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Codigo)
+                        </td>
+                        <td>
+                            @if (item.Estado == 0)
+                            {
+                                <span class="text-info font-weight-bold">Creada</span>
+                            }
+                            else if (item.Estado == 1)
+                            {
+                                <span class="text-warning font-weight-bold">En Progreso</span>
+                            }
+                            else if (item.Estado == 2)
+                            {
+                                <span class="text-success font-weight-bold">Finalizada</span>
+                            }
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-primary" asp-action="Actualizar" asp-controller="Rutas" asp-route-idcliente="@item.Codigo">
+                                    <i class="fas fa-edit"></i> Editar
+                                </a>
+                                <a class="btn btn-danger" asp-action="Eliminar" asp-controller="Rutas" asp-route-idcliente="@item.Codigo">
+                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    @*  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script> *@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-<div class="container text-center">
-    <h2 class="text-primary font-weight-bold">Lista de Rutas</h2>
-
-    <p>
-        <a class="btn btn-primary" asp-action="Crear" asp-controller="Rutas">Crear ruta</a>
-    </p>
-
-    <div class="col-md-3">
-        <a href="/Reportes/Lista" class="btn btn-primary btn-block">Reporte Rutas</a>
-    </div>
-
-    <table class="table table-bordered table-striped mx-auto">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-                    <span class="badge badge-primary">
-                        @Html.DisplayNameFor(model => model.Codigo)
-                    </span>
-                </th>
-                <th>
-                    <span class="badge badge-primary">
-                        @Html.DisplayNameFor(model => model.Estado)
-                    </span>
-                </th>
-                <th>
-                    <span class="badge badge-primary">
-                        Acciones Disponibles:
-                    </span>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.ToList())
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Codigo)
-                    </td>
-                    <td>
-                        @if (item.Estado == 1)
-                        {
-                            <span class="text-success font-weight-bold"> <i class="fas fa-check-circle" style="font-size: 30px;"></i></span>
-                        }
-                        else
-                        {
-                            <span class="text-danger font-weight-bold"> <i class="fas fa-times-circle" style="font-size: 30px;"></i></span>
-                        }
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a class="btn btn-primary" asp-action="Actualizar" asp-controller="Rutas" asp-route-idcliente="@item.Codigo">
-                                <i class="fas fa-edit"></i> Editar
-                            </a>
-                            <a class="btn btn-danger" asp-action="Eliminar" asp-controller="Rutas" asp-route-idcliente="@item.Codigo">
-                                <i class="fas fa-trash-alt"></i> Eliminar
-                            </a>
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-

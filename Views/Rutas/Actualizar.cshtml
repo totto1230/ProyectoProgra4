@@ -5,83 +5,43 @@
 }
 
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h2 class="mb-0">Actualizar Ruta</h2>
-                </div>
-                <div class="card-body">
-                    @using (Html.BeginForm("Actualizar", "Rutas", FormMethod.Post, new { @class = "form-horizontal" }))
-                    {
-                        <h4>Datos de la ruta</h4>
-                        <hr />
-                        @Html.HiddenFor(model => model.Codigo)
+    <!-- Resto del contenido HTML -->
 
-                        <div class="form-group row">
-                            @Html.LabelFor(model => model.CodigoCliente, new { @class = "col-md-2 col-form-label" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.CodigoCliente, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.CodigoCliente, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            @Html.LabelFor(model => model.CodigoChofer, new { @class = "col-md-2 col-form-label" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.CodigoChofer, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.CodigoChofer, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            @Html.LabelFor(model => model.CodigoCamion, new { @class = "col-md-2 col-form-label" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.CodigoCamion, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.CodigoCamion, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            @Html.LabelFor(model => model.DireccionEntrega, new { @class = "col-md-2 col-form-label" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.DireccionEntrega, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.DireccionEntrega, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            @Html.LabelFor(model => model.FechaCreacion, new { @class = "col-md-2 col-form-label" })
-                            <div class="col-md-10">
-                                @Html.EditorFor(model => model.FechaCreacion, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.FechaCreacion, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            @Html.LabelFor(model => model.Estado, new { @class = "col-md-2 col-form-label" })
-                            <div class="col-md-10">
-                                @Html.DropDownListFor(model => model.Estado, new SelectList(new List<SelectListItem>
-                            {
-                            new SelectListItem { Text = "En progreso", Value = "1" },
-                            new SelectListItem { Text = "Finalizada", Value = "2" }
-                            }, "Value", "Text"), new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
-
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-offset-2 col-md-10">
-                                <button type="submit" class="btn btn-primary">
-                                    Actualizar
-                                </button>
-                                @ViewBag.Message
-                            </div>
-                        </div>
-                    }
+    <div class="card-body">
+        @using (Html.BeginForm("Actualizar", "Rutas", FormMethod.Post, new { @class = "form-horizontal", id = "updateForm" }))
+        {
+            <!-- Campo de edición para la Fecha de Creación (Deshabilitado para edición) -->
+            <div class="form-group row">
+                @Html.LabelFor(model => model.FechaCreacion, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    <!-- Campo para mostrar la fecha y hora actual -->
+                    <input type="text" class="form-control" readonly id="fechaCreacion" />
+                    @Html.ValidationMessageFor(model => model.FechaCreacion, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>
+
+            <!-- Campo de edición para el Estado -->
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Estado, new { @class = "col-md-2 col-form-label" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Estado, new SelectList(new List<SelectListItem>
+                {
+                new SelectListItem { Text = "En Progreso", Value = "1" },
+                new SelectListItem { Text = "Finalizada", Value = "2" }
+                }, "Value", "Text"), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="button" onclick="confirmUpdate()" class="btn btn-primary">
+                        Actualizar
+                    </button>
+                    @ViewBag.Message
+                </div>
+            </div>
+        }
     </div>
 
     <div class="row mt-3">
@@ -90,3 +50,18 @@
         </div>
     </div>
 </div>
+
+<script>
+    function confirmUpdate() {
+        if (confirm("¿Estás seguro de cambiar el estado de la ruta?")) {
+            // Si se confirma, enviar el formulario
+            document.getElementById("updateForm").submit();
+        }
+    }
+
+    // Función para obtener y mostrar la fecha y hora actual al cargar la página
+    document.addEventListener("DOMContentLoaded", function () {
+        var fechaActual = new Date().toLocaleString();
+        document.getElementById("fechaCreacion").value = fechaActual;
+    });
+</script>

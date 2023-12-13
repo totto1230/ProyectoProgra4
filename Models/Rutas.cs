@@ -36,7 +36,7 @@ namespace ProyectoPrograCuatro.Models
 
         [DisplayName("Estado de la Ruta")]
         [Required(ErrorMessage = "Ingrese el estado")]
-        [Range(0, 1, ErrorMessage = "VALORES SOLO 1 o 0")]
+        [Range(0, 2, ErrorMessage = "VALORES SOLO 0, 1 o 2")]
         public int Estado { get; set; }
     }
 }

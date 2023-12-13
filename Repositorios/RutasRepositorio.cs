@@ -21,24 +21,39 @@ namespace ProyectoPrograCuatro.Repositorios
         public Rutas ActualizarRuta(Rutas ruta)
         {
 
+
             try
             {
+                // Lógica para cambiar el estado
+                int estadoActual = ruta.Estado;
+
+                // Cambiar el estado según la lógica establecida
+                if (estadoActual == 0) // Si el estado actual es Creado
+                {
+                    ruta.Estado = 1; // Cambiar a En Progreso
+                }
+                else if (estadoActual == 1) // Si el estado actual es En Progreso
+                {
+                    ruta.Estado = 2; // Cambiar a Finalizada
+                }
+
+                // Actualizar la fecha de cambio de estado
+                ruta.FechaCreacion = DateTime.Now;
+
+                // Realizar la actualización en la base de datos o en el almacenamiento correspondiente
                 var param = new DynamicParameters();
                 param.Add("@Codigo", ruta.Codigo, DbType.Int32, ParameterDirection.Input);
-                param.Add("@Nombre", ruta.CodigoCliente, DbType.String, ParameterDirection.Input);
-                param.Add("@Telefono", ruta.CodigoChofer, DbType.String, ParameterDirection.Input);
-                param.Add("@Contacto", ruta.DireccionEntrega, DbType.String, ParameterDirection.Input);
-                param.Add("@Direccion", ruta.FechaCreacion, DbType.String, ParameterDirection.Input);
-                param.Add("@Estado", ruta.Estado, DbType.Int32, ParameterDirection.Input);
+                param.Add("@NuevoEstado", ruta.Estado, DbType.Int32, ParameterDirection.Input);
+                param.Add("@NuevaFechaCreacion", ruta.FechaCreacion, DbType.DateTime, ParameterDirection.Input);
+
                 using (var conn = _dapperContext.CrearConexion())
                 {
-                    conn.Execute("actualizar_cliente", param, commandType: CommandType.StoredProcedure);
+                    conn.Execute("cambiarestado_ruta", param, commandType: CommandType.StoredProcedure);
                     return ruta;
                 }
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

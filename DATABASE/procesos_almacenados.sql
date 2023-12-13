@@ -546,29 +546,34 @@ END
 -- =============================================
 --CAMBIAR ESTADO Rutas
 
+
 GO
+/****** Object:  StoredProcedure [dbo].[cambiarestado_ruta]    Script Date: 12/13/2023 9:14:01 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[cambiarestado_ruta]
-    @CodigoRuta INT,
-    @NuevoEstado INT
+ALTER PROCEDURE [dbo].[cambiarestado_ruta]
+	@Codigo INT,
+    @NuevoEstado INT,
+    @NuevaFechaCreacion DATETIME
 AS
 BEGIN
     SET NOCOUNT ON;
 
     
-    IF EXISTS (SELECT 1 FROM Rutas WHERE Codigo = @CodigoRuta)
+    IF EXISTS (SELECT 1 FROM Rutas WHERE Codigo = @Codigo)
     BEGIN
-        
-        UPDATE Rutas
-        SET Estado = @NuevoEstado
-        WHERE Codigo = @CodigoRuta;
+            UPDATE Rutas
+        SET Estado = @NuevoEstado,
+            FechaCreacion = @NuevaFechaCreacion
+        WHERE Codigo = @Codigo;
 
     END
 END
+
+
 --REPORTES RUTAS
 --OBTENER Rutas POR ID
 SET ANSI_NULLS ON
