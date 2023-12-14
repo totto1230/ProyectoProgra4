@@ -53,6 +53,7 @@ namespace ProyectoPrograCuatro.Controllers
             ViewBag.Clientes = _cLienteBLL.DDClientes();
             ViewBag.Choferes = _choferesBLL.DDChoferes();
             ViewBag.Camiones = _camionesBLL.DDCamiones();
+
             //PARA IMPRIMIR Y ESTABLECER LA FECHA
             var modelo = new Rutas();
             if (modelo.FechaCreacion == null)
@@ -83,7 +84,7 @@ namespace ProyectoPrograCuatro.Controllers
 
                 var codigo = _rutasBLL.InsertarRuta(ruta);
                 ViewBag.Message = "Ruta creada con éxito con código: " + codigo.ToString();
-                return View("Lista"); // Puedes redirigir a una vista de éxito o a donde sea necesario
+                return RedirectToAction("Lista", "Rutas"); // Puedes redirigir a una vista de éxito o a donde sea necesario
             }
             catch (Exception ex)
             {
@@ -130,7 +131,7 @@ namespace ProyectoPrograCuatro.Controllers
                 ViewBag.Camiones = _camionesBLL.DDCamiones();
                 var rutaActualizada = _rutasBLL.ActualizarRuta(ruta);
                 //var listaActualizada = _rutasBLL.ListaRutas(); // Obtener la lista actualizada después de la actualización
-                return View("Lista"); // Devolver la vista Lista con los datos actualizados
+                return RedirectToAction("Lista", "Rutas"); // Devolver la vista Lista con los datos actualizados
             }
             catch (Exception ex)
             {
