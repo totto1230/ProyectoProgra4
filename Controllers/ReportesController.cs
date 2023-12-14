@@ -26,6 +26,7 @@ namespace ProyectoPrograCuatro.Controllers
 
             try
             {
+                ViewBag.Clientes = _cLienteBLL.DDClientes();
                 var lista = _reporteBLL.ListarTotal(codigoCliente,  fechaInicio,  fechaFinal);
                 return View(lista);
             }
