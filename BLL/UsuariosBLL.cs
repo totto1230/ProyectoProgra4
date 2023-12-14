@@ -1,9 +1,11 @@
-﻿using ProyectoPrograCuatro.IBLL;
+﻿// Los namespaces proporcionados se usan para importar las interfaces y modelos necesarios
+using ProyectoPrograCuatro.IBLL;
 using ProyectoPrograCuatro.IRepositorios;
 using ProyectoPrograCuatro.Models;
 
 namespace ProyectoPrograCuatro.BLL
 {
+    // Clase que implementa la lógica de negocio para usuarios
     public class UsuariosBLL : IUsuariosBLL
     {
        
@@ -14,6 +16,8 @@ namespace ProyectoPrograCuatro.BLL
         {
             _usuariosRepositorio = usuariosRepositorio;
         }
+
+        // Implementación de los métodos de la interfaz IUsuariosBLL
 
         public Usuarios ObtenerUsuario(int idUsuario)
         {

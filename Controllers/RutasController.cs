@@ -4,11 +4,14 @@ using ProyectoPrograCuatro.BLL;
 using ProyectoPrograCuatro.IBLL;
 using ProyectoPrograCuatro.Login;
 using ProyectoPrograCuatro.Models;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace ProyectoPrograCuatro.Controllers
 {
     //[Autenticacion]
+
+    // Constructor que recibe instancias de las interfaces necesarias
     public class RutasController : Controller
     {
         private readonly IRutasBLL _rutasBLL;
@@ -25,13 +28,13 @@ namespace ProyectoPrograCuatro.Controllers
             
         }
 
-
+        // Acción por defecto que muestra la vista Index
         public ActionResult Index() 
         {
          return View();
         
         }
-
+        // Acción que muestra una lista de rutas
         public ActionResult Lista() 
         {
 
@@ -47,14 +50,15 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
-
+        // Acción para crear una nueva ruta (GET)
         public IActionResult Crear()
         {
+            // Obtener listas de clientes, choferes y camiones
             ViewBag.Clientes = _cLienteBLL.DDClientes();
             ViewBag.Choferes = _choferesBLL.DDChoferes();
             ViewBag.Camiones = _camionesBLL.DDCamiones();
 
-            //PARA IMPRIMIR Y ESTABLECER LA FECHA
+            // Establecer la fecha actual si no está definida en el modelo
             var modelo = new Rutas();
             if (modelo.FechaCreacion == null)
             {
@@ -64,7 +68,7 @@ namespace ProyectoPrograCuatro.Controllers
 
         }
 
-
+        // Acción para crear una nueva ruta (POST)
         [HttpPost] //del cliente al servidor
         public IActionResult Crear(Rutas ruta)
         {
@@ -74,20 +78,25 @@ namespace ProyectoPrograCuatro.Controllers
                 ViewBag.Clientes = _cLienteBLL.DDClientes();
                 ViewBag.Choferes = _choferesBLL.DDChoferes();
                 ViewBag.Camiones = _camionesBLL.DDCamiones();
+
+                // Validar el modelo
                 if (!ModelState.IsValid)
                 {
+                    // Si el modelo no es válido, devolver la vista de creación con los errores
                     ViewBag.Clientes = _cLienteBLL.DDClientes();
                     ViewBag.Choferes = _choferesBLL.DDChoferes();
                     ViewBag.Camiones = _camionesBLL.DDCamiones();
                     return View();
                 }
 
+                // Insertar la ruta utilizando el servicio BLL
                 var codigo = _rutasBLL.InsertarRuta(ruta);
                 ViewBag.Message = "Ruta creada con éxito con código: " + codigo.ToString();
                 return RedirectToAction("Lista", "Rutas"); // Puedes redirigir a una vista de éxito o a donde sea necesario
             }
             catch (Exception ex)
             {
+                // Manejar excepciones si ocurre algún error
                 ViewBag.ErrorMessage = "Ocurrió un error al crear la ruta: " + ex.Message;
                 return View(ruta); // Puedes redirigir a una vista de error o a donde sea necesario
             }
