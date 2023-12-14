@@ -1,7 +1,7 @@
-﻿@model ProyectoPrograCuatro.Models.Usuarios
+﻿@model ProyectoPrograCuatro.Models.Usuarios // Define el modelo para esta vista
 
 @{
-    ViewBag.Title = "Actualizar Usuarios";
+    ViewBag.Title = "Actualizar Usuarios"; // Establece el título de la página
 }
 
 <div class="container mt-5">
@@ -12,36 +12,45 @@
                     <h2 class="mb-0">Actualizar Usuario</h2>
                 </div>
                 <div class="card-body">
+                    <!-- Formulario para actualizar datos del usuario -->
                     @using (Html.BeginForm("Actualizar", "Usuarios", FormMethod.Post, new { @class = "form-horizontal" }))
                     {
-                        <h4>Datos del Usuario</h4>
-                        <hr />
+                        <h4>Datos del Usuario</h4> <!-- Encabezado para la sección de datos del usuario -->
+                        <hr /> <!-- Línea divisoria -->
+                        <!-- Campo oculto para almacenar el código del usuario a actualizar -->
                         @Html.HiddenFor(model => model.Codigo)
 
+                        <!-- Campo para ingresar el nombre del usuario -->
                         <div class="form-group row">
                             @Html.LabelFor(model => model.Nombre, new { @class = "col-md-2 col-form-label" })
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                <!-- Mensaje de validación en caso de error -->
                             </div>
                         </div>
 
+                        <!-- Campo para ingresar el nombre de usuario -->
                         <div class="form-group row">
                             @Html.LabelFor(model => model.Usuario, new { @class = "col-md-2 col-form-label" })
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.Usuario, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Usuario, "", new { @class = "text-danger" })
+                                <!-- Mensaje de validación en caso de error -->
                             </div>
                         </div>
 
+                        <!-- Campo para ingresar la contraseña del usuario -->
                         <div class="form-group row">
                             @Html.LabelFor(model => model.Contrasenia, new { @class = "col-md-2 col-form-label" })
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.Contrasenia, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Contrasenia, "", new { @class = "text-danger" })
+                                <!-- Mensaje de validación en caso de error -->
                             </div>
                         </div>
 
+                        <!-- Campo para seleccionar el estado del usuario (activo o inactivo) -->
                         <div class="form-group row">
                             @Html.LabelFor(model => model.Estado, new { @class = "col-md-2 col-form-label" })
                             <div class="col-md-10">
@@ -51,15 +60,17 @@
                             new SelectListItem { Text = "Activo", Value = "1" }
                             }, "Value", "Text"), new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                                <!-- Mensaje de validación en caso de error -->
                             </div>
                         </div>
 
+                        <!-- Botón para enviar el formulario y actualizar el usuario -->
                         <div class="form-group row">
                             <div class="col-md-offset-2 col-md-10">
                                 <button type="submit" class="btn btn-primary">
                                     Actualizar
                                 </button>
-                                @ViewBag.Message
+                                @ViewBag.Message <!-- Muestra un mensaje si está presente en ViewBag -->
                             </div>
                         </div>
                     }
@@ -68,6 +79,7 @@
         </div>
     </div>
 
+    <!-- Enlace para regresar a la lista de usuarios -->
     <div class="row mt-3">
         <div class="col-md-12 text-center">
             <a asp-action="Lista" class="btn btn-secondary">Regresar a Usuarios</a>

@@ -1,17 +1,17 @@
-﻿@model ProyectoPrograCuatro.Models.Usuarios
+﻿@model ProyectoPrograCuatro.Models.Usuarios // Define el modelo para esta vista
 
 @{
-    ViewBag.Title = "Crear";
+    ViewBag.Title = "Crear"; // Establece el título de la página
 }
 
-<h2>Crear</h2>
-
+<h2>Crear</h2> <!-- Encabezado principal de la página -->
 @using (Html.BeginForm("Crear", "Usuarios"))
 {
     <div class="form-horizontal">
-        <h4>Datos del Usuarios</h4>
+        <h4>Datos del Usuario</h4>
         <hr />
 
+        <!-- Campo para ingresar el nombre del usuario -->
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -20,6 +20,7 @@
             </div>
         </div>
 
+        <!-- Campo para ingresar el nombre de usuario -->
         <div class="form-group">
             @Html.LabelFor(model => model.Usuario, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -28,6 +29,7 @@
             </div>
         </div>
 
+        <!-- Campo para ingresar la contraseña del usuario -->
         <div class="form-group">
             @Html.LabelFor(model => model.Contrasenia, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -36,6 +38,7 @@
             </div>
         </div>
 
+        <!-- Campo para seleccionar el estado del usuario (activo o inactivo) -->
         <div class="form-group">
             @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -48,16 +51,18 @@
             </div>
         </div>
 
+        <!-- Botón para enviar el formulario y crear un nuevo usuario -->
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Crear" class="btn-primary" />
-                @ViewBag.Message
+                @ViewBag.Message <!-- Muestra un mensaje si está presente en ViewBag -->
             </div>
         </div>
     </div>
 }
 <br />
 
+<!-- Enlace para regresar a la lista de usuarios -->
 <div>
     @Html.ActionLink("Regresar a Usuarios", "Lista")
 </div>
