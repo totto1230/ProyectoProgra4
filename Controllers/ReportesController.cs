@@ -3,9 +3,11 @@ using ProyectoPrograCuatro.BLL;
 using ProyectoPrograCuatro.IBLL;
 using static System.Net.Mime.MediaTypeNames;
 using System.Text;
+using ProyectoPrograCuatro.Login;
 
 namespace ProyectoPrograCuatro.Controllers
 {
+    [Autenticacion]
     public class ReportesController : Controller
     {
         private readonly IReporteBLL _reporteBLL;

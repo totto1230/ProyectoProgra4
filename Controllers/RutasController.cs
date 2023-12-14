@@ -9,7 +9,7 @@ using System.Globalization;
 
 namespace ProyectoPrograCuatro.Controllers
 {
-    //[Autenticacion]
+    [Autenticacion]
 
     // Constructor que recibe instancias de las interfaces necesarias
     public class RutasController : Controller
