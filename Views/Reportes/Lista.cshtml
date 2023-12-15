@@ -7,6 +7,8 @@
     <!-- Agrega estos enlaces para Font Awesome y Bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
 </head>
 <body>
     <!-- Tu contenido Razor sigue aquí -->
@@ -94,11 +96,15 @@
                         @Html.DisplayFor(modelItem => item.CodigoCamiones)
                     </td>
                         <td>
-                            @if (item.Estado == 1)
+                            @if (item.Estado == 0)
+                            {
+                                <span class="text-danger font-weight-bold"> <i class="fas fa-times-circle" style="font-size: 30px; color: blue;"></i></span>
+                            }
+                            else if (item.Estado == 1)
                             {
                                 <span class="text-success font-weight-bold"> <i class="fas fa-check-circle" style="font-size: 30px;"></i></span>
                             }
-                            else
+                            else if (item.Estado == 2)
                             {
                                 <span class="text-danger font-weight-bold"> <i class="fas fa-times-circle" style="font-size: 30px;"></i></span>
                             }
@@ -148,7 +154,7 @@
             function fechaFormato() {
                 var today = new Date();
                 var dd = String(today.getDate()).padStart(2, '0');
-                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var mm = String(today.getMonth() + 1).padStart(2, '0');
                 var yyyy = today.getFullYear();
 
                 return today = mm + '/' + dd + '/' + yyyy;
