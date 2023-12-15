@@ -111,14 +111,13 @@ namespace ProyectoPrograCuatro.Repositorios
             try
             {
                 //Lógica para cambiar el estado
-                int estadoActual = ruta.Estado;
 
                 // Cambiar el estado según la lógica establecida
-                if (estadoActual == 0) // Si el estado actual es Creado
+                if (ruta.Estado == 0) // Si el estado actual es Creado
                 {
                     ruta.Estado = 1; // Cambiar a En Progreso
                 }
-                else if (estadoActual == 1) // Si el estado actual es En Progreso
+                else if (ruta.Estado == 1) // Si el estado actual es En Progreso
                 {
                     ruta.Estado = 2; // Cambiar a Finalizada
                 }
