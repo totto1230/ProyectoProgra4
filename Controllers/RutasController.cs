@@ -121,6 +121,7 @@ namespace ProyectoPrograCuatro.Controllers
                     ruta.FechaCreacion = DateTime.Now;
 
                     return View(ruta);
+   
                 }
             }
             catch (Exception)
@@ -145,7 +146,7 @@ namespace ProyectoPrograCuatro.Controllers
                 var listaActualizada = _rutasBLL.ListaRutas();
 
                 // Pasar la lista actualizada a la vista Lista
-                return View("Lista", listaActualizada); // Redirigir a la vista Lista con los datos actualizados
+                return View("Lista", listaActualizada);
             }
             catch (Exception ex)
             {
