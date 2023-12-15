@@ -73,7 +73,18 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        
+        //public int ObtenerEstado(int codigoRuta)
+        //{
+        //    try
+        //    {
+        //        return _rutasRepositorio.ObtenerEstado(codigoRuta);
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
 
         public Rutas ObtenerRuta(int codigoRuta)
         {

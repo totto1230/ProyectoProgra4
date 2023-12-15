@@ -34,6 +34,68 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Estado, new { @class = "col-md-2 col-form-label" })
+                            <div class="col-md-10">
+@*                                 @if (Model.Estado == 1)
+                                {
+                                    <span class="form-control" readonly id="estado" style="border: none;">EN PROGRESO</span>
+                                }
+                                else if (Model.Estado == 2)
+                                {
+                                    <span class="form-control" readonly id="estado" style="border: none;">FINALIZADO</span>
+                                } 
+                                else
+                            {*@
+
+                                        @if (Model.Estado == 0)
+                                        {
+                                            @Html.DropDownListFor(model => model.Estado,
+                                    new SelectList(new List<SelectListItem>
+                                    {
+                                    new SelectListItem { Text = "En Progreso", Value = "1" }
+                                    }, "Value", "Text"),
+                                    new { @class = "form-control", @readonly = "readonly" })
+                                        }
+                                        else if (Model.Estado == 1)
+                                        {
+                                            @Html.DropDownListFor(model => model.Estado,
+                                    new SelectList(new List<SelectListItem>
+                                    {
+                                    new SelectListItem { Text = "Finalizado", Value = "2" }
+                                    }, "Value", "Text"),
+                                    new { @class = "form-control", @readonly = "readonly" })
+                                        }
+                                        else
+                                        {
+                                            @Html.DropDownListFor(model => model.Estado,
+                                    new SelectList(new List<SelectListItem>
+                                    {
+                                    new SelectListItem { Text = "Creado", Value = "0" },
+                                    new SelectListItem { Text = "En Progreso", Value = "1" },
+                                    new SelectListItem { Text = "Finalizado", Value = "2" }
+                                    }, "Value", "Text"),
+                                    new { @class = "form-control", @readonly = "readonly" })
+                                        }
+                                        @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                @*          @Html.DropDownListFor(model => model.Estado,
+                            new SelectList(new List<SelectListItem>
+                            {
+                            new SelectListItem { Text = "Creado", Value = "0" },
+                            new SelectListItem { Text = "En Progreso", Value = "1" },
+                            new SelectListItem { Text = "Finalizado", Value = "2" }
+                            }, "Value", "Text"),
+                            new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
                         <div class="form-group row">
                             @Html.LabelFor(model => model.Estado, new { @class = "col-md-2 col-form-label" })
                             <div class="col-md-10">
@@ -51,7 +113,7 @@
                                 }
                                 @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
                             </div>
-                        </div>
+                        </div> *@
 
 
                         @*                         <div class="form-group row">

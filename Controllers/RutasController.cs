@@ -109,6 +109,7 @@ namespace ProyectoPrograCuatro.Controllers
             try
             {
                 var ruta = _rutasBLL.ObtenerRuta(codigoRuta);
+                //int ruta_estado = _rutasBLL.ObtenerEstado(codigoRuta);
                 if (ruta == null)//si no se encontró datos del cliente
                 {
 
@@ -117,14 +118,14 @@ namespace ProyectoPrograCuatro.Controllers
                 else
                 {
 
-                    if (ruta.Estado == 0)
-                    {
-                        ruta.Estado = 1;
-                    }
-                    else if (ruta.Estado == 1)
-                    {
-                        ruta.Estado = 2;
-                    }
+                    //if (ruta.Estado == 0)
+                    //{
+                    //    ruta.Estado = 1;
+                    //}
+                    //else if (ruta.Estado == 1)
+                    //{
+                    //    ruta.Estado = 2;
+                    //}
 
                     ruta.FechaCreacion = DateTime.Now;
                     return View(ruta);

@@ -11,6 +11,8 @@ namespace ProyectoPrograCuatro.IBLL
 
         public Rutas ObtenerRuta(int codigoRuta);
 
+        //public int ObtenerEstado(int codigoRuta);
+
         public Rutas ActualizarRuta(Rutas ruta);
 
   
