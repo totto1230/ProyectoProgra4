@@ -138,8 +138,9 @@ namespace ProyectoPrograCuatro.Repositorios
                     return ruta;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine("Error al actualizar la ruta: " + ex.Message);
                 throw;
             }
         }

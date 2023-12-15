@@ -550,7 +550,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-ALTER PROCEDURE [dbo].[cambiarestado_ruta]
+CREATE PROCEDURE [dbo].[cambiarestado_ruta]
     @CodigoRuta INT,
     @NuevoEstado INT,
 	@NuevaFechaCreacion datetime

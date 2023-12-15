@@ -10,35 +10,29 @@
     <div class="card-body">
         @using (Html.BeginForm("Actualizar", "Rutas", FormMethod.Post, new { @class = "form-horizontal", id = "updateForm" }))
         {
-            @* @Html.HiddenFor(model => model.Codigo) *@
             <div class="form-group row">
                 @Html.LabelFor(model => model.Codigo, new { @class = "col-md-2 col-form-label" })
                 <div class="col-md-10">
-                    <!-- Campo para mostrar la fecha y hora actual -->
                     <input type="text" class="form-control" readonly id="CODIGO" />
                     @Html.ValidationMessageFor(model => model.Codigo, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <!-- Campo de edición para la Fecha de Creación (Deshabilitado para edición) -->
             <div class="form-group row">
                 @Html.LabelFor(model => model.FechaCreacion, new { @class = "col-md-2 col-form-label" })
                 <div class="col-md-10">
-                    <!-- Campo para mostrar la fecha y hora actual -->
                     <input type="text" class="form-control" readonly id="fechaCreacion" />
                     @Html.ValidationMessageFor(model => model.FechaCreacion, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <!-- Campo de edición para el Estado -->
             <div class="form-group row">
                 @Html.LabelFor(model => model.Estado, new { @class = "col-md-2 col-form-label" })
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.Estado, new SelectList(new List<SelectListItem>
                 {
-                new SelectListItem { Text = "En Progreso", Value = "1" },
                 new SelectListItem { Text = "Finalizada", Value = "2" }
-                }, "Value", "Text"), new { @class = "form-control" })
+                }, "Value", "Text"), new { @class = "form-control", id = "estadoSelect" })
                     @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -64,14 +58,23 @@
 <script>
     function confirmUpdate() {
         if (confirm("¿Estás seguro de cambiar el estado de la ruta?")) {
-            // Si se confirma, enviar el formulario
             document.getElementById("updateForm").submit();
         }
     }
 
-    // Función para obtener y mostrar la fecha y hora actual al cargar la página
     document.addEventListener("DOMContentLoaded", function () {
         var fechaActual = new Date().toLocaleString();
         document.getElementById("fechaCreacion").value = fechaActual;
+
+        var estadoActual = document.getElementById("estadoSelect").value;
+        if (estadoActual === "1") {
+            // Si el estado actual es "En Progreso", deshabilitar esa opción y dejar solo "Finalizada"
+            var selectElement = document.getElementById("estadoSelect");
+            for (var i = 0; i < selectElement.options.length; i++) {
+                if (selectElement.options[i].value !== "2") {
+                    selectElement.options[i].disabled = true;
+                }
+            }
+        }
     });
 </script>

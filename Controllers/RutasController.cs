@@ -138,9 +138,14 @@ namespace ProyectoPrograCuatro.Controllers
                 ViewBag.Clientes = _cLienteBLL.DDClientes();
                 ViewBag.Choferes = _choferesBLL.DDChoferes();
                 ViewBag.Camiones = _camionesBLL.DDCamiones();
+
                 var rutaActualizada = _rutasBLL.ActualizarRuta(ruta);
-                //var listaActualizada = _rutasBLL.ListaRutas(); // Obtener la lista actualizada después de la actualización
-                return RedirectToAction("Lista", "Rutas"); // Devolver la vista Lista con los datos actualizados
+
+                // Obtener la lista actualizada después de la actualización
+                var listaActualizada = _rutasBLL.ListaRutas();
+
+                // Pasar la lista actualizada a la vista Lista
+                return View("Lista", listaActualizada); // Redirigir a la vista Lista con los datos actualizados
             }
             catch (Exception ex)
             {
