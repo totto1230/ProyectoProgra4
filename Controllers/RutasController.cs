@@ -109,23 +109,21 @@ namespace ProyectoPrograCuatro.Controllers
             try
             {
                 var ruta = _rutasBLL.ObtenerRuta(codigoRuta);
-
-                // Verificar si la ruta existe
-                if (ruta == null)
+                if (ruta == null)//si no se encontró datos del cliente
                 {
+
                     return View();
                 }
                 else
                 {
-                    // Establecer la fecha y hora actual antes de mostrar la vista
                     ruta.FechaCreacion = DateTime.Now;
-
                     return View(ruta);
-   
                 }
+
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
@@ -136,23 +134,13 @@ namespace ProyectoPrograCuatro.Controllers
         {
             try
             {
-                ViewBag.Clientes = _cLienteBLL.DDClientes();
-                ViewBag.Choferes = _choferesBLL.DDChoferes();
-                ViewBag.Camiones = _camionesBLL.DDCamiones();
-
-                var rutaActualizada = _rutasBLL.ActualizarRuta(ruta);
-
-                // Obtener la lista actualizada después de la actualización
-                var listaActualizada = _rutasBLL.ListaRutas();
-
-                // Pasar la lista actualizada a la vista Lista
-                return View("Lista", listaActualizada);
+                var cliente_updated = _rutasBLL.ActualizarRuta(ruta);
+                return RedirectToAction("Lista");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // Manejo de excepciones si es necesario
-                ViewBag.ErrorMessage = "Ocurrió un error al actualizar la ruta: " + ex.Message;
-                return View("Error"); // Redirigir a una vista de error en caso de excepción
+
+                throw;
             }
         }
 
