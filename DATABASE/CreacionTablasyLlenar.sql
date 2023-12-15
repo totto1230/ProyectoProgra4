@@ -124,27 +124,36 @@ VALUES ('Cliente5','12345678','test','CR', 1)
 --Rutas
 
 INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
-VALUES (1, 1, 1, 'CR', '2023-12-31', 1);
+VALUES (1, 1, 1, 'CR', '2023-12-31', 0);
 
 INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
 VALUES (1, 3, 2, 'MEX', '2023-12-31', 1);
 
 INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
-VALUES (3, 2, 5, 'USA', '1999-05-12', 1);
+VALUES (3, 2, 5, 'USA', '1999-05-12', 2);
 
 INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
-VALUES (4, 3, 5, 'AE', '2012-01-01', 1);
+VALUES (4, 3, 5, 'AE', '2012-01-01', 0);
 
 INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
 VALUES (4, 5, 1, 'POL', '2011-11-31', 1);
 
 INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
-VALUES (2, 3, 1, 'COL', '2022-02-03', 1);
+VALUES (2, 3, 1, 'COL', '2022-02-03', 2);
 
 INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
-VALUES (3, 2, 1, 'NIC', '2001-05-17', 1);
+VALUES (3, 2, 1, 'NIC', '2001-05-17', 0);
 
 INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
 VALUES (1, 2, 3, 'USA', '2000-04-18', 1);
+
+INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
+VALUES (1, 2, 3, 'USA', '2000-04-18', 2);
+
+INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
+VALUES (1, 2, 3, 'USA', '2000-04-18', 0);
+
+INSERT INTO Rutas (CodigoClientes, CodigoChoferes, CodigoCamiones, DireccionEntrega, FechaCreacion, Estado)
+VALUES (1, 2, 3, 'USA', '2000-04-18', 0);
 
 
