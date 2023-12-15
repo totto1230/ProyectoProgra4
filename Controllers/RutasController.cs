@@ -118,15 +118,6 @@ namespace ProyectoPrograCuatro.Controllers
                 else
                 {
 
-                    //if (ruta.Estado == 0)
-                    //{
-                    //    ruta.Estado = 1;
-                    //}
-                    //else if (ruta.Estado == 1)
-                    //{
-                    //    ruta.Estado = 2;
-                    //}
-
                     ruta.FechaCreacion = DateTime.Now;
                     return View(ruta);
                 }
@@ -145,14 +136,7 @@ namespace ProyectoPrograCuatro.Controllers
         {
             try
             {
-                //if (ruta.Estado == 0)
-                //{
-                //    ruta.Estado = 1;
-                //}
-                //else if (ruta.Estado == 1)
-                //{
-                //    ruta.Estado = 2;
-                //}
+  
                 var cliente_updated = _rutasBLL.ActualizarRuta(ruta);
                 return RedirectToAction("Lista");
             }
@@ -163,21 +147,6 @@ namespace ProyectoPrograCuatro.Controllers
             }
         }
 
-
-
-        //public IActionResult Reporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal) 
-        //{
-        //    try
-        //    {
-        //        var reporte = _rutasBLL.GenerarReporte(codigoCliente, fechaInicio, fechaFinal);
-        //        return View(reporte);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
     }
 
  }

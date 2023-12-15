@@ -32,21 +32,6 @@ namespace ProyectoPrograCuatro.BLL
         }
 
 
-
-
-        //public Rutas GenerarReporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal)
-        //{
-        //    try
-        //    {
-        //        return _rutasRepositorio.GenerarReporte(codigoCliente, fechaInicio, fechaFinal);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
-
         public int InsertarRuta(Rutas ruta)
         {
             try
@@ -73,18 +58,6 @@ namespace ProyectoPrograCuatro.BLL
             }
         }
 
-        //public int ObtenerEstado(int codigoRuta)
-        //{
-        //    try
-        //    {
-        //        return _rutasRepositorio.ObtenerEstado(codigoRuta);
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
 
         public Rutas ObtenerRuta(int codigoRuta)
         {

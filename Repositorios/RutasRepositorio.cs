@@ -18,28 +18,6 @@ namespace ProyectoPrograCuatro.Repositorios
             _dapperContext = dapperContext;
         }
 
-        //public Rutas GenerarReporte(int codigoCliente, DateTime fechaInicio, DateTime fechaFinal)
-        //{
-        //    try
-        //    {
-        //        var param = new DynamicParameters();
-        //        param.Add("@CodigoCliente", codigoCliente , DbType.Int32, ParameterDirection.Input);
-        //        param.Add("@FechaInicio", fechaInicio, DbType.DateTime, ParameterDirection.Input);
-        //        param.Add("@FechaFinal", fechaFinal, DbType.DateTime, ParameterDirection.Input);
-        //        using (var conn = _dapperContext.CrearConexion())
-        //        {
-        //            var reporte = conn.QuerySingleOrDefault<Rutas>("obtener_reporte_rutas", param, commandType: CommandType.StoredProcedure);
-        //            return reporte;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
-
-
 
         public int InsertarRuta(Rutas ruta)
         {
@@ -110,17 +88,6 @@ namespace ProyectoPrograCuatro.Repositorios
 
             try
             {
-                //Lógica para cambiar el estado
-
-                //// Cambiar el estado según la lógica establecida
-                //if (ruta.Estado == 0) // Si el estado actual es Creado
-                //{
-                //    ruta.Estado = 1; // Cambiar a En Progreso
-                //}
-                //else if (ruta.Estado == 1) // Si el estado actual es En Progreso
-                //{
-                //    ruta.Estado = 2; // Cambiar a Finalizada
-                //}
 
                 // Actualizar la fecha de cambio de estado
                 ruta.FechaCreacion = DateTime.Now;
@@ -143,25 +110,5 @@ namespace ProyectoPrograCuatro.Repositorios
                 throw;
             }
         }
-
-        //public int ObtenerEstado(int codigoRuta)
-        //{
-        //    try
-        //    {
-        //        var param = new DynamicParameters();
-        //        param.Add("@Codigo", codigoRuta, DbType.Int32, ParameterDirection.Input);
-        //        using (var conn = _dapperContext.CrearConexion())
-        //        {
-        //            int estado_Ruta = conn.QuerySingleOrDefault<int>("obtener_estado", param, commandType: CommandType.StoredProcedure);
-
-        //            return estado_Ruta;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //}
     }
 }
