@@ -47,7 +47,7 @@ CREATE TABLE dbo.Rutas (
 	CodigoCamiones INT NOT NULL,
     DireccionEntrega VARCHAR (255),
     FechaCreacion DATETIME,
-    Estado BIT NOT NULL
+    Estado int NOT NULL
 
     FOREIGN KEY (CodigoClientes) REFERENCES Clientes(Codigo),
     FOREIGN KEY (CodigoChoferes) REFERENCES Choferes(Codigo),

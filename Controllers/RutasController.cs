@@ -116,6 +116,19 @@ namespace ProyectoPrograCuatro.Controllers
                 }
                 else
                 {
+                    if (ruta.Estado==0)
+                    {
+                        ruta.Estado = 1;
+                    }
+                    else if (ruta.Estado==1)
+                    {
+                        ruta.Estado = 2;
+                    }
+                    //else
+                    //{
+
+                    //}
+
                     ruta.FechaCreacion = DateTime.Now;
                     return View(ruta);
                 }
